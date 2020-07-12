@@ -9,15 +9,20 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Item = styled.h3`
-  background: #5f9ea0;
-  color: #fff;
+const Item = styled.div`
+  height: 100%;
+  color: black;
   font-size: 36px;
-  line-height: 100px;
-  margin: 10px;
-  padding: 2%;
-  position: relative;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+`;
+
+const Random = styled.div`
+  width: 200px;
+  height: 200px;
+  background: #5f9ea0;
 `;
 
 export default {
@@ -29,12 +34,21 @@ export default {
 };
 
 export const defaultSlider = () => {
-  const settings = {};
+  const settings = {
+    width: 800
+  };
   return (
     <Wrapper>
       <Slider {...settings}>
-        <Item>1</Item>
-        <Item>2</Item>
+        <Item>Slide Content</Item>
+        <img
+          width="800"
+          src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+          alt="A bridge"
+        />
+        <Item>
+          <Random />
+        </Item>
       </Slider>
     </Wrapper>
   );
