@@ -1,49 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-
-const getWidth = () => window.innerWidth;
-
-const ArrowIcon = styled.i`
-  font-size: 40px !important;
-`;
-
-const Arrow = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  color: #979797;
-  border: 1px solid #979797;
-  border-radius: 50px;
-`;
-
-const LeftButton = styled(Arrow)`
-  left: 25px;
-`;
-
-const RightButton = styled(Arrow)`
-  right: 25px;
-`;
-
-const LeftArrow = ({ onClick }) => {
-  return (
-    <LeftButton onClick={onClick}>
-      <ArrowIcon className="material-icons">chevron_left</ArrowIcon>
-    </LeftButton>
-  );
-};
-
-const RightArrow = ({ onClick }) => {
-  return (
-    <RightButton onClick={onClick}>
-      <ArrowIcon className="material-icons">chevron_right</ArrowIcon>
-    </RightButton>
-  );
-};
+import Arrow from "./Arrow";
 
 const SliderWrapper = styled.div`
   height: 400px;
@@ -74,7 +32,7 @@ const Slide = styled.div`
 /**
  * "I know if I rest, I'll slide downhill fast." - Lee Kuan Yew
  */
-const Slider = ({ slides, children, width }) => {
+const Slider = ({ children, width }) => {
   const [state, setState] = useState({
     activeIndex: 0,
     translate: 0,
@@ -83,9 +41,12 @@ const Slider = ({ slides, children, width }) => {
 
   const { translate, transition, activeIndex } = state;
 
-  const items = slides || children;
+  const items = children;
 
   const nextSlide = () => {
+    // At the end of slides
+    if (activeIndex === items.length - 1) {
+    }
     setState({
       ...state,
       translate: translate + width,
@@ -94,9 +55,12 @@ const Slider = ({ slides, children, width }) => {
   };
 
   const prevSlide = () => {
+    // At the start of slides
+    if (activeIndex === 0) {
+    }
     setState({
       ...state,
-      translate: 0,
+      translate: translate - width,
       activeIndex: activeIndex === 0 ? items.length - 1 : activeIndex - 1
     });
   };
@@ -112,10 +76,22 @@ const Slider = ({ slides, children, width }) => {
           <Slide key={i}>{item}</Slide>
         ))}
       </SliderContent>
-      <LeftArrow onClick={prevSlide} />
-      <RightArrow onClick={nextSlide} />
+      <Arrow
+        onClick={prevSlide}
+        direction="left"
+        disabled={activeIndex === 0}
+      />
+      <Arrow
+        onClick={nextSlide}
+        direction="right"
+        disabled={activeIndex === items.length - 1}
+      />
     </SliderWrapper>
   );
+};
+
+Slider.defaultProps = {
+  width: 800
 };
 
 Slider.propTypes = {

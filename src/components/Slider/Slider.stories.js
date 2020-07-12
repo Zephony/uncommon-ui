@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Slider from "./Slider";
+import Arrow from "./Arrow";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -20,16 +21,16 @@ const Item = styled.div`
 `;
 
 const Random = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 600px;
+  height: 300px;
   background: #5f9ea0;
 `;
 
 export default {
   title: "Slider",
-
   parameters: {
-    component: Slider
+    component: Slider,
+    subcomponents: { Arrow }
   }
 };
 
@@ -42,7 +43,7 @@ export const defaultSlider = () => {
       <Slider {...settings}>
         <Item>Slide Content</Item>
         <img
-          width="800"
+          width={800}
           src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
           alt="A bridge"
         />
