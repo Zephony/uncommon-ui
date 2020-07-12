@@ -54,3 +54,48 @@ export const defaultSlider = () => {
     </Wrapper>
   );
 };
+
+export const infiniteSlider = () => {
+  const settings = {
+    width: 800, // Slider width
+    infinite: true
+  };
+  return (
+    <Wrapper>
+      <Slider {...settings}>
+        <Item>Slide Content</Item>
+        <img
+          width={800}
+          src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+          alt="A bridge"
+        />
+        <Item>
+          <Random width="600px" height="300px" />
+        </Item>
+      </Slider>
+    </Wrapper>
+  );
+};
+
+export const setInitialIndex = () => {
+  const settings = {
+    width: 800, // Slider width
+    infinite: true,
+    initial: 1
+  };
+  return (
+    <Wrapper>
+      <Slider {...settings}>
+        <Item>Slide Content</Item>
+        <img
+          width={800}
+          src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+          alt="A bridge"
+        />
+        <Item>
+          <Random width="600px" height="300px" />
+        </Item>
+      </Slider>
+    </Wrapper>
+  );
+};

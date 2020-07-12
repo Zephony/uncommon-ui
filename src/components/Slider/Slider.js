@@ -32,10 +32,10 @@ const Slide = styled.div`
 /**
  * "I know if I rest, I'll slide downhill fast." - Lee Kuan Yew
  */
-const Slider = ({ children, width }) => {
+const Slider = ({ children, width, infinite, initial }) => {
   const [state, setState] = useState({
-    activeIndex: 0,
-    translate: 0,
+    activeIndex: initial,
+    translate: initial * width,
     transition: 0.45
   });
 
@@ -44,24 +44,36 @@ const Slider = ({ children, width }) => {
   const items = children;
 
   const nextSlide = () => {
-    // At the end of slides
+    // At the last slide
     if (activeIndex === items.length - 1) {
+      return setState({
+        ...state,
+        translate: 0,
+        activeIndex: 0
+      });
     }
+
     setState({
       ...state,
-      translate: translate + width,
-      activeIndex: activeIndex === items.length - 1 ? 0 : activeIndex + 1
+      activeIndex: activeIndex + 1,
+      translate: (activeIndex + 1) * width
     });
   };
 
   const prevSlide = () => {
-    // At the start of slides
+    // At the first slide
     if (activeIndex === 0) {
+      return setState({
+        ...state,
+        translate: (items.length - 1) * width,
+        activeIndex: items.length - 1
+      });
     }
+
     setState({
       ...state,
-      translate: translate - width,
-      activeIndex: activeIndex === 0 ? items.length - 1 : activeIndex - 1
+      activeIndex: activeIndex - 1,
+      translate: (activeIndex - 1) * width
     });
   };
 
@@ -79,19 +91,20 @@ const Slider = ({ children, width }) => {
       <Arrow
         onClick={prevSlide}
         direction="left"
-        disabled={activeIndex === 0}
+        disabled={!infinite && activeIndex === 0}
       />
       <Arrow
         onClick={nextSlide}
         direction="right"
-        disabled={activeIndex === items.length - 1}
+        disabled={!infinite && activeIndex === items.length - 1}
       />
     </SliderWrapper>
   );
 };
 
 Slider.defaultProps = {
-  width: 800
+  width: 800,
+  initial: 0
 };
 
 Slider.propTypes = {
@@ -99,7 +112,10 @@ Slider.propTypes = {
    * The width of the slider which the slides should also have
    */
   width: PropTypes.number,
-
+  /*
+   * Slider has no start or end
+   */
+  infinite: PropTypes.bool,
   /*
    * Usually elements that will be the slides
    */
