@@ -11,11 +11,11 @@ const Wrapper = styled.div`
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  cursor: pointer;
+  cursor: ${props => (props.disabled ? "default" : "pointer")};
   display: flex;
   align-items: center;
-  color: #979797;
-  border: 1px solid #979797;
+  color: ${props => (props.disabled ? "#eee" : "#000")};
+  border: ${props => (props.disabled ? "1px solid #eee" : "1px solid #000")};
   border-radius: 50px;
   ${props =>
     props.direction === "left"
@@ -29,7 +29,11 @@ const Wrapper = styled.div`
 
 const Arrow = ({ direction, onClick, disabled }) => {
   return (
-    <Wrapper onClick={onClick} direction={direction}>
+    <Wrapper
+      onClick={disabled ? () => {} : onClick}
+      direction={direction}
+      disabled={disabled}
+    >
       <ArrowIcon className="material-icons">
         {direction === "left" ? "chevron_left" : "chevron_right"}
       </ArrowIcon>

@@ -36,7 +36,7 @@ export default {
 
 export const defaultSlider = () => {
   const settings = {
-    width: 800
+    width: 800 // Slider width
   };
   return (
     <Wrapper>
@@ -48,7 +48,7 @@ export const defaultSlider = () => {
           alt="A bridge"
         />
         <Item>
-          <Random />
+          <Random width="600px" height="300px" />
         </Item>
       </Slider>
     </Wrapper>
