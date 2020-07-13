@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import Arrow from "./Arrow";
@@ -32,7 +33,14 @@ const Slide = styled.div`
 /**
  * "I know if I rest, I'll slide downhill fast." - Lee Kuan Yew
  */
-const Slider = ({ children, width, infinite, initial }) => {
+const Slider = ({
+  children,
+  width,
+  infinite,
+  initial,
+  autoplay,
+  autoplaySpeed
+}) => {
   const [state, setState] = useState({
     activeIndex: initial,
     translate: initial * width,
@@ -77,6 +85,15 @@ const Slider = ({ children, width, infinite, initial }) => {
     });
   };
 
+  useEffect(() => {
+    if (autoplay) {
+      let id = setInterval(() => {
+        nextSlide();
+      }, autoplaySpeed);
+      return () => clearInterval(id);
+    }
+  });
+
   return (
     <SliderWrapper>
       <SliderContent
@@ -104,7 +121,8 @@ const Slider = ({ children, width, infinite, initial }) => {
 
 Slider.defaultProps = {
   width: 800,
-  initial: 0
+  initial: 0,
+  autoplaySpeed: 3000
 };
 
 Slider.propTypes = {
@@ -116,6 +134,14 @@ Slider.propTypes = {
    * Slider has no start or end
    */
   infinite: PropTypes.bool,
+  /*
+   * Slider changes automatically
+   */
+  autoplay: PropTypes.bool,
+  /*
+   * Speed for autoplay in ms
+   */
+  autoplaySpeed: PropTypes.number,
   /*
    * Usually elements that will be the slides
    */
