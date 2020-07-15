@@ -42,7 +42,7 @@ const Arrow = ({ direction, onClick, disabled }) => {
 };
 
 Arrow.propTypes = {
-  /*
+  /**
    * The direction of the arrow
    */
   direction: PropTypes.oneOf(["left", "right"]),

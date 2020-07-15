@@ -129,27 +129,27 @@ Slider.defaultProps = {
 };
 
 Slider.propTypes = {
-  /*
+  /**
    * The width of the slider which the slides should also have
    */
   width: PropTypes.number,
-  /*
+  /**
    * The height of the slider which the slides should also have
    */
   height: PropTypes.number,
-  /*
+  /**
    * Slider has no start or end
    */
   infinite: PropTypes.bool,
-  /*
+  /**
    * Slider changes automatically
    */
   autoplay: PropTypes.bool,
-  /*
+  /**
    * Speed for autoplay in ms
    */
   autoplaySpeed: PropTypes.number,
-  /*
+  /**
    * Usually elements that will be the slides
    */
   children: PropTypes.node

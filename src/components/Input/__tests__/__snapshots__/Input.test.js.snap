@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should render an input component 1`] = `
+<div>
+  <label
+    class="sc-AxirZ iRQJOi"
+  >
+    This is a label
+  </label>
+  <div
+    class="sc-AxjAm bCruhs"
+  >
+    <input
+      class="sc-AxiKw jpCyRs"
+      type="text"
+    />
+  </div>
+</div>
+`;
