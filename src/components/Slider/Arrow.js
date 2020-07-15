@@ -20,10 +20,10 @@ const Wrapper = styled.div`
   ${props =>
     props.direction === "left"
       ? css`
-          left: 25px;
+          left: 10px;
         `
       : css`
-          right: 25px;
+          right: 10px;
         `};
 `;
 

@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import Arrow from "./Arrow";
 
 const SliderWrapper = styled.div`
-  height: 400px;
-  width: 800px;
+  height: ${props => props.height}px;
+  width: ${props => props.width}px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -36,11 +36,13 @@ const Slide = styled.div`
 const Slider = ({
   children,
   width,
+  height,
   infinite,
   initial,
   autoplay,
   autoplaySpeed
 }) => {
+  const ref = useRef();
   const [state, setState] = useState({
     activeIndex: initial,
     translate: initial * width,
@@ -95,7 +97,7 @@ const Slider = ({
   });
 
   return (
-    <SliderWrapper>
+    <SliderWrapper width={width} height={height} ref={ref}>
       <SliderContent
         translate={translate}
         transition={transition}
@@ -121,6 +123,7 @@ const Slider = ({
 
 Slider.defaultProps = {
   width: 800,
+  height: 400,
   initial: 0,
   autoplaySpeed: 3000
 };
@@ -130,6 +133,10 @@ Slider.propTypes = {
    * The width of the slider which the slides should also have
    */
   width: PropTypes.number,
+  /*
+   * The height of the slider which the slides should also have
+   */
+  height: PropTypes.number,
   /*
    * Slider has no start or end
    */
