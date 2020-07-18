@@ -22,7 +22,12 @@ const images = [
 
 export const defaultTiles = () => {
   return (
-    <ImageTile images={images} count={4} onMoreClick={action("Clicked")} />
+    <ImageTile
+      images={images}
+      count={4}
+      onMoreClick={action("Clicked")}
+      onImageClick={action("Clicked")}
+    />
   );
 };
 

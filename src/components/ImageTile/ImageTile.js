@@ -18,6 +18,7 @@ const Thumbnail = styled.div`
   background-position: center;
   margin-right: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
   ${props =>
     props.isAbsolute &&
     css`
@@ -53,14 +54,28 @@ const Count = styled.div`
 /**
  * "When words become unclear, I shall focus with photographs. When images become inadequate, I shall be content with silence." - Ansel Adams
  */
-const ImageTile = ({ images, width, height, count, onMoreClick }) => {
+const ImageTile = ({
+  images,
+  width,
+  height,
+  count,
+  onMoreClick,
+  onImageClick
+}) => {
+  // If count not specified
   let imageCount = count || images.length + 1;
   return (
     <Wrapper>
       {images.map((image, i) => {
         if (i < imageCount - 1) {
           return (
-            <Thumbnail key={i} src={image} width={width} height={height} />
+            <Thumbnail
+              key={i}
+              onClick={onImageClick}
+              src={image}
+              width={width}
+              height={height}
+            />
           );
         }
         return null;
@@ -105,6 +120,10 @@ ImageTile.propTypes = {
    * Count to images to show
    */
   count: PropTypes.number,
+  /**
+   * Click event handler when one of the thumbnails is clicked
+   */
+  onImageClick: PropTypes.func,
   /**
    * Click event handler when more images is clicked
    */
