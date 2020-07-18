@@ -48,7 +48,7 @@ const Error = styled.div`
 `;
 
 /**
- * `Input` is not what she said.
+ * "You can much better have an influence on the debate when you sit at the bargaining table and you can give input." - Angela Merkel
  */
 const Input = ({ label, width, error, ...props }) => (
   <div>
