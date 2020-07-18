@@ -53,3 +53,17 @@ export const withoutCount = () => {
     />
   );
 };
+
+export const overrideThumbnailStyles = () => {
+  return (
+    <ImageTile
+      images={images}
+      count={4}
+      onMoreClick={action("Clicked")}
+      onImageClick={action("Clicked")}
+      thumbnailStyle={{
+        borderRadius: "15px"
+      }}
+    />
+  );
+};

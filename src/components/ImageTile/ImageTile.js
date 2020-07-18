@@ -60,7 +60,8 @@ const ImageTile = ({
   height,
   count,
   onMoreClick,
-  onImageClick
+  onImageClick,
+  thumbnailStyle
 }) => {
   // If count not specified
   let imageCount = count || images.length + 1;
@@ -75,6 +76,7 @@ const ImageTile = ({
               src={image}
               width={width}
               height={height}
+              style={{ ...thumbnailStyle }}
             />
           );
         }
@@ -88,8 +90,9 @@ const ImageTile = ({
             width={width}
             height={height}
             isAbsolute
+            style={{ ...thumbnailStyle }}
           />
-          <Overlay width={width} height={height}>
+          <Overlay width={width} height={height} style={{ ...thumbnailStyle }}>
             <Count>+{images.length - imageCount}</Count>
           </Overlay>
         </OverlayWrapper>
@@ -127,7 +130,11 @@ ImageTile.propTypes = {
   /**
    * Click event handler when more images is clicked
    */
-  onMoreClick: PropTypes.func
+  onMoreClick: PropTypes.func,
+  /**
+   * Override thumbnail styles
+   */
+  thumbnailStyle: PropTypes.object
 };
 
 export default ImageTile;
