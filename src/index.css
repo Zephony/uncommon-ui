@@ -18,12 +18,12 @@ code {
   background-color: #ededed;
   height: 33px;
   font-size: 14px;
-  color: #b3b3b3;
+  color: #000;
   padding-left: 33px;
 }
 
 .input .tag-input-icon {
-  font-size: 17px;
+  font-size: 18px;
   top: 14px;
   left: 10px;
 }

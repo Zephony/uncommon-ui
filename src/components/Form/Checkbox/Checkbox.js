@@ -38,6 +38,7 @@ const CheckboxContainer = styled.div`
 const Label = styled.span`
   margin-left: 10px;
   font-size: 14px;
+  color: #585858;
 `;
 
 /**

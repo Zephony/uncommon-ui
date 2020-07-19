@@ -1,5 +1,135 @@
-import React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import { Input, Checkbox } from "../Form";
+import { Button } from "../Button";
 
-const TagFilter = ({}) => <div>Tag Filter</div>;
+const Wrapper = styled.div`
+  width: 100%;
+`;
+
+const Header = styled.div`
+  height: 75px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+`;
+
+const Content = styled.div`
+  padding: 20px;
+  height: 205px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+`;
+
+const Footer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+`;
+
+const ButtonWrapper = styled.div`
+  padding-left: 10px;
+`;
+
+const CheckboxWrapper = styled.div`
+  padding-bottom: 10px;
+`;
+
+const TagFilter = ({ data, setData, onCancel, onSubmit }) => {
+  const [value, setValue] = useState("");
+  const [filteredData, setFilteredData] = useState(data);
+
+  const handleCheckboxChange = (e, id) => {
+    let updatedData = [...data];
+    updatedData[updatedData.findIndex(el => el.id === id)].isChecked =
+      e.target.checked;
+    setData(updatedData);
+  };
+
+  const onSearchChange = e => {
+    setValue(e.target.value);
+    let value = e.target.value;
+    let filteredData = data.filter(el =>
+      el.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setFilteredData(filteredData);
+  };
+
+  const onClear = () => {
+    setFilteredData(data);
+    setValue("");
+  };
+
+  return (
+    <Wrapper>
+      <Header>
+        <Input
+          type="text"
+          value={value}
+          onChange={onSearchChange}
+          icon="search"
+          width="300px"
+          className="tag-input" // To override input styles
+          iconClassName="tag-input-icon" // To override icon styles
+          placeholder="Search Tags"
+        />
+      </Header>
+      <Content>
+        {filteredData.map(({ name, id, isChecked }) => (
+          <CheckboxWrapper key={id}>
+            <Checkbox
+              checked={isChecked}
+              labelText={name}
+              onChange={e => handleCheckboxChange(e, id)}
+            />
+          </CheckboxWrapper>
+        ))}
+      </Content>
+      <Footer>
+        <Button onClick={onClear} type="link">
+          Clear All
+        </Button>
+        <ButtonWrapper>
+          <Button onClick={onCancel} type="primary">
+            Cancel
+          </Button>
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <Button onClick={onSubmit} type="secondary">
+            Submit
+          </Button>
+        </ButtonWrapper>
+      </Footer>
+    </Wrapper>
+  );
+};
+
+TagFilter.propTypes = {
+  /**
+   * Data to be displayed
+   */
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      name: PropTypes.string
+    })
+  ),
+  /**
+   * To update the state of data
+   */
+  setData: PropTypes.func,
+  /**
+   * Accepts an event when cancel button is clicked
+   */
+  onCancel: PropTypes.func,
+  /**
+   * Accepts an event when submit button is clicked
+   */
+  onSubmit: PropTypes.func
+};
 
 export default TagFilter;

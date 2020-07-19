@@ -29,6 +29,7 @@ const secondary = css`
 const link = css`
   background: transparent;
   color: ${props => props.theme.colors.primary};
+  padding: 8px;
 `;
 
 const StyledButton = styled.button`
