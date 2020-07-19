@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import Arrow from "../Slider/Arrow";
+import { ImageTile } from "../ImageTile";
 import { useKeyPress } from "../../utils/helpers";
 
 const Overlay = styled.div`
@@ -11,20 +12,26 @@ const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0.85;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 const Image = styled.div`
-  height: 574px;
-  width: 574px;
+  position: absolute;
+  top: 100px;
+  height: 500px;
+  width: 500px;
   background-image: url('${props => props.src}');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+`;
+
+const ImageTileWrapper = styled.div`
+  position: absolute;
+  bottom: 40px;
 `;
 
 const CloseWrapper = styled.div`
@@ -86,6 +93,10 @@ const Gallery = ({ images, onClose }) => {
     }
   };
 
+  const onThumbnailClick = i => {
+    setCurrentIndex(i);
+  };
+
   return (
     <Overlay>
       <Image src={images[currentIndex]} />
@@ -104,6 +115,14 @@ const Gallery = ({ images, onClose }) => {
         hideBorder
       />
       <CloseIcon onClick={onClose} />
+      <ImageTileWrapper>
+        <ImageTile
+          images={images}
+          width="62px"
+          height="62px"
+          onImageClick={(image, i) => onThumbnailClick(i)}
+        />
+      </ImageTileWrapper>
     </Overlay>
   );
 };

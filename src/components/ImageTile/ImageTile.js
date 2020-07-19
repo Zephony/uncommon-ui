@@ -72,7 +72,7 @@ const ImageTile = ({
           return (
             <Thumbnail
               key={i}
-              onClick={onImageClick}
+              onClick={() => onImageClick(image, i)}
               src={image}
               width={width}
               height={height}
