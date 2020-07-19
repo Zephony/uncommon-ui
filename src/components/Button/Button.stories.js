@@ -5,7 +5,7 @@ import Button from "./Button";
 
 const Wrapper = styled.div`
   display: flex;
-  width: 400px;
+  width: 500px;
   justify-content: space-between;
 `;
 

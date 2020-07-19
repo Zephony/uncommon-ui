@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 const ArrowIcon = styled.i`
-  font-size: 40px !important;
+  font-size: ${props => props.fontSize} !important;
 `;
 
 const Wrapper = styled.div`
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   cursor: ${props => (props.disabled ? "default" : "pointer")};
   display: flex;
   align-items: center;
-  color: ${props => (props.disabled ? "#eee" : "#000")};
+  color: ${props => (props.disabled ? "#eee" : props.color)};
   border: ${props => (props.disabled ? "1px solid #eee" : "1px solid #000")};
   border-radius: 50px;
   ${props =>
@@ -25,16 +25,30 @@ const Wrapper = styled.div`
       : css`
           right: 10px;
         `};
+  ${props =>
+    props.hideBorder &&
+    css`
+      border: none;
+    `}
 `;
 
-const Arrow = ({ direction, onClick, disabled }) => {
+const Arrow = ({
+  direction,
+  onClick,
+  disabled,
+  color = "#000",
+  fontSize = "40px",
+  hideBorder
+}) => {
   return (
     <Wrapper
       onClick={disabled ? () => {} : onClick}
       direction={direction}
       disabled={disabled}
+      color={color}
+      hideBorder={hideBorder}
     >
-      <ArrowIcon className="material-icons">
+      <ArrowIcon className="material-icons" fontSize={fontSize}>
         {direction === "left" ? "chevron_left" : "chevron_right"}
       </ArrowIcon>
     </Wrapper>

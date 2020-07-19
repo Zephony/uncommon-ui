@@ -33,7 +33,8 @@ const link = css`
 `;
 
 const StyledButton = styled.button`
-  width: ${props => props.width};
+  min-width: ${props => props.width};
+  width: auto;
   height: 40px;
   padding: 8px 35px;
   border-radius: 4px;
