@@ -37,3 +37,26 @@ export const InputWithError = () => {
     />
   );
 };
+
+export const InputWithIcon = () => {
+  return (
+    <Input
+      type="text"
+      width="380px"
+      placeholder="Enter message here..."
+      icon="search"
+    />
+  );
+};
+
+export const OverrideInputStyles = () => {
+  return (
+    <Input
+      type="text"
+      icon="search"
+      className="tag-input" // To override input styles
+      iconClassName="tag-input-icon" // To override icon styles
+      placeholder="Search Tags"
+    />
+  );
+};

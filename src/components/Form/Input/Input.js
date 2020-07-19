@@ -1,11 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 const Wrapper = styled.div`
   display: inline-block;
   position: relative;
-  width: 100%;
 `;
 
 const Label = styled.label`
@@ -28,6 +27,11 @@ const StyledInput = styled.input`
   line-height: 22px;
   box-sizing: border-box;
   margin: 5px 0;
+  ${props =>
+    props.icon &&
+    css`
+      padding-left: 42px;
+    `}
 
   &:focus {
     outline: none !important;
@@ -47,20 +51,48 @@ const Error = styled.div`
   line-height: 18px;
 `;
 
+const Icon = styled.i`
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.26);
+  position: absolute;
+  top: 21px;
+  left: 12px;
+`;
+
 /**
  * "You can much better have an influence on the debate when you sit at the bargaining table and you can give input." - Angela Merkel
  */
-const Input = ({ label, width, error, ...props }) => (
-  <div>
+const Input = ({
+  label,
+  width,
+  error,
+  style,
+  icon,
+  iconClassName,
+  ...props
+}) => (
+  <div className="input">
     {label && <Label>{label}</Label>}
     <Wrapper>
-      <StyledInput error={error} width={width} {...props} />
+      <StyledInput
+        style={{ ...style }}
+        error={error}
+        width={width}
+        icon={icon}
+        {...props}
+      />
+      {icon && (
+        <Icon className={`${iconClassName} material-icons`}>{icon}</Icon>
+      )}
       {error && <Error>{error}</Error>}
     </Wrapper>
   </div>
 );
 
 Input.propTypes = {
+  /**
+   * Label for the input
+   */
   label: PropTypes.string,
   /**
    * Any CSS width value
@@ -69,7 +101,11 @@ Input.propTypes = {
   /**
    * An error message that sets the input to error state
    */
-  error: PropTypes.string
+  error: PropTypes.string,
+  /**
+   * Material icon name
+   */
+  icon: PropTypes.string
 };
 
 export default Input;

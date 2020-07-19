@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Need to bump up specificity to override styled-components */
+.input .tag-input {
+  border-radius: 16.5px;
+  background-color: #ededed;
+  height: 33px;
+  font-size: 14px;
+  color: #b3b3b3;
+  padding-left: 33px;
+}
+
+.input .tag-input-icon {
+  font-size: 17px;
+  top: 14px;
+  left: 10px;
+}
