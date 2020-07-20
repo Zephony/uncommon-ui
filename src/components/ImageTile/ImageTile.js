@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
+import { useResize } from "../../utils/helpers";
 
 const Wrapper = styled.div`
   display: flex;
@@ -54,6 +55,20 @@ const Count = styled.div`
   line-height: 24px;
 `;
 
+const getTilesCount = (imageWidth, wrapperWidth, images) => {
+  let count = -1;
+  let totalImageWidth = 0;
+  images.forEach(image => {
+    if (totalImageWidth > wrapperWidth) {
+      return count;
+    } else {
+      totalImageWidth = totalImageWidth + imageWidth + 10;
+      count = count + 1;
+    }
+  });
+  return count;
+};
+
 /**
  * "When words become unclear, I shall focus with photographs. When images become inadequate, I shall be content with silence." - Ansel Adams
  */
@@ -65,11 +80,18 @@ const ImageTile = ({
   onMoreClick,
   onImageClick,
   thumbnailStyle,
-  hasFocus
+  hasFocus,
+  autoCount
 }) => {
+  const componentRef = useRef();
+  // Get width of the wrapper component
+  const { width: wrapperWidth } = useResize(componentRef);
+  const imageWidth = parseInt(width.match(/\d/g, "").join(""));
   const [currentFocus, setCurrentFocus] = useState(hasFocus);
   // If count not specified
-  let imageCount = count || images.length + 1;
+  let imageCount = autoCount
+    ? getTilesCount(imageWidth, wrapperWidth, images)
+    : count || images.length + 1;
 
   useEffect(() => {
     setCurrentFocus(hasFocus);
@@ -80,8 +102,9 @@ const ImageTile = ({
     onImageClick(image, i);
     setCurrentFocus(i);
   };
+
   return (
-    <Wrapper>
+    <Wrapper ref={componentRef}>
       {images.map((image, i) => {
         if (i < imageCount - 1) {
           return (
@@ -99,7 +122,7 @@ const ImageTile = ({
         return null;
       })}
       {/* For the last image with option to view more */}
-      {count && (
+      {(count || autoCount) && (
         <OverlayWrapper onClick={onMoreClick}>
           <Thumbnail
             src={images[imageCount]}
@@ -139,6 +162,10 @@ ImageTile.propTypes = {
    * Count to images to show
    */
   count: PropTypes.number,
+  /**
+   * Sets tiles based on the width of wrapper element
+   */
+  autoCount: PropTypes.bool,
   /**
    * Click event handler when one of the thumbnails is clicked
    */

@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { action } from "@storybook/addon-actions";
 import ImageTile from "./ImageTile";
 import { images } from "../../utils/helpers";
@@ -10,6 +11,10 @@ export default {
     component: ImageTile
   }
 };
+
+const Wrapper = styled.div`
+  width: 650px;
+`;
 
 export const defaultTiles = () => {
   return (
@@ -56,5 +61,19 @@ export const overrideThumbnailStyles = () => {
         borderRadius: "15px"
       }}
     />
+  );
+};
+
+export const autoCountWithWrapper = () => {
+  return (
+    <Wrapper>
+      <ImageTile
+        images={images}
+        width="200px"
+        height="200px"
+        onMoreClick={action("Clicked")}
+        autoCount
+      />
+    </Wrapper>
   );
 };
