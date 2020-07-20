@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
@@ -70,6 +71,10 @@ const ImageTile = ({
   // If count not specified
   let imageCount = count || images.length + 1;
 
+  useEffect(() => {
+    setCurrentFocus(hasFocus);
+  }, [hasFocus]);
+
   const onThumbnailClick = (image, i) => {
     // What the user passes
     onImageClick(image, i);
@@ -87,7 +92,7 @@ const ImageTile = ({
               width={width}
               height={height}
               style={{ ...thumbnailStyle }}
-              hasFocus={hasFocus && currentFocus === i}
+              hasFocus={typeof hasFocus === "number" && currentFocus === i}
             />
           );
         }
