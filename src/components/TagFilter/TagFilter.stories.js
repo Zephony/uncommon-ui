@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { action } from "@storybook/addon-actions";
 import TagFilter from "./TagFilter";
 
@@ -116,6 +117,41 @@ export const DefaultTagFilter = () => {
       setData={setData}
       onCancel={action("Cancel")}
       onSubmit={action("Submit")}
+      onClear={action("Clear")}
     />
+  );
+};
+
+export const TagFilterWithWrapper = () => {
+  const [data, setData] = useState(
+    items.map(item => {
+      return {
+        ...item,
+        isChecked: false
+      };
+    })
+  );
+
+  const Wrapper = styled.div`
+    width: 600px;
+    position: fixed;
+    top: 200px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  `;
+
+  return (
+    <Wrapper>
+      <TagFilter
+        data={data}
+        setData={setData}
+        onCancel={action("Cancel")}
+        onSubmit={action("Submit")}
+        onClear={action("Clear")}
+      />
+    </Wrapper>
   );
 };

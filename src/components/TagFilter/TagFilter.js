@@ -28,7 +28,7 @@ const Content = styled.div`
 const Footer = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 15px;
+  padding: 20px;
 `;
 
 const ButtonWrapper = styled.div`
@@ -39,7 +39,7 @@ const CheckboxWrapper = styled.div`
   padding-bottom: 10px;
 `;
 
-const TagFilter = ({ data, setData, onCancel, onSubmit }) => {
+const TagFilter = ({ data, setData, onCancel, onSubmit, onClear }) => {
   const [value, setValue] = useState("");
   const [filteredData, setFilteredData] = useState(data);
 
@@ -59,7 +59,7 @@ const TagFilter = ({ data, setData, onCancel, onSubmit }) => {
     setFilteredData(filteredData);
   };
 
-  const onClear = () => {
+  const onClearClick = () => {
     setFilteredData(data);
     setValue("");
   };
@@ -90,7 +90,7 @@ const TagFilter = ({ data, setData, onCancel, onSubmit }) => {
         ))}
       </Content>
       <Footer>
-        <Button onClick={onClear} type="link">
+        <Button onClick={onClear || onClearClick} type="link">
           Clear All
         </Button>
         <ButtonWrapper>
