@@ -13,7 +13,7 @@ export default {
 };
 
 const Wrapper = styled.div`
-  width: 650px;
+  width: 800px;
 `;
 
 export const defaultTiles = () => {
@@ -68,7 +68,7 @@ export const autoCountWithWrapper = () => {
   return (
     <Wrapper>
       <ImageTile
-        images={images}
+        images={images.slice(0, 6)}
         width="200px"
         height="200px"
         onMoreClick={action("Clicked")}

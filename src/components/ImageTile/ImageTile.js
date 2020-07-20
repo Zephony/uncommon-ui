@@ -56,17 +56,20 @@ const Count = styled.div`
 `;
 
 const getTilesCount = (imageWidth, wrapperWidth, images) => {
-  let count = -1;
+  let count = 0;
   let totalImageWidth = 0;
+  if (images.length <= 2) {
+    return images.length + 1;
+  }
   images.forEach(image => {
     if (totalImageWidth > wrapperWidth) {
-      return count;
+      return count - 1;
     } else {
       totalImageWidth = totalImageWidth + imageWidth + 10;
       count = count + 1;
     }
   });
-  return count;
+  return count - 1;
 };
 
 /**
@@ -102,10 +105,11 @@ const ImageTile = ({
     onImageClick(image, i);
     setCurrentFocus(i);
   };
+  console.log(imageCount);
 
   return (
     <Wrapper ref={componentRef}>
-      {images.map((image, i) => {
+      {images.flatMap((image, i) => {
         if (i < imageCount - 1) {
           return (
             <Thumbnail
@@ -119,20 +123,20 @@ const ImageTile = ({
             />
           );
         }
-        return null;
+        return [];
       })}
       {/* For the last image with option to view more */}
-      {(count || autoCount) && (
+      {images.length > imageCount - 1 && (
         <OverlayWrapper onClick={onMoreClick}>
           <Thumbnail
-            src={images[imageCount]}
+            src={images[imageCount - 1]}
             width={width}
             height={height}
             isAbsolute
             style={{ ...thumbnailStyle }}
           />
           <Overlay width={width} height={height} style={{ ...thumbnailStyle }}>
-            <Count>+{images.length - imageCount}</Count>
+            <Count>+{images.length - imageCount + 1}</Count>
           </Overlay>
         </OverlayWrapper>
       )}
