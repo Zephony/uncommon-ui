@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Gallery from "./Gallery";
-import { Button } from "../Button";
 import { ImageTile } from "../ImageTile";
 import { images } from "../../utils/helpers";
 
@@ -16,6 +15,12 @@ export const defaultGallery = () => <Gallery images={images} />;
 
 export const GalleryWithTiles = () => {
   const [showGallery, setShowGallery] = useState(false);
+  const [initialIndex, setInitialIndex] = useState(0);
+
+  const handleImageClick = (image, i) => {
+    setInitialIndex(i);
+    setShowGallery(true);
+  };
 
   return (
     <div>
@@ -23,9 +28,14 @@ export const GalleryWithTiles = () => {
         images={images}
         count={4}
         onMoreClick={() => setShowGallery(true)}
+        onImageClick={(image, i) => handleImageClick(image, i)}
       />
       {showGallery && (
-        <Gallery images={images} onClose={() => setShowGallery(false)} />
+        <Gallery
+          images={images}
+          initialIndex={initialIndex}
+          onClose={() => setShowGallery(false)}
+        />
       )}
     </div>
   );

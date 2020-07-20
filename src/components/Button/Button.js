@@ -6,6 +6,7 @@ import styled, { css } from "styled-components";
 const primary = css`
   background-color: ${props => props.theme.colors.primary};
   color: #fff;
+  border: 1px solid ${props => props.theme.colors.primary};
   &:hover:enabled,
   &:focus:enabled {
     background-color: #fff;

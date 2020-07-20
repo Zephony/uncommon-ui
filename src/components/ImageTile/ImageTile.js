@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
@@ -12,6 +12,8 @@ const Thumbnail = styled.div`
   width: ${props => props.width};
   height: ${props => props.height};
   border-radius: 4px;
+  border: ${props =>
+    props.hasFocus ? `2px solid ${props.theme.colors.primary}` : "none"};
   background-image: url('${props => props.src}');
   background-size: cover;
   background-repeat: no-repeat;
@@ -61,10 +63,18 @@ const ImageTile = ({
   count,
   onMoreClick,
   onImageClick,
-  thumbnailStyle
+  thumbnailStyle,
+  hasFocus
 }) => {
+  const [currentFocus, setCurrentFocus] = useState(hasFocus);
   // If count not specified
   let imageCount = count || images.length + 1;
+
+  const onThumbnailClick = (image, i) => {
+    // What the user passes
+    onImageClick(image, i);
+    setCurrentFocus(i);
+  };
   return (
     <Wrapper>
       {images.map((image, i) => {
@@ -72,11 +82,12 @@ const ImageTile = ({
           return (
             <Thumbnail
               key={i}
-              onClick={() => onImageClick(image, i)}
+              onClick={() => onThumbnailClick(image, i)}
               src={image}
               width={width}
               height={height}
               style={{ ...thumbnailStyle }}
+              hasFocus={hasFocus && currentFocus === i}
             />
           );
         }

@@ -16,15 +16,16 @@ const Overlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
 `;
 
 const Image = styled.div`
   position: absolute;
   top: 100px;
+  width: 1000px;
   height: 500px;
-  width: 500px;
   background-image: url('${props => props.src}');
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 `;
@@ -59,8 +60,8 @@ const CloseIcon = ({ onClick }) => {
   );
 };
 
-const Gallery = ({ images, onClose }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const Gallery = ({ images, onClose, initialIndex }) => {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const leftPress = useKeyPress("ArrowLeft");
   const rightPress = useKeyPress("ArrowRight");
   const escPress = useKeyPress("Escape");
@@ -121,6 +122,7 @@ const Gallery = ({ images, onClose }) => {
           width="62px"
           height="62px"
           onImageClick={(image, i) => onThumbnailClick(i)}
+          hasFocus={currentIndex}
         />
       </ImageTileWrapper>
     </Overlay>
