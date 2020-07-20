@@ -145,7 +145,11 @@ ImageTile.propTypes = {
   /**
    * Override thumbnail styles
    */
-  thumbnailStyle: PropTypes.object
+  thumbnailStyle: PropTypes.object,
+  /**
+   * Accepts the index that it should start focus with
+   */
+  hasFocus: PropTypes.number
 };
 
 export default ImageTile;
