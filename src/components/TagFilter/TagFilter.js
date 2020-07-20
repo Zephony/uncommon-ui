@@ -23,6 +23,7 @@ const Content = styled.div`
   flex-wrap: wrap;
   border-top: 1px solid #ededed;
   border-bottom: 1px solid #ededed;
+  overflow-x: scroll;
 `;
 
 const Footer = styled.div`
@@ -37,6 +38,7 @@ const ButtonWrapper = styled.div`
 
 const CheckboxWrapper = styled.div`
   padding-bottom: 10px;
+  padding-right: 10px;
 `;
 
 const TagFilter = ({ data, setData, onCancel, onSubmit, onClear }) => {

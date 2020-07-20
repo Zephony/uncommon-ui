@@ -98,6 +98,102 @@ const items = [
       name: "Title 1",
       id: "title-1"
     }
+  },
+  {
+    id: "mizoram",
+    name: "Mizoram Board",
+    category: {
+      name: "Title 2",
+      id: "title-2"
+    }
+  },
+  {
+    id: "tn",
+    name: "TN State Board",
+    category: {
+      name: "Title 2",
+      id: "title-2"
+    }
+  },
+  {
+    id: "maharashtra",
+    name: "Maharashtra State Board",
+    category: {
+      name: "Title 2",
+      id: "title-2"
+    }
+  },
+  {
+    id: "punjab",
+    name: "Punjab Board",
+    category: {
+      name: "Title 1",
+      id: "title-1"
+    }
+  },
+  {
+    id: "goa",
+    name: "Goa Board",
+    category: {
+      name: "Title 1",
+      id: "title-1"
+    }
+  },
+  {
+    id: "punjab",
+    name: "Punjab Board",
+    category: {
+      name: "Title 1",
+      id: "title-1"
+    }
+  },
+  {
+    id: "goa",
+    name: "Goa Board",
+    category: {
+      name: "Title 1",
+      id: "title-1"
+    }
+  },
+  {
+    id: "mizoram",
+    name: "Mizoram Board",
+    category: {
+      name: "Title 2",
+      id: "title-2"
+    }
+  },
+  {
+    id: "tn",
+    name: "TN State Board",
+    category: {
+      name: "Title 2",
+      id: "title-2"
+    }
+  },
+  {
+    id: "maharashtra",
+    name: "Maharashtra State Board",
+    category: {
+      name: "Title 2",
+      id: "title-2"
+    }
+  },
+  {
+    id: "punjab",
+    name: "Punjab Board",
+    category: {
+      name: "Title 1",
+      id: "title-1"
+    }
+  },
+  {
+    id: "goa",
+    name: "Goa Board",
+    category: {
+      name: "Title 1",
+      id: "title-1"
+    }
   }
 ];
 
