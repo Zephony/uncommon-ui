@@ -68,7 +68,7 @@ export const autoCountWithWrapper = () => {
   return (
     <Wrapper>
       <ImageTile
-        images={images.slice(0, 6)}
+        images={images.slice(0, 2)}
         width="200px"
         height="200px"
         onMoreClick={action("Clicked")}

@@ -60,7 +60,7 @@ const CloseIcon = ({ onClick }) => {
   );
 };
 
-const Gallery = ({ images, onClose, initialIndex }) => {
+const Gallery = ({ images, onClose, initialIndex = 0 }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const leftPress = useKeyPress("ArrowLeft");
   const rightPress = useKeyPress("ArrowRight");

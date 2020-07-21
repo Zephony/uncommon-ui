@@ -11,15 +11,17 @@ const Wrapper = styled.div`
 `;
 
 const Thumbnail = styled.div`
-  width: ${props => props.width};
-  height: ${props => props.height};
+  width: ${props => (props.maintainAspectRatio ? "100%" : props.width)};
+  height: ${props => (props.maintainAspectRatio ? "400px" : props.height)};
   border-radius: 4px;
   border: ${props =>
     props.hasFocus ? `2px solid ${props.theme.colors.primary}` : "none"};
   background-image: url('${props => props.src}');
-  background-size: cover;
+  background-size: ${props =>
+    props.maintainAspectRatio ? "contain" : "cover"};
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: ${props =>
+    props.maintainAspectRatio ? "left" : "center"};
   margin-right: 10px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -57,19 +59,16 @@ const Count = styled.div`
 
 const getTilesCount = (imageWidth, wrapperWidth, images) => {
   let count = 0;
-  let totalImageWidth = 0;
-  if (images.length <= 2) {
-    return images.length + 1;
-  }
+  let totalImageWidth = imageWidth + 10;
   images.forEach(image => {
     if (totalImageWidth > wrapperWidth) {
-      return count - 1;
+      return count;
     } else {
       totalImageWidth = totalImageWidth + imageWidth + 10;
       count = count + 1;
     }
   });
-  return count - 1;
+  return count;
 };
 
 /**
@@ -92,7 +91,7 @@ const ImageTile = ({
   const imageWidth = parseInt(width.match(/\d/g, "").join(""));
   const [currentFocus, setCurrentFocus] = useState(hasFocus);
   // If count not specified
-  let imageCount = autoCount
+  let tileCount = autoCount
     ? getTilesCount(imageWidth, wrapperWidth, images)
     : count || images.length + 1;
 
@@ -105,38 +104,38 @@ const ImageTile = ({
     onImageClick(image, i);
     setCurrentFocus(i);
   };
-  console.log(imageCount);
-
+  console.log("Tile Count", tileCount);
+  console.log("Image Count", images.length);
+  let imageList =
+    images.length > tileCount ? images.slice(0, tileCount - 1) : images;
   return (
     <Wrapper ref={componentRef}>
-      {images.flatMap((image, i) => {
-        if (i < imageCount - 1) {
-          return (
-            <Thumbnail
-              key={i}
-              onClick={() => onThumbnailClick(image, i)}
-              src={image}
-              width={width}
-              height={height}
-              style={{ ...thumbnailStyle }}
-              hasFocus={typeof hasFocus === "number" && currentFocus === i}
-            />
-          );
-        }
-        return [];
+      {imageList.map((image, i) => {
+        return (
+          <Thumbnail
+            key={i}
+            onClick={() => onThumbnailClick(image, i)}
+            src={image}
+            width={width}
+            height={height}
+            style={{ ...thumbnailStyle }}
+            hasFocus={typeof hasFocus === "number" && currentFocus === i}
+            maintainAspectRatio={images.length === 1}
+          />
+        );
       })}
       {/* For the last image with option to view more */}
-      {images.length > imageCount - 1 && (
+      {images.length > tileCount && (
         <OverlayWrapper onClick={onMoreClick}>
           <Thumbnail
-            src={images[imageCount - 1]}
+            src={images[tileCount - 1]}
             width={width}
             height={height}
             isAbsolute
             style={{ ...thumbnailStyle }}
           />
           <Overlay width={width} height={height} style={{ ...thumbnailStyle }}>
-            <Count>+{images.length - imageCount + 1}</Count>
+            <Count>+{images.length - tileCount}</Count>
           </Overlay>
         </OverlayWrapper>
       )}
@@ -163,7 +162,7 @@ ImageTile.propTypes = {
    */
   images: PropTypes.array.isRequired,
   /**
-   * Count to images to show
+   * Count of tiles to show
    */
   count: PropTypes.number,
   /**
