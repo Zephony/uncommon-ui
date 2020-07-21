@@ -24,6 +24,14 @@ const Content = styled.div`
   border-top: 1px solid #ededed;
   border-bottom: 1px solid #ededed;
   overflow-x: scroll;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2.5px;
+    background-color: #B3B3B3;
+    width: 5px;
+}
+  }
 `;
 
 const Footer = styled.div`
