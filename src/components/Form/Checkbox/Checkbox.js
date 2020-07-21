@@ -44,7 +44,13 @@ const Label = styled.span`
 /**
  * "If you don't keep hatred in check it will breed destruction." - Daryl Davis
  */
-const Checkbox = ({ checked, onChange, labelText, disabled, ...props }) => (
+const Checkbox = ({
+  checked = false,
+  onChange,
+  labelText,
+  disabled = false,
+  ...props
+}) => (
   <LabelWrapper>
     <CheckboxContainer>
       <HiddenCheckbox checked={checked} onChange={onChange} {...props} />
@@ -55,11 +61,6 @@ const Checkbox = ({ checked, onChange, labelText, disabled, ...props }) => (
     {labelText && <Label>{labelText}</Label>}
   </LabelWrapper>
 );
-
-Checkbox.defaultProps = {
-  checked: false,
-  disabled: false
-};
 
 Checkbox.propTypes = {
   /**

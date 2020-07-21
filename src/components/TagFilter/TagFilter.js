@@ -49,6 +49,9 @@ const CheckboxWrapper = styled.div`
   padding-right: 10px;
 `;
 
+/**
+ * "There is a time and a place for things. Sometimes one needs to put a filter on oneself. That can be a good thing." - Tori Amos
+ */
 const TagFilter = ({ data, setData, onCancel, onSubmit, onClear }) => {
   const [value, setValue] = useState("");
   const [filteredData, setFilteredData] = useState(data);
@@ -127,11 +130,11 @@ TagFilter.propTypes = {
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       name: PropTypes.string
     })
-  ),
+  ).isRequired,
   /**
    * To update the state of data
    */
-  setData: PropTypes.func,
+  setData: PropTypes.func.isRequired,
   /**
    * Accepts an event when cancel button is clicked
    */
@@ -139,7 +142,11 @@ TagFilter.propTypes = {
   /**
    * Accepts an event when submit button is clicked
    */
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  /**
+   * Accepts an event when clear button is clicked
+   */
+  onClear: PropTypes.func
 };
 
 export default TagFilter;

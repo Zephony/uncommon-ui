@@ -76,8 +76,8 @@ const getTilesCount = (imageWidth, wrapperWidth, images) => {
  */
 const ImageTile = ({
   images,
-  width,
-  height,
+  width = "150px",
+  height = "150px",
   count,
   onMoreClick,
   onImageClick,
@@ -141,11 +141,6 @@ const ImageTile = ({
       )}
     </Wrapper>
   );
-};
-
-ImageTile.defaultProps = {
-  width: "150px",
-  height: "150px"
 };
 
 ImageTile.propTypes = {

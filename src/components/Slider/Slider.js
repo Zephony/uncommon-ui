@@ -35,12 +35,12 @@ const Slide = styled.div`
  */
 const Slider = ({
   children,
-  width,
-  height,
+  width = 800,
+  height = 400,
   infinite,
-  initial,
+  initial = 0,
   autoplay,
-  autoplaySpeed
+  autoplaySpeed = 3000
 }) => {
   const ref = useRef();
   const [state, setState] = useState({
@@ -121,13 +121,6 @@ const Slider = ({
   );
 };
 
-Slider.defaultProps = {
-  width: 800,
-  height: 400,
-  initial: 0,
-  autoplaySpeed: 3000
-};
-
 Slider.propTypes = {
   /**
    * The width of the slider which the slides should also have
@@ -137,6 +130,10 @@ Slider.propTypes = {
    * The height of the slider which the slides should also have
    */
   height: PropTypes.number,
+  /**
+   * Initial index to start
+   */
+  initial: PropTypes.number,
   /**
    * Slider has no start or end
    */

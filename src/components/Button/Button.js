@@ -34,6 +34,7 @@ const link = css`
 `;
 
 const StyledButton = styled.button`
+  outline: none;
   min-width: ${props => props.width};
   width: auto;
   height: 40px;
@@ -60,7 +61,15 @@ const StyledButton = styled.button`
 /**
  * "A poet can write about a man slaying a dragon, but not about a man pushing a button that releases a bomb." - W. H. Auden
  */
-const Button = ({ type, children, onClick, disabled, className, ...props }) => {
+const Button = ({
+  type = "primary",
+  children,
+  onClick,
+  disabled = false,
+  className,
+  width = "121px",
+  ...props
+}) => {
   return (
     <StyledButton
       className={className}
@@ -72,12 +81,6 @@ const Button = ({ type, children, onClick, disabled, className, ...props }) => {
       {children}
     </StyledButton>
   );
-};
-
-Button.defaultProps = {
-  type: "primary",
-  disabled: false,
-  width: "121px"
 };
 
 Button.propTypes = {

@@ -60,6 +60,9 @@ const CloseIcon = ({ onClick }) => {
   );
 };
 
+/**
+ * "History is a gallery of pictures in which there are few originals and many copies." - Alexis de Tocqueville
+ */
 const Gallery = ({ images, onClose, initialIndex = 0 }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const leftPress = useKeyPress("ArrowLeft");
@@ -130,6 +133,10 @@ const Gallery = ({ images, onClose, initialIndex = 0 }) => {
 };
 
 Gallery.propTypes = {
+  /**
+   * Initial image to start with
+   */
+  initialIndex: PropTypes.number,
   /**
    * Array of image urls
    */
