@@ -27,6 +27,17 @@ export const defaultTiles = () => {
   );
 };
 
+export const tilesWithClose = () => {
+  return (
+    <ImageTile
+      images={images}
+      count={4}
+      onMoreClick={action("Clicked")}
+      onClose={action("Clicked")}
+    />
+  );
+};
+
 export const customDimensions = () => {
   return (
     <ImageTile

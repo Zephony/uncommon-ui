@@ -53,7 +53,11 @@ const Checkbox = ({
 }) => (
   <LabelWrapper>
     <CheckboxContainer>
-      <HiddenCheckbox checked={checked} onChange={onChange} {...props} />
+      <HiddenCheckbox
+        checked={checked}
+        onChange={disabled ? () => {} : onChange}
+        {...props}
+      />
       <Icon disabled={disabled} checked={checked} className="material-icons">
         done
       </Icon>

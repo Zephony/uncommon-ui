@@ -10,6 +10,12 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
 `;
 
+const ThumbnailWrapper = styled.div`
+  position: relative;
+  width: ${props => (props.maintainAspectRatio ? "100%" : props.width)};
+  height: ${props => (props.maintainAspectRatio ? "400px" : props.height)};
+`;
+
 const Thumbnail = styled.div`
   width: ${props => (props.maintainAspectRatio ? "100%" : props.width)};
   height: ${props => (props.maintainAspectRatio ? "400px" : props.height)};
@@ -57,6 +63,15 @@ const Count = styled.div`
   line-height: 24px;
 `;
 
+const CloseIcon = styled.i`
+  font-size: 20px !important;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: #eaf1fd;
+  cursor: pointer;
+`;
+
 const getTilesCount = (imageWidth, wrapperWidth, images) => {
   let count = 0;
   let totalImageWidth = imageWidth + 10;
@@ -83,7 +98,8 @@ const ImageTile = ({
   onImageClick,
   thumbnailStyle,
   hasFocus,
-  autoCount
+  autoCount,
+  onClose
 }) => {
   const componentRef = useRef();
   // Get width of the wrapper component
@@ -112,16 +128,23 @@ const ImageTile = ({
     <Wrapper ref={componentRef}>
       {imageList.map((image, i) => {
         return (
-          <Thumbnail
-            key={i}
-            onClick={() => onThumbnailClick(image, i)}
-            src={image}
-            width={width}
-            height={height}
-            style={{ ...thumbnailStyle }}
-            hasFocus={typeof hasFocus === "number" && currentFocus === i}
-            maintainAspectRatio={images.length === 1}
-          />
+          <ThumbnailWrapper>
+            <Thumbnail
+              key={i}
+              onClick={() => onThumbnailClick(image, i)}
+              src={image}
+              width={width}
+              height={height}
+              style={{ ...thumbnailStyle }}
+              hasFocus={typeof hasFocus === "number" && currentFocus === i}
+              maintainAspectRatio={images.length === 1}
+            />
+            {onClose && (
+              <CloseIcon onClick={onClose} className="material-icons">
+                cancel
+              </CloseIcon>
+            )}
+          </ThumbnailWrapper>
         );
       })}
       {/* For the last image with option to view more */}
@@ -172,6 +195,10 @@ ImageTile.propTypes = {
    * Click event handler when more images is clicked
    */
   onMoreClick: PropTypes.func,
+  /**
+   * Click event handler for a close icon
+   */
+  onClose: PropTypes.func,
   /**
    * Override thumbnail styles
    */
