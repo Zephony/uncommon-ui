@@ -43,5 +43,15 @@
     "@storybook/storybook-deployer": "^2.8.6",
     "@testing-library/react": "^10.4.6",
     "babel-loader": "8.0.6"
+  },
+  "bit": {
+    "env": {},
+    "componentsDefaultDirectory": "components/{name}",
+    "packageManager": "npm",
+    "resolveModules": {
+      "aliases": {
+        "@": "src"
+      }
+    }
   }
 }

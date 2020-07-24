@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Gallery from "./Gallery";
-import { ImageTile } from "../ImageTile";
-import { images } from "../../utils/helpers";
+import { ImageTile } from "components/ImageTile";
+import { images } from "utils/helpers";
 
 export default {
   title: "Gallery",

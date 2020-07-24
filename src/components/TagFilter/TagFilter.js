@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { Input, Checkbox } from "../Form";
-import { Button } from "../Button";
+import { Input, Checkbox } from "components/Form";
+import { Button } from "components/Button";
 
 const Wrapper = styled.div`
   width: 100%;

@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
-import { useResize } from "../../utils/helpers";
+import { useResize } from "utils/helpers";
 
 const Wrapper = styled.div`
   display: flex;

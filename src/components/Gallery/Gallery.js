@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import Arrow from "../Slider/Arrow";
-import { ImageTile } from "../ImageTile";
-import { useKeyPress } from "../../utils/helpers";
+import Arrow from "components/Slider/Arrow";
+import { ImageTile } from "components/ImageTile";
+import { useKeyPress } from "utils/helpers";
 
 const Overlay = styled.div`
   width: 100%;
