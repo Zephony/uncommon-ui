@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { action } from "@storybook/addon-actions";
-import TagFilter from "./TagFilter";
+import TagFilter from "./";
 
 export default {
   title: "Tag Filter",

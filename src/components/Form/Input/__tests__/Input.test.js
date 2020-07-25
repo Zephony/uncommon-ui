@@ -1,8 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
-import Input from "../Input";
-import theme from "utils/theme";
+import Input from "../";
+import theme from "../../../../utils/theme";
 
 describe("Input", () => {
   const labelText = "This is a label";

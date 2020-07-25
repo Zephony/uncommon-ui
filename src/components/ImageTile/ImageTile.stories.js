@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { action } from "@storybook/addon-actions";
-import ImageTile from "./ImageTile";
-import { images } from "utils/helpers";
+import ImageTile from "./";
+import { images } from "../../utils/helpers";
 
 export default {
   title: "Image Tile",

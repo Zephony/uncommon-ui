@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Slider from "./Slider";
+import Slider from "./";
 import Arrow from "./Arrow";
 
 const Wrapper = styled.div`

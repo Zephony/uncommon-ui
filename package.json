@@ -45,12 +45,24 @@
     "babel-loader": "8.0.6"
   },
   "bit": {
-    "env": {},
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.20"
+    },
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "npm",
     "resolveModules": {
       "aliases": {
         "@": "src"
+      }
+    },
+    "overrides": {
+      "*": {
+        "dependencies": {
+          "react": "-"
+        },
+        "peerDependencies": {
+          "react": "+"
+        }
       }
     }
   }

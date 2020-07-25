@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "./Input";
+import Input from "./";
 
 export default {
   title: "Forms/Input",
