@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import CancelIcon from "@material-ui/icons/Cancel";
 import Arrow from "../Slider/Arrow";
 import ImageTile from "../ImageTile";
 import { useKeyPress } from "../../utils/helpers";
@@ -39,23 +40,16 @@ const CloseWrapper = styled.div`
   position: absolute;
   top: 40px;
   right: 40px;
-  background-color: ${props => props.theme.colors.secondary};
-  border-radius: 50px;
   cursor: pointer;
   display: flex;
   align-items: center;
   padding: 5px;
 `;
 
-const Close = styled.i`
-  font-size: 25px !important;
-  color: #fafafa;
-`;
-
 const CloseIcon = ({ onClick }) => {
   return (
     <CloseWrapper onClick={onClick}>
-      <Close className="material-icons">close</Close>
+      <CancelIcon fontSize="large" style={{ color: "#585858" }} />
     </CloseWrapper>
   );
 };
@@ -108,15 +102,15 @@ const Gallery = ({ images, onClose, initialIndex = 0 }) => {
         onClick={prevImage}
         direction="left"
         color="#fff"
-        fontSize="65px"
         hideBorder
+        fontSize={60}
       />
       <Arrow
         onClick={nextImage}
         direction="right"
         color="#fff"
-        fontSize="65px"
         hideBorder
+        fontSize={60}
       />
       <CloseIcon onClick={onClose} />
       <ImageTileWrapper>

@@ -120,8 +120,7 @@ const ImageTile = ({
     onImageClick(image, i);
     setCurrentFocus(i);
   };
-  console.log("Tile Count", tileCount);
-  console.log("Image Count", images.length);
+
   let imageList =
     images.length > tileCount ? images.slice(0, tileCount - 1) : images;
   return (

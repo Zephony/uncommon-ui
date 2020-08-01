@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import CheckIcon from "@material-ui/icons/Check";
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox", hidden: true })`
   ${"" /* Hide checkbox visually but remain accessible to screen readers. */}
@@ -12,7 +13,7 @@ const LabelWrapper = styled.label`
   align-items: center;
 `;
 
-const Icon = styled.i`
+const Icon = styled(CheckIcon)`
   display: flex !important;
   align-items: center;
   justify-content: center;
@@ -59,9 +60,7 @@ const Checkbox = ({
         onChange={disabled ? () => {} : onChange}
         {...props}
       />
-      <Icon disabled={disabled} checked={checked} className="material-icons">
-        done
-      </Icon>
+      <Icon disabled={disabled} checked={checked} />
     </CheckboxContainer>
     {labelText && <Label>{labelText}</Label>}
   </LabelWrapper>

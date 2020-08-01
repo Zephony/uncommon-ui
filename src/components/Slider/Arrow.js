@@ -1,10 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
-
-const ArrowIcon = styled.i`
-  font-size: ${props => props.fontSize} !important;
-`;
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -37,7 +35,7 @@ const Arrow = ({
   onClick,
   disabled,
   color = "#000",
-  fontSize = "40px",
+  fontSize = 40,
   hideBorder
 }) => {
   return (
@@ -48,9 +46,11 @@ const Arrow = ({
       color={color}
       hideBorder={hideBorder}
     >
-      <ArrowIcon className="material-icons" fontSize={fontSize}>
-        {direction === "left" ? "chevron_left" : "chevron_right"}
-      </ArrowIcon>
+      {direction === "left" ? (
+        <ChevronLeftIcon style={{ fontSize }} />
+      ) : (
+        <ChevronRightIcon style={{ fontSize }} />
+      )}
     </Wrapper>
   );
 };
@@ -67,7 +67,11 @@ Arrow.propTypes = {
   /**
    * Disables the arrow
    */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /**
+   * Size of the arrow
+   */
+  fontSize: PropTypes.number
 };
 
 export default Arrow;
