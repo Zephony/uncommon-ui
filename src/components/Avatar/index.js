@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import BlankImage from "./blank.png";
 
 const Wrapper = styled.div`
   position: relative;
@@ -28,7 +29,12 @@ const Image = styled.div`
   background-position: center;
 `;
 
-const Avatar = ({ src, size = "40px", isActive, activeColor = "#e2863d" }) => {
+const Avatar = ({
+  src = BlankImage,
+  size = "40px",
+  isActive,
+  activeColor = "#e2863d"
+}) => {
   return (
     <Wrapper>
       <Image size={size} src={src} />
@@ -43,9 +49,9 @@ Avatar.propTypes = {
    */
   size: PropTypes.string,
   /**
-   * Image URL for avatar
+   * Image URL for avatar, fallbacks to empty avatar
    */
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
   /**
    * To indicate avatar is active
    */

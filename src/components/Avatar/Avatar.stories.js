@@ -12,6 +12,10 @@ export default {
 };
 
 export const defaultAvatar = () => {
+  return <Avatar />;
+};
+
+export const avatarWithImage = () => {
   return <Avatar src={faker.image.avatar()} />;
 };
 
