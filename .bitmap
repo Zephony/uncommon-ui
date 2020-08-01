@@ -137,7 +137,25 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/notification@1.0.0": {
+    "zephony.uncommon-ui/notification-menu@1.0.0": {
+        "files": [
+            {
+                "relativePath": "src/components/NotificationMenu/NotificationMenu.stories.js",
+                "test": false,
+                "name": "NotificationMenu.stories.js"
+            },
+            {
+                "relativePath": "src/components/NotificationMenu/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/NotificationMenu/index.js",
+        "trackDir": "src/components/NotificationMenu",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "zephony.uncommon-ui/notification@1.0.1": {
         "files": [
             {
                 "relativePath": "src/components/Notification/Notification.stories.js",
