@@ -11,6 +11,8 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
+var _Check = _interopRequireDefault(require("@material-ui/icons/Check"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -82,7 +84,7 @@ var HiddenCheckbox = _styledComponents.default.input.attrs({
 
 var LabelWrapper = _styledComponents.default.label(_templateObject2());
 
-var Icon = _styledComponents.default.i(_templateObject3(), function (props) {
+var Icon = (0, _styledComponents.default)(_Check.default)(_templateObject3(), function (props) {
   return props.disabled ? "default" : "pointer";
 }, function (props) {
   var _props$theme$colors$p, _props$theme, _props$theme$colors;
@@ -118,9 +120,8 @@ var Checkbox = function Checkbox(_ref) {
     onChange: disabled ? function () {} : onChange
   }, props)), /*#__PURE__*/_react.default.createElement(Icon, {
     disabled: disabled,
-    checked: checked,
-    className: "material-icons"
-  }, "done")), labelText && /*#__PURE__*/_react.default.createElement(Label, null, labelText));
+    checked: checked
+  })), labelText && /*#__PURE__*/_react.default.createElement(Label, null, labelText));
 };
 
 Checkbox.defaultProps = {

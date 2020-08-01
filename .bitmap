@@ -19,7 +19,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/checkbox@1.0.2": {
+    "zephony.uncommon-ui/checkbox@1.0.3": {
         "files": [
             {
                 "relativePath": "src/components/Form/Checkbox/Checkbox.stories.js",
@@ -37,7 +37,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/form@1.0.2": {
+    "zephony.uncommon-ui/form@1.0.3": {
         "files": [
             {
                 "relativePath": "src/components/Form/index.js",
@@ -50,7 +50,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/gallery@1.0.2": {
+    "zephony.uncommon-ui/gallery@1.0.3": {
         "files": [
             {
                 "relativePath": "src/components/Gallery/Gallery.stories.js",
@@ -68,7 +68,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/image-tile@1.0.2": {
+    "zephony.uncommon-ui/image-tile@1.0.3": {
         "files": [
             {
                 "relativePath": "src/components/ImageTile/ImageTile.stories.js",
@@ -114,7 +114,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/slider@1.0.2": {
+    "zephony.uncommon-ui/slider@1.0.3": {
         "files": [
             {
                 "relativePath": "src/components/Slider/Arrow.js",
@@ -137,7 +137,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/tag-filter@1.0.2": {
+    "zephony.uncommon-ui/tag-filter@1.0.3": {
         "files": [
             {
                 "relativePath": "src/components/TagFilter/TagFilter.stories.js",

@@ -13,6 +13,8 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
+var _Cancel = _interopRequireDefault(require("@material-ui/icons/Cancel"));
+
 var _Arrow = _interopRequireDefault(require("../Slider/Arrow"));
 
 var _ImageTile = _interopRequireDefault(require("../ImageTile"));
@@ -37,18 +39,8 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  font-size: 25px !important;\n  color: #fafafa;\n"]);
-
-  _templateObject5 = function _templateObject5() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 40px;\n  right: 40px;\n  background-color: ", ";\n  border-radius: 50px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  padding: 5px;\n"]);
+  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 40px;\n  right: 40px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  padding: 5px;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -97,19 +89,18 @@ var Image = _styledComponents.default.div(_templateObject2(), function (props) {
 
 var ImageTileWrapper = _styledComponents.default.div(_templateObject3());
 
-var CloseWrapper = _styledComponents.default.div(_templateObject4(), function (props) {
-  return props.theme.colors.secondary;
-});
-
-var Close = _styledComponents.default.i(_templateObject5());
+var CloseWrapper = _styledComponents.default.div(_templateObject4());
 
 var CloseIcon = function CloseIcon(_ref) {
   var onClick = _ref.onClick;
   return /*#__PURE__*/_react.default.createElement(CloseWrapper, {
     onClick: onClick
-  }, /*#__PURE__*/_react.default.createElement(Close, {
-    className: "material-icons"
-  }, "close"));
+  }, /*#__PURE__*/_react.default.createElement(_Cancel.default, {
+    fontSize: "large",
+    style: {
+      color: "#585858"
+    }
+  }));
 };
 /**
  * "History is a gallery of pictures in which there are few originals and many copies." - Alexis de Tocqueville
@@ -168,14 +159,14 @@ var Gallery = function Gallery(_ref2) {
     onClick: prevImage,
     direction: "left",
     color: "#fff",
-    fontSize: "65px",
-    hideBorder: true
+    hideBorder: true,
+    fontSize: 60
   }), /*#__PURE__*/_react.default.createElement(_Arrow.default, {
     onClick: nextImage,
     direction: "right",
     color: "#fff",
-    fontSize: "65px",
-    hideBorder: true
+    hideBorder: true,
+    fontSize: 60
   }), /*#__PURE__*/_react.default.createElement(CloseIcon, {
     onClick: onClose
   }), /*#__PURE__*/_react.default.createElement(ImageTileWrapper, null, /*#__PURE__*/_react.default.createElement(_ImageTile.default, {

@@ -212,8 +212,6 @@ var ImageTile = function ImageTile(_ref) {
     setCurrentFocus(i);
   };
 
-  console.log("Tile Count", tileCount);
-  console.log("Image Count", images.length);
   var imageList = images.length > tileCount ? images.slice(0, tileCount - 1) : images;
   return /*#__PURE__*/_react.default.createElement(Wrapper, {
     ref: componentRef
