@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
 export const defaultNotification = () => {
   const sample = {
-    name: "Elon Musk",
+    actor: "Elon Musk",
     actionText: "has answered your question",
     time: "12:30pm"
   };
@@ -32,7 +32,7 @@ export const defaultNotification = () => {
 
 export const unreadNotification = () => {
   const sample = {
-    name: "Joe Rogan",
+    actor: "Joe Rogan",
     actionText: "and 200 others want to know where you live",
     time: "3 hours ago",
     avatar: faker.image.avatar(),

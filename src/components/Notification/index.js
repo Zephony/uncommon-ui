@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   min-width: 300px;
   width: 100%;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const TextWrapper = styled.div`
@@ -30,18 +31,19 @@ const Time = styled.div`
   letter-spacing: 0;
   line-height: 19px;
   width: 25%;
+  text-align: right;
 `;
 
-const Notification = ({ name, actionText, time, avatar, active }) => {
+const Notification = ({ actor, actionText, time, avatar, active }) => {
   return (
     <Wrapper>
-      <Avatar src={avatar} isActive={active} />
       <TextWrapper>
+        <Avatar src={avatar} isActive={active} />
         <Text>
-          <span style={{ fontWeight: "bold" }}>{name}</span> {actionText}
+          <span style={{ fontWeight: "bold" }}>{actor}</span> {actionText}
         </Text>
-        <Time>{time}</Time>
       </TextWrapper>
+      <Time>{time}</Time>
     </Wrapper>
   );
 };
@@ -50,7 +52,7 @@ Notification.propTypes = {
   /**
    * User performing the action
    */
-  name: PropTypes.string.isRequired,
+  actor: PropTypes.string.isRequired,
   /**
    * Action performed by the user
    */
