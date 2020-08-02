@@ -79,7 +79,13 @@ const StyledBellIcon = () => {
   );
 };
 
-const NotificationMenu = ({ data, onNotificationClick, onViewAllClick }) => {
+const NotificationMenu = ({
+  data,
+  onNotificationClick,
+  onViewAllClick,
+  timestampFormat,
+  isTimeAgo
+}) => {
   return (
     <Wrapper>
       <Header>
@@ -92,7 +98,11 @@ const NotificationMenu = ({ data, onNotificationClick, onViewAllClick }) => {
       <Content>
         {data.map(item => (
           <NotificationWrapper onClick={() => onNotificationClick(item)}>
-            <Notification {...item} />
+            <Notification
+              {...item}
+              timestampFormat={timestampFormat}
+              isTimeAgo={isTimeAgo}
+            />
           </NotificationWrapper>
         ))}
       </Content>

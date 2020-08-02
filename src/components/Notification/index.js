@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import moment from "moment";
 import Avatar from "../Avatar";
 
 const Wrapper = styled.div`
@@ -34,7 +35,15 @@ const Time = styled.div`
   text-align: right;
 `;
 
-const Notification = ({ actor, actionText, time, avatar, active }) => {
+const Notification = ({
+  actor,
+  actionText,
+  timestamp,
+  avatar,
+  active,
+  timestampFormat = "hh:mma",
+  isTimeAgo
+}) => {
   return (
     <Wrapper>
       <TextWrapper>
@@ -43,7 +52,11 @@ const Notification = ({ actor, actionText, time, avatar, active }) => {
           <span style={{ fontWeight: "bold" }}>{actor}</span> {actionText}
         </Text>
       </TextWrapper>
-      <Time>{time}</Time>
+      <Time>
+        {isTimeAgo
+          ? moment(timestamp).fromNow()
+          : moment(timestamp).format(timestampFormat)}
+      </Time>
     </Wrapper>
   );
 };
@@ -60,7 +73,7 @@ Notification.propTypes = {
   /**
    * Notification timestamp
    */
-  time: PropTypes.bool.isRequired,
+  timestamp: PropTypes.bool.isRequired,
   /**
    * Url for image avatar, ignore for empty avatar
    */
@@ -68,7 +81,15 @@ Notification.propTypes = {
   /**
    * To indicate unread notifications
    */
-  active: PropTypes.bool
+  active: PropTypes.bool,
+  /**
+   * Moment format for time to display
+   */
+  timestampFormat: PropTypes.string,
+  /**
+   * Displays time in ago format
+   */
+  isTimeAgo: PropTypes.bool
 };
 
 export default Notification;
