@@ -60,28 +60,36 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/form@1.0.4": {
+    "zephony.uncommon-ui/dropdown@1.0.0": {
         "files": [
             {
-                "relativePath": "src/components/Form/Dropdown/Dropdown.stories.js",
+                "relativePath": "src/components/Dropdown/Dropdown.stories.js",
                 "test": false,
                 "name": "Dropdown.stories.js"
             },
             {
-                "relativePath": "src/components/Form/Dropdown/Trigger.js",
+                "relativePath": "src/components/Dropdown/Trigger.js",
                 "test": false,
                 "name": "Trigger.js"
             },
             {
-                "relativePath": "src/components/Form/Dropdown/index.js",
+                "relativePath": "src/components/Dropdown/index.js",
                 "test": false,
                 "name": "index.js"
             },
             {
-                "relativePath": "src/components/Form/Dropdown/xls.svg",
+                "relativePath": "src/components/Dropdown/xls.svg",
                 "test": false,
                 "name": "xls.svg"
-            },
+            }
+        ],
+        "mainFile": "src/components/Dropdown/index.js",
+        "trackDir": "src/components/Dropdown",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "zephony.uncommon-ui/form@1.0.5": {
+        "files": [
             {
                 "relativePath": "src/components/Form/index.js",
                 "test": false,
@@ -216,7 +224,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/tag-filter@1.0.4": {
+    "zephony.uncommon-ui/tag-filter@1.0.5": {
         "files": [
             {
                 "relativePath": "src/components/TagFilter/TagFilter.stories.js",

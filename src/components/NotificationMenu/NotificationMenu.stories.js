@@ -21,14 +21,14 @@ const data = [
     id: 1,
     actor: "Elon Musk",
     actionText: "has answered your question",
-    timestamp: "2020-08-02T11:00:00+05:30",
+    timestamp: "2020-08-07T11:00:00+05:30",
     active: true
   },
   {
     id: 2,
     actor: "Joe Rogan",
     actionText: "and 200 others want to know where you live",
-    timestamp: "2020-08-02T08:00:00+05:30",
+    timestamp: "2020-08-07T08:00:00+05:30",
     avatar: faker.image.avatar(),
     active: true
   },
@@ -36,7 +36,7 @@ const data = [
     id: 3,
     actor: "Mark Cuban",
     actionText: "wants to connect with you",
-    timestamp: "Sat, 01 Aug 2020 12:00:00 +0000",
+    timestamp: "Thu, 06 Aug 2020 12:00:00 +0000",
     avatar: faker.image.avatar(),
     active: false
   },
@@ -44,7 +44,7 @@ const data = [
     id: 4,
     actor: "Belle Delphine",
     actionText: "wants to send you bathwater",
-    timestamp: "Saturday, 01-Aug-20 08:05:30 UTC",
+    timestamp: "Saturday, 06-Aug-20 08:05:30 UTC",
     avatar: faker.image.avatar(),
     active: false
   },
@@ -107,6 +107,22 @@ export const timestampAgo = () => {
         }
         onViewAllClick={() => console.log("View all")}
         isTimeAgo
+      />
+    </Wrapper>
+  );
+};
+
+export const setMaxHeight = () => {
+  return (
+    <Wrapper>
+      <NotificationMenu
+        data={data}
+        onNotificationClick={notification =>
+          console.log("Details of notification", notification)
+        }
+        onViewAllClick={() => console.log("View all")}
+        isTimeAgo
+        maxHeight="200px"
       />
     </Wrapper>
   );

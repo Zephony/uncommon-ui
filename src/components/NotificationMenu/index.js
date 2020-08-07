@@ -23,6 +23,8 @@ const Header = styled.div`
 const Content = styled.div`
   width: auto;
   padding: 20px;
+  max-height: ${props => props.maxHeight};
+  overflow: auto;
 `;
 
 const Title = styled.div`
@@ -84,7 +86,9 @@ const NotificationMenu = ({
   onNotificationClick,
   onViewAllClick,
   timestampFormat,
-  isTimeAgo
+  isTimeAgo,
+  maxHeight = "500px",
+  groupedByTime
 }) => {
   return (
     <Wrapper>
@@ -95,7 +99,7 @@ const NotificationMenu = ({
         </div>
         <Action onClick={onViewAllClick}>View all</Action>
       </Header>
-      <Content>
+      <Content maxHeight={maxHeight}>
         {data.map(item => (
           <NotificationWrapper onClick={() => onNotificationClick(item)}>
             <Notification
@@ -131,7 +135,11 @@ NotificationMenu.propTypes = {
   /**
    * Accepts an event when view all is clicked
    */
-  onViewAllClick: PropTypes.func
+  onViewAllClick: PropTypes.func,
+  /**
+   * Sets the max height of the notification menu content
+   */
+  maxHeight: PropTypes.string
 };
 
 export default NotificationMenu;
