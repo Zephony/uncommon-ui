@@ -101,8 +101,8 @@ const SearchSuggest = ({
         <Input
           type="text"
           icon="search"
-          className="search-input" // To override input styles
-          iconClassName="search-input-icon" // To override icon styles
+          className="uu-search-input" // To override input styles
+          iconClassName="uu-search-input-icon" // To override icon styles
           placeholder="Search"
           value={value}
           onChange={e => setValue(e.target.value)}

@@ -28,7 +28,7 @@ code {
   left: 10px;
 }
 
-.input .search-input {
+.input .uu-search-input {
   border-radius: 20px;
   background-color: #ededed;
   height: 40px;
@@ -38,7 +38,7 @@ code {
   width: 540px;
 }
 
-.input .search-input-icon {
+.input .uu-search-input-icon {
   font-size: 18px;
   top: 17px;
   left: 10px;
