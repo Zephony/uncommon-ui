@@ -35,6 +35,9 @@ const Time = styled.div`
   text-align: right;
 `;
 
+/**
+ * "Mobile notifications put people in a state of perpetual emergency interruption - similar to what 911 operators and air traffic controllers experienced back in the '70s and '80s." - Douglas Rushkoff
+ */
 const Notification = ({
   actor,
   actionText,

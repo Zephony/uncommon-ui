@@ -29,6 +29,9 @@ const Image = styled.div`
   background-position: center;
 `;
 
+/**
+ * "Life happens wherever you are, whether you make it or not.” - Iroh, Avatar the Last Airbender Episode 2.14”
+ */
 const Avatar = ({
   src = BlankImage,
   size = "40px",

@@ -35,6 +35,9 @@ const Name = styled.div`
   margin-left: 10px;
 `;
 
+/**
+ * "Writing a book of poetry is like dropping a rose petal down the Grand Canyon and waiting for the echo." - Don Marquis
+ */
 const Dropdown = ({
   triggerText = "Select an Option",
   options,

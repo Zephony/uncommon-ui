@@ -81,6 +81,9 @@ const StyledBellIcon = () => {
   );
 };
 
+/**
+ * "Flops are a part of life's menu and I've never been a girl to miss out on any of the courses." - Rosalind Russell
+ */
 const NotificationMenu = ({
   data,
   onNotificationClick,
