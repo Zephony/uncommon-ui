@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
 import Notification from "../Notification";
+import { groupBy } from "../../utils/helpers";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -56,6 +57,7 @@ const NotificationWrapper = styled.div`
 
   &:last-child {
     border-bottom: none;
+    margin-bottom: 20px;
   }
 `;
 
@@ -81,6 +83,15 @@ const StyledBellIcon = () => {
   );
 };
 
+const GroupName = styled.div`
+  color: #b3b3b3;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 19px;
+  padding-bottom: 20px;
+`;
+
 /**
  * "Flops are a part of life's menu and I've never been a girl to miss out on any of the courses." - Rosalind Russell
  */
@@ -90,9 +101,45 @@ const NotificationMenu = ({
   onViewAllClick,
   timestampFormat,
   isTimeAgo,
-  maxHeight = "500px",
-  groupedByTime
+  maxHeight = "550px"
 }) => {
+  const renderData = () => {
+    // If grouped data
+    if (data.length > 1 && "group" in data[0]) {
+      let groupedData = groupBy(data, "group");
+      return Object.keys(groupedData).map(group => (
+        <div key={group}>
+          <GroupName>{group}</GroupName>
+          {groupedData[group].map(item => (
+            <NotificationWrapper
+              key={item.id}
+              onClick={() => onNotificationClick(item)}
+            >
+              <Notification
+                {...item}
+                timestampFormat={timestampFormat}
+                isTimeAgo={isTimeAgo}
+              />
+            </NotificationWrapper>
+          ))}
+        </div>
+      ));
+    }
+
+    return data.map(item => (
+      <NotificationWrapper
+        key={item.id}
+        onClick={() => onNotificationClick(item)}
+      >
+        <Notification
+          {...item}
+          timestampFormat={timestampFormat}
+          isTimeAgo={isTimeAgo}
+        />
+      </NotificationWrapper>
+    ));
+  };
+
   return (
     <Wrapper>
       <Header>
@@ -102,17 +149,7 @@ const NotificationMenu = ({
         </div>
         <Action onClick={onViewAllClick}>View all</Action>
       </Header>
-      <Content maxHeight={maxHeight}>
-        {data.map(item => (
-          <NotificationWrapper onClick={() => onNotificationClick(item)}>
-            <Notification
-              {...item}
-              timestampFormat={timestampFormat}
-              isTimeAgo={isTimeAgo}
-            />
-          </NotificationWrapper>
-        ))}
-      </Content>
+      <Content maxHeight={maxHeight}>{renderData()}</Content>
     </Wrapper>
   );
 };
@@ -128,7 +165,8 @@ NotificationMenu.propTypes = {
       actionText: PropTypes.string,
       time: PropTypes.string,
       avatar: PropTypes.string,
-      active: PropTypes.bool
+      active: PropTypes.bool,
+      group: PropTypes.string
     })
   ).isRequired,
   /**

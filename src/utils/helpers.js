@@ -60,6 +60,19 @@ export const useKeyPress = targetKey => {
   return keyPressed;
 };
 
+export const groupBy = (array, key) => {
+  return array.reduce((result, currentValue) => {
+    // If an array already present for key, push it to the array.
+    if (!result[currentValue[key]]) {
+      result[currentValue[key]] = [];
+    } // Else create an array and push the object
+    result[currentValue[key]].push(currentValue);
+    // Return the current iteration `result` value,
+    // this will be taken as next iteration `result` value and accumulate
+    return result;
+  }, {});
+};
+
 export const images = [
   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
   "https://images.unsplash.com/photo-1595064642091-3b0e22d8de27?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2775&q=80",
