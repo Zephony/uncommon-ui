@@ -83,14 +83,6 @@ const Button = ({
   );
 };
 
-// Button.defaultProps = {
-//   theme: {
-//     colors: {
-//       primary: "#e2863d"
-//     }
-//   }
-// };
-
 Button.propTypes = {
   /**
    * Type of the button

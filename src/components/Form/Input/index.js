@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
+import { useResize } from "../../../utils/helpers";
 
 const Wrapper = styled.div`
   display: inline-block;
   position: relative;
+  font-size: 15px;
 `;
 
 const Label = styled.label`
@@ -16,13 +18,12 @@ const Label = styled.label`
 `;
 
 const StyledInput = styled.input`
-  width: ${props => props.width || "400px"};
-  height: 50px;
+  width: ${props => props.width};
+  height: ${props => props.height};
   border-radius: 6px;
   border: solid 1px
     ${props => (props.error ? props.theme.colors.error : "#DADADA")};
   padding: 14px 10px;
-  font-size: 15px;
   letter-spacing: 0;
   line-height: 22px;
   box-sizing: border-box;
@@ -31,6 +32,11 @@ const StyledInput = styled.input`
     props.icon &&
     css`
       padding-left: 42px;
+    `}
+  ${props =>
+    props.cta &&
+    css`
+      padding-right: ${props.ctaWidth + 20}px;
     `}
 
   &:focus {
@@ -59,35 +65,55 @@ const Icon = styled.i`
   left: 12px;
 `;
 
+const CTAWrapper = styled.div`
+  position: absolute;
+  top: 19px;
+  right: 12px;
+  cursor: pointer;
+`;
+
 /**
  * "You can much better have an influence on the debate when you sit at the bargaining table and you can give input." - Angela Merkel
  */
 const Input = ({
   label,
-  width,
+  width = "400px",
+  height = "50px",
   error,
-  style,
   icon,
   iconClassName,
+  cta,
+  ctaAction,
   ...props
-}) => (
-  <div className="input">
-    {label && <Label>{label}</Label>}
-    <Wrapper>
-      <StyledInput
-        style={{ ...style }}
-        error={error}
-        width={width}
-        icon={icon}
-        {...props}
-      />
-      {icon && (
-        <Icon className={`${iconClassName} material-icons`}>{icon}</Icon>
-      )}
-      {error && <Error>{error}</Error>}
-    </Wrapper>
-  </div>
-);
+}) => {
+  const ctaRef = useRef();
+  const { width: ctaWidth } = useResize(ctaRef);
+  return (
+    <div className="input">
+      {label && <Label>{label}</Label>}
+      <Wrapper>
+        <StyledInput
+          error={error}
+          width={width}
+          height={height}
+          icon={icon}
+          cta={cta}
+          ctaWidth={ctaWidth}
+          {...props}
+        />
+        {icon && (
+          <Icon className={`${iconClassName} material-icons`}>{icon}</Icon>
+        )}
+        {cta && (
+          <CTAWrapper ref={ctaRef} onClick={ctaAction}>
+            {cta}
+          </CTAWrapper>
+        )}
+        {error && <Error>{error}</Error>}
+      </Wrapper>
+    </div>
+  );
+};
 
 Input.propTypes = {
   /**
@@ -99,13 +125,29 @@ Input.propTypes = {
    */
   width: PropTypes.string,
   /**
+   * Any CSS height value
+   */
+  height: PropTypes.string,
+  /**
    * An error message that sets the input to error state
    */
   error: PropTypes.string,
   /**
    * Material icon name
    */
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  /**
+   * To override icon styling
+   */
+  iconClassName: PropTypes.string,
+  /**
+   * Add any element to display as a CTA
+   */
+  cta: PropTypes.node,
+  /**
+   * Action to be taken when CTA is clicked
+   */
+  ctaAction: PropTypes.func
 };
 
 export default Input;

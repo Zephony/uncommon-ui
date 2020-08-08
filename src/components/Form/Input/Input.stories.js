@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Input from "./";
 
 export default {
@@ -45,6 +46,27 @@ export const InputWithIcon = () => {
       width="380px"
       placeholder="Enter message here..."
       icon="search"
+    />
+  );
+};
+
+export const InputWithCTA = () => {
+  const CTA = styled.div`
+    color: #3577ec;
+    letter-spacing: 0;
+    line-height: 22px;
+
+    &:hover {
+      color: rgba(53, 119, 236, 0.8);
+    }
+  `;
+  return (
+    <Input
+      type="text"
+      width="380px"
+      placeholder="Enter message here..."
+      cta={<CTA>Verify</CTA>}
+      ctaAction={() => console.log("Ma I've been clicked!")}
     />
   );
 };
