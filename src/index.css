@@ -27,3 +27,19 @@ code {
   top: 14px;
   left: 10px;
 }
+
+.input .search-input {
+  border-radius: 20px;
+  background-color: #ededed;
+  height: 40px;
+  font-size: 16px;
+  color: #6e6e6e;
+  padding-left: 42px;
+  width: 540px;
+}
+
+.input .search-input-icon {
+  font-size: 18px;
+  top: 17px;
+  left: 10px;
+}
