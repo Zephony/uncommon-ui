@@ -13,7 +13,7 @@ code {
 }
 
 /* Need to bump up specificity to override styled-components */
-.input .tag-input {
+.uu-input .tag-input {
   border-radius: 16.5px;
   background-color: #ededed;
   height: 33px;
@@ -22,13 +22,13 @@ code {
   padding-left: 33px;
 }
 
-.input .tag-input-icon {
+.uu-input .tag-input-icon {
   font-size: 18px;
   top: 14px;
   left: 10px;
 }
 
-.input .uu-search-input {
+.uu-input .uu-search-input {
   border-radius: 20px;
   background-color: #ededed;
   height: 40px;
@@ -38,7 +38,7 @@ code {
   width: 540px;
 }
 
-.input .uu-search-input-icon {
+.uu-input .uu-search-input-icon {
   font-size: 18px;
   top: 17px;
   left: 10px;

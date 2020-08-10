@@ -48,6 +48,10 @@ const StyledInput = styled.input`
     opacity: 0.5;
     color: ${props => props.theme.colors.secondary};
   }
+
+  &:disabled {
+    background-color: #f7f7f7;
+  }
 `;
 
 const Error = styled.div`
@@ -55,6 +59,7 @@ const Error = styled.div`
   font-size: 12px;
   letter-spacing: 0;
   line-height: 18px;
+  height: 12px;
 `;
 
 const Icon = styled.i`
@@ -84,13 +89,19 @@ const Input = ({
   iconClassName,
   cta,
   ctaAction,
+  required,
   ...props
 }) => {
   const ctaRef = useRef();
   const { width: ctaWidth } = useResize(ctaRef);
   return (
-    <div className="input">
-      {label && <Label>{label}</Label>}
+    <div className="uu-input">
+      {label && (
+        <Label>
+          {label}
+          {required && <span style={{ color: "#c84242" }}>*</span>}
+        </Label>
+      )}
       <Wrapper>
         <StyledInput
           error={error}
@@ -109,7 +120,8 @@ const Input = ({
             {cta}
           </CTAWrapper>
         )}
-        {error && <Error>{error}</Error>}
+        {/* Accounting for the space that error takes up */}
+        {error ? <Error>{error}</Error> : <Error />}
       </Wrapper>
     </div>
   );
@@ -120,6 +132,10 @@ Input.propTypes = {
    * Label for the input
    */
   label: PropTypes.string,
+  /**
+   * If an input is required or not
+   */
+  required: PropTypes.bool,
   /**
    * Any CSS width value
    */

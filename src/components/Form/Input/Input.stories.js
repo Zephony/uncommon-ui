@@ -22,6 +22,14 @@ export const InputWithLabel = () => {
   return <Input type="text" label="This is a label" />;
 };
 
+export const InputRequired = () => {
+  return <Input type="text" label="This is required" required />;
+};
+
+export const InputDisabled = () => {
+  return <Input type="text" label="This is disabled" disabled />;
+};
+
 export const InputVariableWidth = () => {
   return (
     <Input type="text" width="280px" placeholder="Enter message here..." />
