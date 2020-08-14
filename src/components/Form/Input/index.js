@@ -7,13 +7,14 @@ const Wrapper = styled.div`
   display: inline-block;
   position: relative;
   font-size: 15px;
+  width: 100%;
 `;
 
 const Label = styled.label`
   display: block;
   font-size: 14px;
   color: ${props => props.theme.colors.secondary};
-  font-weight: 500;
+  font-weight: bold;
   line-height: 21px;
 `;
 
@@ -82,7 +83,7 @@ const CTAWrapper = styled.div`
  */
 const Input = ({
   label,
-  width = "400px",
+  width = "100%",
   height = "50px",
   error,
   icon,

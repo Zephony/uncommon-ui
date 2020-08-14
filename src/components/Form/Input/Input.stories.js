@@ -10,24 +10,46 @@ export default {
   }
 };
 
+const Wrapper = styled.div`
+  width: 400px;
+`;
+
 export const InputDefault = () => {
   const [value, setValue] = useState("");
 
   return (
-    <Input type="text" value={value} onChange={e => setValue(e.target.value)} />
+    <Wrapper>
+      <Input
+        type="text"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+    </Wrapper>
   );
 };
 
 export const InputWithLabel = () => {
-  return <Input type="text" label="This is a label" />;
+  return (
+    <Wrapper>
+      <Input type="text" label="This is a label" />
+    </Wrapper>
+  );
 };
 
 export const InputRequired = () => {
-  return <Input type="text" label="This is required" required />;
+  return (
+    <Wrapper>
+      <Input type="text" label="This is required" required />
+    </Wrapper>
+  );
 };
 
 export const InputDisabled = () => {
-  return <Input type="text" label="This is disabled" disabled />;
+  return (
+    <Wrapper>
+      <Input type="text" label="This is disabled" disabled />
+    </Wrapper>
+  );
 };
 
 export const InputVariableWidth = () => {
@@ -81,12 +103,14 @@ export const InputWithCTA = () => {
 
 export const OverrideInputStyles = () => {
   return (
-    <Input
-      type="text"
-      icon="search"
-      className="tag-input" // To override input styles
-      iconClassName="tag-input-icon" // To override icon styles
-      placeholder="Search Tags"
-    />
+    <Wrapper>
+      <Input
+        type="text"
+        icon="search"
+        className="tag-input" // To override input styles
+        iconClassName="tag-input-icon" // To override icon styles
+        placeholder="Search Tags"
+      />
+    </Wrapper>
   );
 };

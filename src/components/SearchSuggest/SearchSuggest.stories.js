@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import SearchSuggest from "./";
 
 export default {
@@ -32,40 +33,9 @@ const sampleSuggestions = [
   }
 ];
 
-export const DefaultSearch = () => {
-  const [value, setValue] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
-
-  useEffect(() => {
-    if (value) {
-      setSuggestions(
-        sampleSuggestions.filter(
-          item =>
-            item.category.toLowerCase().includes(value.toLowerCase()) ||
-            item.name.toLowerCase().includes(value.toLowerCase())
-        )
-      );
-    } else {
-      setSuggestions([]);
-    }
-  }, [value]);
-
-  return (
-    <SearchSuggest
-      value={value}
-      setValue={setValue}
-      suggestions={suggestions}
-      formatSuggestion={item => (
-        <span>
-          {item.category}:{" "}
-          <span style={{ fontWeight: "bold" }}>{item.name}</span>
-        </span>
-      )}
-      onSuggestionClick={item => console.log("Do something with me", item)}
-      onSearch={value => console.log("Searching with value", value)}
-    />
-  );
-};
+const Wrapper = styled.div`
+  width: 400px;
+`;
 
 export const FormattedSuggestion = () => {
   const [value, setValue] = useState("");
@@ -86,18 +56,20 @@ export const FormattedSuggestion = () => {
   }, [value]);
 
   return (
-    <SearchSuggest
-      value={value}
-      setValue={setValue}
-      suggestions={suggestions}
-      formatSuggestion={item => (
-        <span>
-          {item.category}:{" "}
-          <span style={{ fontWeight: "bold" }}>{item.name}</span>
-        </span>
-      )}
-      onSuggestionClick={item => console.log("Do something with me", item)}
-      onSearch={value => console.log("Searching with value", value)}
-    />
+    <Wrapper>
+      <SearchSuggest
+        value={value}
+        setValue={setValue}
+        suggestions={suggestions}
+        formatSuggestion={item => (
+          <span>
+            {item.category}:{" "}
+            <span style={{ fontWeight: "bold" }}>{item.name}</span>
+          </span>
+        )}
+        onSuggestionClick={item => console.log("Do something with me", item)}
+        onSearch={value => console.log("Searching with value", value)}
+      />
+    </Wrapper>
   );
 };

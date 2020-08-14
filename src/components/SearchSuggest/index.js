@@ -7,7 +7,8 @@ import { useKeyPress } from "../../utils/helpers";
 
 const Wrapper = styled.div`
   position: relative;
-  display: inline-block;
+  ${"" /* display: inline-block; */}
+  width: 100%;
 `;
 
 const List = styled.div`
@@ -15,6 +16,7 @@ const List = styled.div`
   padding: 0 4px;
   position: absolute;
   border: 1px solid transparent;
+  width: 100%;
   ${props =>
     props.showList &&
     css`

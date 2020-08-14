@@ -88,7 +88,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/form@1.0.7": {
+    "zephony.uncommon-ui/form@1.0.8": {
         "files": [
             {
                 "relativePath": "src/components/Form/index.js",
@@ -137,7 +137,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/input@1.0.4": {
+    "zephony.uncommon-ui/input@1.0.5": {
         "files": [
             {
                 "relativePath": "src/components/Form/Input/Input.stories.js",
@@ -201,7 +201,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/search-suggest@1.0.1": {
+    "zephony.uncommon-ui/search-suggest@1.0.2": {
         "files": [
             {
                 "relativePath": "src/components/SearchSuggest/SearchSuggest.stories.js",
@@ -242,7 +242,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/tag-filter@1.0.8": {
+    "zephony.uncommon-ui/tag-filter@1.0.9": {
         "files": [
             {
                 "relativePath": "src/components/TagFilter/TagFilter.stories.js",
