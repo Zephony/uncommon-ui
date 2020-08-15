@@ -34,3 +34,11 @@ export const BasicSelect = () => {
     </Wrapper>
   );
 };
+
+export const ErrorState = () => {
+  return (
+    <Wrapper>
+      <Select options={options} label="Ice Cream" error="This is an error" />
+    </Wrapper>
+  );
+};

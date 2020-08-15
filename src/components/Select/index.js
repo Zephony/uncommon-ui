@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import ReactSelect from "react-select";
 import theme from "../../utils/theme";
 
@@ -48,6 +49,12 @@ const customStyles = {
     "&:hover": {
       borderColor: state.isFocused ? theme.colors.primary : "#DADADA",
     },
+    ...(state.selectProps.error && {
+      border: `1px solid ${theme.colors.error}`,
+      "&:hover": {
+        borderColor: theme.colors.error,
+      },
+    }),
   }),
   indicatorSeparator: () => ({
     display: "none",
@@ -62,6 +69,8 @@ const customStyles = {
   }),
 };
 
+// Wraps the react-select to use a better filter method, current one relies on indexOf which isn't great for searching large lists
+// New custom search matches if all words in box are found anywhere in the option.label, case in-sensitive
 const customFilter = (option, rawInput) => {
   const words = rawInput.split(" ");
 
@@ -89,7 +98,15 @@ const customFilter = (option, rawInput) => {
   return false;
 };
 
-const Select = ({ label, ...props }) => {
+const Error = styled.div`
+  color: ${(props) => props.theme.colors.error};
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 18px;
+  height: 12px;
+`;
+
+const Select = ({ label, error, ...props }) => {
   return (
     <div>
       {label && <Label>{label}</Label>}
@@ -97,10 +114,28 @@ const Select = ({ label, ...props }) => {
         {...props}
         closeMenuOnSelect={!props.isMulti}
         styles={customStyles}
+        error={error}
         filterOption={customFilter}
       />
+      {/* Accounting for the space that error takes up */}
+      {error ? <Error>{error}</Error> : <Error />}
     </div>
   );
+};
+
+Select.propTypes = {
+  /**
+   * Label for the select
+   */
+  label: PropTypes.string,
+  /**
+   * An error message that sets the input to error state
+   */
+  error: PropTypes.string,
+  /**
+   * Any react-select supported prop
+   */
+  props: PropTypes.object,
 };
 
 export default Select;
