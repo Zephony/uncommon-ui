@@ -1,6 +1,6 @@
 # [uncommon-ui](https://https://zephony.github.io/uncommon-ui/)
 
-Uncommon UI aims to be a library of reusable React components that range for simple building blocks to more complex components that are usually only created when the need arises or by crazy people.
+Uncommon UI aims to be a library of reusable React components that range from simple building blocks to more complex components that are usually only created when the need arises or by crazy people.
 
 This repo is a place of expression and wild ideas that can push the boundaries of UI/UX principles.
 
