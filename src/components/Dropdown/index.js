@@ -43,11 +43,12 @@ const Dropdown = ({
   options,
   dropdownOpen,
   onTriggerClick,
-  setDropdownOpen
+  setDropdownOpen,
+  className,
 }) => {
   const wrapperRef = useRef();
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     if (wrapperRef.current.contains(e.target)) {
       // inside click
       return;
@@ -66,11 +67,11 @@ const Dropdown = ({
   }, [handleClick]);
 
   return (
-    <Wrapper ref={wrapperRef}>
+    <Wrapper ref={wrapperRef} className={className || "uu-dropdown"}>
       <Trigger triggerText={triggerText} onClick={onTriggerClick} />
       {dropdownOpen && (
         <List>
-          {options.map(item => (
+          {options.map((item) => (
             <Option key={item.id} onClick={() => item.action(item)}>
               {item.icon && <div>{item.icon}</div>}
               <Name>{item.name}</Name>
@@ -91,7 +92,7 @@ Dropdown.propTypes = {
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       name: PropTypes.string,
       icon: PropTypes.node,
-      action: PropTypes.func
+      action: PropTypes.func,
     })
   ).isRequired,
   /**
@@ -109,7 +110,7 @@ Dropdown.propTypes = {
   /**
    * Function called when trigger is clicked
    */
-  onTriggerClick: PropTypes.func.isRequired
+  onTriggerClick: PropTypes.func.isRequired,
 };
 
 export default Dropdown;

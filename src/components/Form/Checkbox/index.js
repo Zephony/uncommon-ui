@@ -21,15 +21,15 @@ const Icon = styled(CheckIcon)`
   height: 16px;
   color: white;
   font-size: 14px !important;
-  cursor: ${props => (props.disabled ? "default" : "pointer")};
-  background: ${props =>
+  cursor: ${(props) => (props.disabled ? "default" : "pointer")};
+  background: ${(props) =>
     props.checked ? props.theme?.colors?.primary ?? "#e2863d" : "white"};
   border-radius: 3px;
   transition: ease 100ms;
   border: 1px solid
-    ${props =>
+    ${(props) =>
       props.checked ? props.theme?.colors?.primary ?? "#e2863d" : "#CACACA"};
-  opacity: ${props => (props.disabled && props.checked ? "0.3" : "1")};
+  opacity: ${(props) => (props.disabled && props.checked ? "0.3" : "1")};
 `;
 
 const CheckboxContainer = styled.div`
@@ -51,9 +51,10 @@ const Checkbox = ({
   onChange,
   labelText,
   disabled = false,
+  className,
   ...props
 }) => (
-  <LabelWrapper>
+  <LabelWrapper className={className}>
     <CheckboxContainer>
       <HiddenCheckbox
         checked={checked}
@@ -69,9 +70,9 @@ const Checkbox = ({
 Checkbox.defaultProps = {
   theme: {
     colors: {
-      primary: "#e2863d"
-    }
-  }
+      primary: "#e2863d",
+    },
+  },
 };
 
 Checkbox.propTypes = {
@@ -90,7 +91,7 @@ Checkbox.propTypes = {
   /**
    * Accepts an onChange event
    */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 };
 
 export default Checkbox;

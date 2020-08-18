@@ -45,10 +45,11 @@ const Notification = ({
   avatar,
   active,
   timestampFormat = "hh:mma",
-  isTimeAgo
+  isTimeAgo,
+  className,
 }) => {
   return (
-    <Wrapper>
+    <Wrapper className={className || "uu-notification"}>
       <TextWrapper>
         <Avatar src={avatar} isActive={active} />
         <Text>
@@ -92,7 +93,7 @@ Notification.propTypes = {
   /**
    * Displays time in ago format
    */
-  isTimeAgo: PropTypes.bool
+  isTimeAgo: PropTypes.bool,
 };
 
 export default Notification;

@@ -12,7 +12,7 @@ const Active = styled.div`
   position: absolute;
   width: 8px;
   height: 8px;
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
   border: 2px solid #fff;
   top: 0px;
   right: 0px;
@@ -20,26 +20,24 @@ const Active = styled.div`
 `;
 
 const Image = styled.div`
-  width: ${props => props.size};
-  height: ${props => props.size};
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
   border-radius: 50%;
-  background-image: url('${props => props.src}');
+  background-image: url('${(props) => props.src}');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 `;
 
-/**
- * "Life happens wherever you are, whether you make it or not.” - Iroh, Avatar the Last Airbender Episode 2.14”
- */
 const Avatar = ({
   src = BlankImage,
   size = "40px",
   isActive,
-  activeColor = "#e2863d"
+  activeColor = "#e2863d",
+  className,
 }) => {
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <Image size={size} src={src} />
       {isActive && <Active color={activeColor} />}
     </Wrapper>
@@ -62,7 +60,7 @@ Avatar.propTypes = {
   /**
    * Change color of active indicator
    */
-  activeColor: PropTypes.string
+  activeColor: PropTypes.string,
 };
 
 export default Avatar;

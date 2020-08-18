@@ -106,9 +106,9 @@ const Error = styled.div`
   height: 12px;
 `;
 
-const Select = ({ label, error, ...props }) => {
+const Select = ({ label, error, className, ...props }) => {
   return (
-    <div>
+    <div className={className || "uu-select"}>
       {label && <Label>{label}</Label>}
       <ReactSelect
         {...props}

@@ -52,21 +52,28 @@ const CheckboxWrapper = styled.div`
 /**
  * "There is a time and a place for things. Sometimes one needs to put a filter on oneself. That can be a good thing." - Tori Amos
  */
-const TagFilter = ({ data, setData, onCancel, onSubmit, onClear }) => {
+const TagFilter = ({
+  data,
+  setData,
+  onCancel,
+  onSubmit,
+  onClear,
+  className,
+}) => {
   const [value, setValue] = useState("");
   const [filteredData, setFilteredData] = useState(data);
 
   const handleCheckboxChange = (e, id) => {
     let updatedData = [...data];
-    updatedData[updatedData.findIndex(el => el.id === id)].isChecked =
+    updatedData[updatedData.findIndex((el) => el.id === id)].isChecked =
       e.target.checked;
     setData(updatedData);
   };
 
-  const onSearchChange = e => {
+  const onSearchChange = (e) => {
     setValue(e.target.value);
     let value = e.target.value;
-    let filteredData = data.filter(el =>
+    let filteredData = data.filter((el) =>
       el.name.toLowerCase().includes(value.toLowerCase())
     );
     setFilteredData(filteredData);
@@ -78,7 +85,7 @@ const TagFilter = ({ data, setData, onCancel, onSubmit, onClear }) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper className={className || "uu-tag-filter"}>
       <Header>
         <Input
           type="text"
@@ -97,7 +104,7 @@ const TagFilter = ({ data, setData, onCancel, onSubmit, onClear }) => {
             <Checkbox
               checked={isChecked}
               labelText={name}
-              onChange={e => handleCheckboxChange(e, id)}
+              onChange={(e) => handleCheckboxChange(e, id)}
             />
           </CheckboxWrapper>
         ))}
@@ -128,7 +135,7 @@ TagFilter.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      name: PropTypes.string
+      name: PropTypes.string,
     })
   ).isRequired,
   /**
@@ -146,7 +153,7 @@ TagFilter.propTypes = {
   /**
    * Accepts an event when clear button is clicked
    */
-  onClear: PropTypes.func
+  onClear: PropTypes.func,
 };
 
 export default TagFilter;

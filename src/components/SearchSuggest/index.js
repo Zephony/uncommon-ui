@@ -17,7 +17,7 @@ const List = styled.div`
   position: absolute;
   border: 1px solid transparent;
   width: 100%;
-  ${props =>
+  ${(props) =>
     props.showList &&
     css`
       border: 1px solid #ededed;
@@ -43,7 +43,7 @@ const Results = styled.div`
 const Item = styled.div`
   padding: 10px 0;
   cursor: pointer;
-  color: ${props => props.highlighted && "#3577ec"};
+  color: ${(props) => props.highlighted && "#3577ec"};
 `;
 
 /**
@@ -55,7 +55,8 @@ const SearchSuggest = ({
   suggestions,
   formatSuggestion,
   onSuggestionClick,
-  onSearch
+  onSearch,
+  className,
 }) => {
   const [highlighted, setHighlighted] = useState(null);
   const upPress = useKeyPress("ArrowUp");
@@ -98,7 +99,7 @@ const SearchSuggest = ({
   }, [enterPress]);
 
   return (
-    <Wrapper>
+    <Wrapper className={className || "uu-search-suggest"}>
       <List showList={value.length > 0}>
         <Input
           type="text"
@@ -107,7 +108,7 @@ const SearchSuggest = ({
           iconClassName="uu-search-input-icon" // To override icon styles
           placeholder="Search"
           value={value}
-          onChange={e => setValue(e.target.value)}
+          onChange={(e) => setValue(e.target.value)}
         />
         <Results>
           {formatSuggestion
@@ -159,7 +160,7 @@ SearchSuggest.propTypes = {
   /**
    * Action when search with the term is triggered
    */
-  onSearch: PropTypes.func
+  onSearch: PropTypes.func,
 };
 
 export default SearchSuggest;

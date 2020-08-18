@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import Arrow from "./Arrow";
 
 const SliderWrapper = styled.div`
-  height: ${props => props.height}px;
-  width: ${props => props.width}px;
+  height: ${(props) => props.height}px;
+  width: ${(props) => props.width}px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -14,17 +14,17 @@ const SliderWrapper = styled.div`
 `;
 
 const SliderContent = styled.div`
-  transform: translateX(-${props => props.translate}px);
-  transition: transform ease-out ${props => props.transition}s;
+  transform: translateX(-${(props) => props.translate}px);
+  transition: transform ease-out ${(props) => props.transition}s;
   height: 100%;
-  width: ${props => props.width}px;
+  width: ${(props) => props.width}px;
   display: flex;
 `;
 
 const Slide = styled.div`
   height: 100%;
   width: 100%;
-  background-image: url('${props => props.content}');
+  background-image: url('${(props) => props.content}');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -40,13 +40,14 @@ const Slider = ({
   infinite,
   initial = 0,
   autoplay,
-  autoplaySpeed = 3000
+  autoplaySpeed = 3000,
+  className,
 }) => {
   const ref = useRef();
   const [state, setState] = useState({
     activeIndex: initial,
     translate: initial * width,
-    transition: 0.45
+    transition: 0.45,
   });
 
   const { translate, transition, activeIndex } = state;
@@ -59,14 +60,14 @@ const Slider = ({
       return setState({
         ...state,
         translate: 0,
-        activeIndex: 0
+        activeIndex: 0,
       });
     }
 
     setState({
       ...state,
       activeIndex: activeIndex + 1,
-      translate: (activeIndex + 1) * width
+      translate: (activeIndex + 1) * width,
     });
   };
 
@@ -76,14 +77,14 @@ const Slider = ({
       return setState({
         ...state,
         translate: (items.length - 1) * width,
-        activeIndex: items.length - 1
+        activeIndex: items.length - 1,
       });
     }
 
     setState({
       ...state,
       activeIndex: activeIndex - 1,
-      translate: (activeIndex - 1) * width
+      translate: (activeIndex - 1) * width,
     });
   };
 
@@ -97,7 +98,12 @@ const Slider = ({
   });
 
   return (
-    <SliderWrapper width={width} height={height} ref={ref}>
+    <SliderWrapper
+      width={width}
+      height={height}
+      ref={ref}
+      className={className || "uu-slider"}
+    >
       <SliderContent
         translate={translate}
         transition={transition}
@@ -149,7 +155,7 @@ Slider.propTypes = {
   /**
    * Usually elements that will be the slides
    */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Slider;

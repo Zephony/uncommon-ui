@@ -24,7 +24,7 @@ const Header = styled.div`
 const Content = styled.div`
   width: auto;
   padding: 20px;
-  max-height: ${props => props.maxHeight};
+  max-height: ${(props) => props.maxHeight};
   overflow: auto;
 `;
 
@@ -101,16 +101,17 @@ const NotificationMenu = ({
   onViewAllClick,
   timestampFormat,
   isTimeAgo,
-  maxHeight = "550px"
+  maxHeight = "550px",
+  className,
 }) => {
   const renderData = () => {
     // If grouped data
     if (data.length > 1 && "group" in data[0]) {
       let groupedData = groupBy(data, "group");
-      return Object.keys(groupedData).map(group => (
+      return Object.keys(groupedData).map((group) => (
         <div key={group}>
           <GroupName>{group}</GroupName>
-          {groupedData[group].map(item => (
+          {groupedData[group].map((item) => (
             <NotificationWrapper
               key={item.id}
               onClick={() => onNotificationClick(item)}
@@ -126,7 +127,7 @@ const NotificationMenu = ({
       ));
     }
 
-    return data.map(item => (
+    return data.map((item) => (
       <NotificationWrapper
         key={item.id}
         onClick={() => onNotificationClick(item)}
@@ -141,7 +142,7 @@ const NotificationMenu = ({
   };
 
   return (
-    <Wrapper>
+    <Wrapper className={className || "uu-notification-menu"}>
       <Header>
         <div style={{ display: "flex" }}>
           <StyledBellIcon />
@@ -166,7 +167,7 @@ NotificationMenu.propTypes = {
       time: PropTypes.string,
       avatar: PropTypes.string,
       active: PropTypes.bool,
-      group: PropTypes.string
+      group: PropTypes.string,
     })
   ).isRequired,
   /**
@@ -180,7 +181,7 @@ NotificationMenu.propTypes = {
   /**
    * Sets the max height of the notification menu content
    */
-  maxHeight: PropTypes.string
+  maxHeight: PropTypes.string,
 };
 
 export default NotificationMenu;

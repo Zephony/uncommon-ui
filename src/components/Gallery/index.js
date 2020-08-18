@@ -25,7 +25,7 @@ const Image = styled.div`
   top: 100px;
   width: 75%;
   height: 60%;
-  background-image: url('${props => props.src}');
+  background-image: url('${(props) => props.src}');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -57,7 +57,7 @@ const CloseIcon = ({ onClick }) => {
 /**
  * "History is a gallery of pictures in which there are few originals and many copies." - Alexis de Tocqueville
  */
-const Gallery = ({ images, onClose, initialIndex = 0 }) => {
+const Gallery = ({ images, onClose, initialIndex = 0, className }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const leftPress = useKeyPress("ArrowLeft");
   const rightPress = useKeyPress("ArrowRight");
@@ -91,12 +91,12 @@ const Gallery = ({ images, onClose, initialIndex = 0 }) => {
     }
   };
 
-  const onThumbnailClick = i => {
+  const onThumbnailClick = (i) => {
     setCurrentIndex(i);
   };
 
   return (
-    <Overlay>
+    <Overlay className={className || "uu-gallery"}>
       <Image src={images[currentIndex]} />
       <Arrow
         onClick={prevImage}
@@ -138,7 +138,7 @@ Gallery.propTypes = {
   /**
    * Event when close button is clicked
    */
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Gallery;
