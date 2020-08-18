@@ -5,4 +5,4 @@ import "../src/normalize.css";
 import "../src/index.css";
 import theme from "../src/utils/theme";
 
-addDecorator(story => <ThemeProvider theme={theme}>{story()}</ThemeProvider>);
+// addDecorator(story => <ThemeProvider theme={theme}>{story()}</ThemeProvider>);

@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import styled, { css } from "styled-components";
+import styled, { ThemeProvider, css } from "styled-components";
 import PropTypes from "prop-types";
+import defaultTheme from "../../../utils/theme";
 import { useResize } from "../../../utils/helpers";
 
 const Wrapper = styled.div`
@@ -13,28 +14,28 @@ const Wrapper = styled.div`
 const Label = styled.label`
   display: block;
   font-size: 14px;
-  color: ${props => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.secondary};
   font-weight: bold;
   line-height: 21px;
 `;
 
 const StyledInput = styled.input`
-  width: ${props => props.width};
-  height: ${props => props.height};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   border-radius: 6px;
   border: solid 1px
-    ${props => (props.error ? props.theme.colors.error : "#DADADA")};
+    ${(props) => (props.error ? props.theme.colors.error : "#DADADA")};
   padding: 14px 10px;
   letter-spacing: 0;
   line-height: 22px;
   box-sizing: border-box;
   margin: 5px 0;
-  ${props =>
+  ${(props) =>
     props.icon &&
     css`
       padding-left: 42px;
     `}
-  ${props =>
+  ${(props) =>
     props.cta &&
     css`
       padding-right: ${props.ctaWidth + 20}px;
@@ -42,12 +43,12 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none !important;
-    border-color: ${props => props.theme.colors.primary};
+    border-color: ${(props) => props.theme.colors.primary};
   }
 
   &::placeholder {
     opacity: 0.5;
-    color: ${props => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.secondary};
   }
 
   &:disabled {
@@ -56,7 +57,7 @@ const StyledInput = styled.input`
 `;
 
 const Error = styled.div`
-  color: ${props => props.theme.colors.error};
+  color: ${(props) => props.theme.colors.error};
   font-size: 12px;
   letter-spacing: 0;
   line-height: 18px;
@@ -91,44 +92,55 @@ const Input = ({
   cta,
   ctaAction,
   required,
+  theme = defaultTheme, // Uses the theme by default
   ...props
 }) => {
   const ctaRef = useRef();
   const { width: ctaWidth } = useResize(ctaRef);
   return (
-    <div className="uu-input">
-      {label && (
-        <Label>
-          {label}
-          {required && <span style={{ color: "#c84242" }}>*</span>}
-        </Label>
-      )}
-      <Wrapper>
-        <StyledInput
-          error={error}
-          width={width}
-          height={height}
-          icon={icon}
-          cta={cta}
-          ctaWidth={ctaWidth}
-          {...props}
-        />
-        {icon && (
-          <Icon className={`${iconClassName} material-icons`}>{icon}</Icon>
+    <ThemeProvider theme={theme}>
+      <div className="uu-input">
+        {label && (
+          <Label>
+            {label}
+            {required && <span style={{ color: "#c84242" }}>*</span>}
+          </Label>
         )}
-        {cta && (
-          <CTAWrapper ref={ctaRef} onClick={ctaAction}>
-            {cta}
-          </CTAWrapper>
-        )}
-        {/* Accounting for the space that error takes up */}
-        {error ? <Error>{error}</Error> : <Error />}
-      </Wrapper>
-    </div>
+        <Wrapper>
+          <StyledInput
+            error={error}
+            width={width}
+            height={height}
+            icon={icon}
+            cta={cta}
+            ctaWidth={ctaWidth}
+            {...props}
+          />
+          {icon && (
+            <Icon className={`${iconClassName} material-icons`}>{icon}</Icon>
+          )}
+          {cta && (
+            <CTAWrapper ref={ctaRef} onClick={ctaAction}>
+              {cta}
+            </CTAWrapper>
+          )}
+          {/* Accounting for the space that error takes up */}
+          {error ? <Error>{error}</Error> : <Error />}
+        </Wrapper>
+      </div>
+    </ThemeProvider>
   );
 };
 
 Input.propTypes = {
+  /**
+   * Value passed to the input
+   */
+  value: PropTypes.string,
+  /**
+   * onChange handler
+   */
+  onChange: PropTypes.func,
   /**
    * Label for the input
    */
@@ -164,7 +176,11 @@ Input.propTypes = {
   /**
    * Action to be taken when CTA is clicked
    */
-  ctaAction: PropTypes.func
+  ctaAction: PropTypes.func,
+  /**
+   * Theme override
+   */
+  theme: PropTypes.object,
 };
 
 export default Input;

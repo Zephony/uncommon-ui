@@ -6,8 +6,8 @@ export default {
   title: "Forms/Input",
 
   parameters: {
-    component: Input
-  }
+    component: Input,
+  },
 };
 
 const Wrapper = styled.div`
@@ -22,7 +22,7 @@ export const InputDefault = () => {
       <Input
         type="text"
         value={value}
-        onChange={e => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
       />
     </Wrapper>
   );
@@ -98,6 +98,14 @@ export const InputWithCTA = () => {
       cta={<CTA>Verify</CTA>}
       ctaAction={() => console.log("Ma I've been clicked!")}
     />
+  );
+};
+
+export const OverrideTheme = () => {
+  return (
+    <Wrapper>
+      <Input type="text" theme={{ colors: { primary: "green" } }} />
+    </Wrapper>
   );
 };
 

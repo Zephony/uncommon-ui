@@ -1,41 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
+import styled, { ThemeProvider, css } from "styled-components";
+import defaultTheme from "../../utils/theme";
 
 // Styles for a primary button
 const primary = css`
-  background-color: ${props => props.theme?.colors?.primary ?? "#e2863d"};
+  background-color: ${(props) => props.theme.colors.primary};
   color: #fff;
-  border: 1px solid ${props => props.theme?.colors?.primary ?? "#e2863d"};
+  border: 1px solid ${(props) => props.theme.colors.primary};
   &:hover:enabled,
   &:focus:enabled {
     background-color: #fff;
-    color: ${props => props.theme?.colors?.primary ?? "#e2863d"};
-    border: 1px solid ${props => props.theme?.colors?.primary ?? "#e2863d"};
+    color: ${(props) => props.theme.colors.primary};
+    border: 1px solid ${(props) => props.theme.colors.primary};
   }
 `;
 
 // Styles for a secondary button
 const secondary = css`
   background-color: #fff;
-  color: ${props => props.theme?.colors?.primary ?? "#e2863d"};
-  border: 1px solid ${props => props.theme?.colors?.primary ?? "#e2863d"};
+  color: ${(props) => props.theme.colors.primary};
+  border: 1px solid ${(props) => props.theme.colors.primary};
   &:hover:enabled,
   &:focus:enabled {
-    background-color: ${props => props.theme?.colors?.primary ?? "#e2863d"};
+    background-color: ${(props) => props.theme.colors.primary};
     color: #fff;
   }
 `;
 
 const link = css`
   background: transparent;
-  color: ${props => props.theme?.colors?.primary ?? "#e2863d"};
+  color: ${(props) => props.theme.colors.primary};
   padding: 8px;
 `;
 
 const StyledButton = styled.button`
   outline: none;
-  min-width: ${props => props.width};
+  min-width: ${(props) => props.width};
   width: auto;
   height: 40px;
   padding: 8px 35px;
@@ -48,9 +49,9 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   transition: 0.3s;
-  ${props => (props.type === "primary" ? primary : undefined)};
-  ${props => (props.type === "secondary" ? secondary : undefined)};
-  ${props => (props.type === "link" ? link : undefined)};
+  ${(props) => (props.type === "primary" ? primary : undefined)};
+  ${(props) => (props.type === "secondary" ? secondary : undefined)};
+  ${(props) => (props.type === "link" ? link : undefined)};
 
   &:disabled {
     opacity: 0.3;
@@ -68,18 +69,21 @@ const Button = ({
   disabled = false,
   className,
   width = "121px",
+  theme = defaultTheme,
   ...props
 }) => {
   return (
-    <StyledButton
-      className={className}
-      type={type}
-      onClick={onClick}
-      disabled={disabled}
-      {...props}
-    >
-      {children}
-    </StyledButton>
+    <ThemeProvider theme={theme}>
+      <StyledButton
+        className={className}
+        type={type}
+        onClick={onClick}
+        disabled={disabled}
+        {...props}
+      >
+        {children}
+      </StyledButton>
+    </ThemeProvider>
   );
 };
 
@@ -99,7 +103,11 @@ Button.propTypes = {
   /*
    * Text of button
    */
-  children: PropTypes.node
+  children: PropTypes.node,
+  /**
+   * Theme override
+   */
+  theme: PropTypes.object,
 };
 
 export default Button;
