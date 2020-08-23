@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Arrow from "./Arrow";
 
 const SliderWrapper = styled.div`
-  height: ${(props) => props.height}px;
+  height: auto;
   width: ${(props) => props.width}px;
   margin: 0 auto;
   position: relative;
@@ -19,6 +19,7 @@ const SliderContent = styled.div`
   height: 100%;
   width: ${(props) => props.width}px;
   display: flex;
+  align-items: center;
 `;
 
 const Slide = styled.div`
@@ -36,7 +37,6 @@ const Slide = styled.div`
 const Slider = ({
   children,
   width = 800,
-  height = 400,
   infinite,
   initial = 0,
   autoplay,
@@ -98,12 +98,7 @@ const Slider = ({
   });
 
   return (
-    <SliderWrapper
-      width={width}
-      height={height}
-      ref={ref}
-      className={className || "uu-slider"}
-    >
+    <SliderWrapper width={width} ref={ref} className={className || "uu-slider"}>
       <SliderContent
         translate={translate}
         transition={transition}
@@ -132,10 +127,6 @@ Slider.propTypes = {
    * The width of the slider which the slides should also have
    */
   width: PropTypes.number,
-  /**
-   * The height of the slider which the slides should also have
-   */
-  height: PropTypes.number,
   /**
    * Initial index to start
    */

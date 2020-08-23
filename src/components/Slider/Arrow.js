@@ -9,13 +9,14 @@ const Wrapper = styled.div`
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  cursor: ${props => (props.disabled ? "default" : "pointer")};
+  cursor: ${(props) => (props.disabled ? "default" : "pointer")};
   display: flex;
   align-items: center;
-  color: ${props => (props.disabled ? "#eee" : props.color)};
-  border: ${props => (props.disabled ? "1px solid #eee" : "1px solid #000")};
+  color: ${(props) => (props.disabled ? "rgba(0,0,0,0.2)" : props.color)};
+  border: ${(props) =>
+    props.disabled ? "1px solid #eee" : "1px solid rgba(0,0,0,0.2)"};
   border-radius: 50px;
-  ${props =>
+  ${(props) =>
     props.direction === "left"
       ? css`
           left: 10px;
@@ -23,7 +24,7 @@ const Wrapper = styled.div`
       : css`
           right: 10px;
         `};
-  ${props =>
+  ${(props) =>
     props.hideBorder &&
     css`
       border: none;
@@ -36,7 +37,7 @@ const Arrow = ({
   disabled,
   color = "#000",
   fontSize = 40,
-  hideBorder
+  hideBorder,
 }) => {
   return (
     <Wrapper
@@ -71,7 +72,7 @@ Arrow.propTypes = {
   /**
    * Size of the arrow
    */
-  fontSize: PropTypes.number
+  fontSize: PropTypes.number,
 };
 
 export default Arrow;
