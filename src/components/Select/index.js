@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import PropTypes from "prop-types";
 import ReactSelect from "react-select";
-import theme from "../../utils/theme";
+import defaultTheme from "../../utils/theme";
 
 const Label = styled.label`
   display: block;
@@ -24,11 +24,11 @@ const customStyles = {
     ...provided,
     ...commonTextStyle,
     color: state.isSelected ? "#fff" : "#585858",
-    backgroundColor: state.isSelected ? theme.colors.primary : "#fff",
+    backgroundColor: state.isSelected ? defaultTheme.colors.primary : "#fff",
     ":hover": {
       ...provided[":hover"],
       color: "#fff",
-      backgroundColor: theme.colors.hoverPrimary,
+      backgroundColor: defaultTheme.colors.hoverPrimary,
     },
   }),
   menu: (provided, state) => ({
@@ -39,20 +39,20 @@ const customStyles = {
     ...provided,
     height: "50px",
     border: state.isFocused
-      ? `1px solid ${theme.colors.primary}`
+      ? `1px solid ${defaultTheme.colors.primary}`
       : "1px solid #DADADA",
     // This line disable the blue border
     boxShadow: state.isFocused && 0,
     borderRadius: "6px",
     backgroundColor: "#FFFFFF",
-    borderColor: state.isFocused ? theme.colors.primary : "#DADADA",
+    borderColor: state.isFocused ? defaultTheme.colors.primary : "#DADADA",
     "&:hover": {
-      borderColor: state.isFocused ? theme.colors.primary : "#DADADA",
+      borderColor: state.isFocused ? defaultTheme.colors.primary : "#DADADA",
     },
     ...(state.selectProps.error && {
-      border: `1px solid ${theme.colors.error}`,
+      border: `1px solid ${defaultTheme.colors.error}`,
       "&:hover": {
-        borderColor: theme.colors.error,
+        borderColor: defaultTheme.colors.error,
       },
     }),
   }),
@@ -106,20 +106,28 @@ const Error = styled.div`
   height: 12px;
 `;
 
-const Select = ({ label, error, className, ...props }) => {
+const Select = ({
+  label,
+  error,
+  className,
+  theme = defaultTheme, // Uses the theme by default
+  ...props
+}) => {
   return (
-    <div className={className || "uu-select"}>
-      {label && <Label>{label}</Label>}
-      <ReactSelect
-        {...props}
-        closeMenuOnSelect={!props.isMulti}
-        styles={customStyles}
-        error={error}
-        filterOption={customFilter}
-      />
-      {/* Accounting for the space that error takes up */}
-      {error ? <Error>{error}</Error> : <Error />}
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className={className || "uu-select"}>
+        {label && <Label>{label}</Label>}
+        <ReactSelect
+          {...props}
+          closeMenuOnSelect={!props.isMulti}
+          styles={customStyles}
+          error={error}
+          filterOption={customFilter}
+        />
+        {/* Accounting for the space that error takes up */}
+        {error ? <Error>{error}</Error> : <Error />}
+      </div>
+    </ThemeProvider>
   );
 };
 
