@@ -1,44 +1,44 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 /* Need to bump up specificity to override styled-components */
 .uu-input .tag-input {
-  border-radius: 16.5px;
-  background-color: #ededed;
-  height: 33px;
-  font-size: 14px;
-  color: #000;
-  padding-left: 33px;
+    border-radius: 16.5px;
+    background-color: #ededed;
+    height: 33px;
+    font-size: 14px;
+    color: #000;
+    padding-left: 33px;
 }
 
 .uu-input .tag-input-icon {
-  font-size: 18px;
-  top: 14px;
-  left: 10px;
+    font-size: 18px;
+    top: 9px;
+    left: 10px;
 }
 
 .uu-input .uu-search-input {
-  border-radius: 20px;
-  background-color: #ededed;
-  height: 40px;
-  font-size: 16px;
-  color: #6e6e6e;
-  padding-left: 42px;
+    border-radius: 20px;
+    background-color: #ededed;
+    height: 40px;
+    font-size: 16px;
+    color: #6e6e6e;
+    padding-left: 42px;
 }
 
 .uu-input .uu-search-input-icon {
-  font-size: 18px;
-  top: 17px;
-  left: 10px;
+    font-size: 18px;
+    top: 17px;
+    left: 10px;
 }

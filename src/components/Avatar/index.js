@@ -3,6 +3,25 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import BlankImage from "./blank.png";
 
+const propTypes = {
+  /**
+   * Becomes the width and height of the avatar in px
+   */
+  size: PropTypes.string,
+  /**
+   * Image URL for avatar, fallbacks to empty avatar
+   */
+  src: PropTypes.string,
+  /**
+   * To indicate avatar is active
+   */
+  isActive: PropTypes.bool,
+  /**
+   * Change color of active indicator
+   */
+  activeColor: PropTypes.string,
+};
+
 const Wrapper = styled.div`
   position: relative;
   display: inline-block;
@@ -35,32 +54,16 @@ const Avatar = ({
   isActive,
   activeColor = "#e2863d",
   className,
+  ...props
 }) => {
   return (
-    <Wrapper className={className}>
-      <Image size={size} src={src} />
-      {isActive && <Active color={activeColor} />}
+    <Wrapper {...props} className={className || "uu-avatar"}>
+      <Image size={size} src={src} className="uu-avatar-image" />
+      {isActive && <Active color={activeColor} className="uu-avatar-active" />}
     </Wrapper>
   );
 };
 
-Avatar.propTypes = {
-  /**
-   * Becomes the width and height of the avatar in px
-   */
-  size: PropTypes.string,
-  /**
-   * Image URL for avatar, fallbacks to empty avatar
-   */
-  src: PropTypes.string,
-  /**
-   * To indicate avatar is active
-   */
-  isActive: PropTypes.bool,
-  /**
-   * Change color of active indicator
-   */
-  activeColor: PropTypes.string,
-};
+Avatar.propTypes = propTypes;
 
 export default Avatar;

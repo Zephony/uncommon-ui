@@ -26,16 +26,6 @@ Your barebones avatar. Pass in an `src` prop with an image URL to display an ima
 
 <ArgsTable of={Avatar} />
 
-## Custom Dimension
-
-Pass a size in `px` to change the dimensions of the avatar.
-
-<Canvas>
-  <Story name="Custom Dimension">
-    <Avatar src={faker.image.avatar()} size="100px" />
-  </Story>
-</Canvas>
-
 ## Avatar Active
 
 Use the `active` prop as an indicator and pass in an `activeColor` to set the color
@@ -47,5 +37,18 @@ of the indicator.
   </Story>
   <Story name="Active Avatar Color">
     <Avatar src={faker.image.avatar()} isActive activeColor="#00ff00" />
+  </Story>
+</Canvas>
+
+## Custom Dimension
+
+Pass a size in `px` to change the dimensions of the avatar.
+
+<Canvas>
+  <Story name="Custom Dimension">
+    <Avatar src={faker.image.avatar()} size="100px" />
+  </Story>
+  <Story name="Custom Dimension Active">
+    <Avatar src={faker.image.avatar()} size="200px" isActive />
   </Story>
 </Canvas>

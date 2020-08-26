@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
-import { Input } from "../Form";
+import Input from "../Input";
 import { useKeyPress } from "../../utils/helpers";
 
 const Wrapper = styled.div`

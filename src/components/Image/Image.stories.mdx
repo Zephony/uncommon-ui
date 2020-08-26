@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import Image from "./";
+
+export const faker = require("faker");
+
+<Meta title="Image" component={Image} />
+
+# Avatar
+
+> _"Life happens wherever you are, whether you make it or not.”_ - Iroh, Avatar the Last Airbender Episode 2.14”
+
+## Default
+
+Your barebones avatar. Pass in an `src` prop with an image URL to display an image.
+
+<Canvas>
+  <Story name="Default Image">
+    <Image src={faker.image.image()} />
+  </Story>
+</Canvas>
+
+### Props
+
+<ArgsTable of={Image} />

@@ -101,7 +101,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/gallery@1.0.5": {
+    "zephony.uncommon-ui/gallery@1.0.6": {
         "files": [
             {
                 "relativePath": "src/components/Gallery/Gallery.stories.js",
@@ -219,7 +219,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/select@1.0.1": {
+    "zephony.uncommon-ui/select@1.0.2": {
         "files": [
             {
                 "relativePath": "src/components/Select/Select.stories.js",
@@ -237,7 +237,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/slider@1.0.4": {
+    "zephony.uncommon-ui/slider@1.0.5": {
         "files": [
             {
                 "relativePath": "src/components/Slider/Arrow.js",

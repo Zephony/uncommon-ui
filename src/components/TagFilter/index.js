@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { Input, Checkbox } from "../Form";
+import Input from "../Input";
+import Checkbox from "../Checkbox";
 import Button from "../Button";
 
 const Wrapper = styled.div`
