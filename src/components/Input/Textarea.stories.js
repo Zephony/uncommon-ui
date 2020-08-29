@@ -101,12 +101,15 @@ export const OverrideTheme = () => {
 };
 
 export const AutoResize = () => {
+    const [value, setValue] = useState('');
     return (
         <Input
             type="textarea"
+            value={value}
+            onChange={e => setValue(e.target.value)}
             width="280px"
             placeholder="Enter message here..."
-            autoresize
+            autoResize
             maxHeight="400px"
         />
     );

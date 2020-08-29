@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled, { ThemeProvider, css } from 'styled-components';
 import PropTypes from 'prop-types';
 import defaultTheme from '../../utils/theme';
@@ -22,7 +22,7 @@ const Label = styled.label`
 
 const StyledInput = styled.input`
     width: ${props => props.width};
-    height: ${props => (props.type === 'textarea' ? 'auto' : props.height)};
+    height: ${props => props.height};
     border-radius: 6px;
     border: solid 1px
         ${props => (props.error ? props.theme.colors.error : '#DADADA')};
@@ -61,6 +61,18 @@ const StyledInput = styled.input`
         css`
             border: ${props.border};
         `}
+
+    ${props =>
+        props.type === 'textarea' &&
+        css`
+            min-height: 80px;
+        `}
+`;
+
+const HiddenDiv = styled(StyledInput)`
+    display: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 `;
 
 const Error = styled.div`
@@ -95,6 +107,7 @@ const CTAWrapper = styled.div`
  */
 const Input = ({
     type,
+    value,
     label,
     width = '100%',
     height = '50px',
@@ -105,12 +118,33 @@ const Input = ({
     required,
     border,
     theme = defaultTheme, // Uses theme by default
+    autoResize,
     ...props
 }) => {
     const ctaRef = useRef();
     const inputRef = useRef();
+    const hiddenDivRef = useRef();
     const { width: ctaWidth } = useResize(ctaRef);
-    const { height: inputHeight } = useResize(inputRef);
+
+    useEffect(() => {
+        if (autoResize) {
+            // setInputHeight(calcHeight(value, inputRef.current) + 'px');
+            let textarea = inputRef.current;
+            let hiddenDiv = hiddenDivRef.current;
+            textarea.style.resize = 'none';
+            textarea.style.overflow = 'hidden';
+            // Add the same content to the hidden div
+            hiddenDiv.innerHTML = value;
+            // Briefly make the hidden div block but invisible
+            // This is in order to read the height
+            hiddenDiv.style.visibility = 'hidden';
+            hiddenDiv.style.display = 'block';
+            textarea.style.height = hiddenDiv.offsetHeight + 'px';
+            // Make the hidden div display:none again
+            hiddenDiv.style.visibility = 'visible';
+            hiddenDiv.style.display = 'none';
+        }
+    }, [value]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -138,6 +172,8 @@ const Input = ({
                         border={border}
                         {...props}
                     />
+                    {/* Used for textarea autoresize - https://www.impressivewebs.com/textarea-auto-resize/ */}
+                    {autoResize && <HiddenDiv as="div" ref={hiddenDivRef} />}
                     {icon && (
                         <Icon className={`${iconClassName} material-icons`}>
                             {icon}
