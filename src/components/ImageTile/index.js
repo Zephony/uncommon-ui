@@ -100,7 +100,7 @@ const ImageTile = ({
     hasFocus,
     autoCount,
     onClose,
-    className,
+    className = '',
 }) => {
     const componentRef = useRef();
     // Get width of the wrapper component
@@ -125,7 +125,7 @@ const ImageTile = ({
     let imageList =
         images.length > tileCount ? images.slice(0, tileCount - 1) : images;
     return (
-        <Wrapper ref={componentRef} className={className || 'uu-image-tile'}>
+        <Wrapper ref={componentRef} className={`uu-image-tile ${className}`}>
             {imageList.map((image, i) => {
                 return (
                     <ThumbnailWrapper>

@@ -55,6 +55,7 @@ const SuperInput = ({
     preview,
     onUrlSubmit,
     onUploadClick,
+    className = '',
     ...props
 }) => {
     const [showActionInput, setShowActionInput] = useState(false);
@@ -69,7 +70,7 @@ const SuperInput = ({
 
     return (
         <ThemeProvider theme={theme}>
-            <Wrapper>
+            <Wrapper className={`uu-super-input ${className}`}>
                 <TopBar>
                     <Title>Enter Question</Title>
                     <Options>

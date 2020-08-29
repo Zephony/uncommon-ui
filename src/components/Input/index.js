@@ -119,6 +119,7 @@ const Input = ({
     border,
     theme = defaultTheme, // Uses theme by default
     autoResize,
+    className = '',
     ...props
 }) => {
     const ctaRef = useRef();
@@ -147,7 +148,7 @@ const Input = ({
 
     return (
         <ThemeProvider theme={theme}>
-            <div className="uu-input">
+            <div className={`uu-input ${className}`}>
                 {label && (
                     <Label>
                         {label}
