@@ -124,7 +124,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/input@0.0.1": {
+    "zephony.uncommon-ui/input@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/Input/Input.stories.js",
@@ -193,7 +193,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/search-suggest@0.0.1": {
+    "zephony.uncommon-ui/search-suggest@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/SearchSuggest/SearchSuggest.stories.js",
@@ -252,7 +252,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/super-input@0.0.1": {
+    "zephony.uncommon-ui/super-input@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/SuperInput/SuperInput.stories.js",
@@ -270,7 +270,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/tag-filter@0.0.1": {
+    "zephony.uncommon-ui/tag-filter@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/TagFilter/TagFilter.stories.js",

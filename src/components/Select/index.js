@@ -7,7 +7,7 @@ import defaultTheme from '../../utils/theme';
 const Label = styled.label`
     display: block;
     font-size: 14px;
-    color: ${(props) => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.secondary};
     font-weight: bold;
     line-height: 21px;
     margin-bottom: 5px;
@@ -105,7 +105,7 @@ const customFilter = (option, rawInput) => {
 };
 
 const Error = styled.div`
-    color: ${(props) => props.theme.colors.error};
+    color: ${props => props.theme.colors.error};
     font-size: 12px;
     letter-spacing: 0;
     line-height: 18px;
@@ -115,20 +115,77 @@ const Error = styled.div`
 const Select = ({
     label,
     error,
-    className,
+    className = '',
+    value,
+    options,
+    isMulti,
     theme = defaultTheme, // Uses the theme by default
     ...props
 }) => {
+    // Needs refactoring but for time constraints
+    const mapSelectedOptionValue = () => {
+        let selectedOption;
+        if (isMulti) {
+            // For grouped options
+            if (options && options.length > 0 && options[0].options) {
+                options.map(parentOption => {
+                    let selectedOptionsInsideGroup = parentOption.options.filter(
+                        option =>
+                            value !== null
+                                ? value.includes(option.value)
+                                : false
+                    );
+
+                    if (!selectedOption) {
+                        selectedOption = [];
+                    }
+
+                    selectedOption = selectedOption.concat(
+                        selectedOptionsInsideGroup
+                    );
+                });
+            } else {
+                // For non-grouped options
+                selectedOption = options.filter(option =>
+                    value !== null ? value.includes(option.value) : false
+                );
+            }
+        } else {
+            // For grouped options
+            if (options && options.length > 0 && options[0].options) {
+                options.map(parentOption => {
+                    selectedOption =
+                        parentOption.options.find(option => {
+                            return option.value === value;
+                        }) || selectedOption;
+                });
+            } else {
+                // For non-grouped options
+                selectedOption = options.find(option => {
+                    return option.value === value;
+                });
+            }
+        }
+        return selectedOption;
+    };
+
+    let selectedOption =
+        typeof value === 'object' || value === null
+            ? value
+            : mapSelectedOptionValue();
     return (
         <ThemeProvider theme={theme}>
-            <div className={className || 'uu-select'}>
+            <div className={`uu-select ${className}`}>
                 {label && <Label>{label}</Label>}
                 <ReactSelect
-                    {...props}
-                    closeMenuOnSelect={!props.isMulti}
+                    closeMenuOnSelect={!isMulti}
                     styles={customStyles}
                     error={error}
                     filterOption={customFilter}
+                    value={selectedOption}
+                    options={options}
+                    isMulti={isMulti}
+                    {...props}
                 />
                 {/* Accounting for the space that error takes up */}
                 {error ? <Error>{error}</Error> : <Error />}

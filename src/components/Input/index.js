@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled, { ThemeProvider, css } from 'styled-components';
 import PropTypes from 'prop-types';
 import defaultTheme from '../../utils/theme';
@@ -128,7 +128,6 @@ const Input = ({
 
     useEffect(() => {
         if (autoResize) {
-            // setInputHeight(calcHeight(value, inputRef.current) + 'px');
             let textarea = inputRef.current;
             let hiddenDiv = hiddenDivRef.current;
             textarea.style.resize = 'none';
