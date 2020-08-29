@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { ThemeProvider, css } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
 import CheckIcon from '@material-ui/icons/Check';
 import defaultTheme from '../../utils/theme';

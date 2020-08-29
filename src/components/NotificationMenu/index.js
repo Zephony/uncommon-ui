@@ -95,6 +95,7 @@ const GroupName = styled.div`
 /**
  * "Flops are a part of life's menu and I've never been a girl to miss out on any of the courses." - Rosalind Russell
  */
+// TODO change icons to use react-icons
 const NotificationMenu = ({
     data,
     onNotificationClick,

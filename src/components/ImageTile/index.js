@@ -198,11 +198,11 @@ ImageTile.propTypes = {
      */
     autoCount: PropTypes.bool,
     /**
-     * Click event handler when one of the thumbnails is clicked
+     * Event handler when one of the thumbnails is clicked
      */
     onImageClick: PropTypes.func,
     /**
-     * Click event handler when more images is clicked
+     * Event handler when more images is clicked
      */
     onMoreClick: PropTypes.func,
     /**

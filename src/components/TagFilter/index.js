@@ -140,7 +140,7 @@ TagFilter.propTypes = {
         })
     ).isRequired,
     /**
-     * To update the state of data
+     * To update the data
      */
     setData: PropTypes.func.isRequired,
     /**

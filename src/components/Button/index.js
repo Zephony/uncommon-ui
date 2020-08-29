@@ -68,7 +68,7 @@ const Button = ({
     onClick,
     disabled = false,
     className = '',
-    width = '121px',
+    width = '120px',
     theme = defaultTheme,
     ...props
 }) => {

@@ -7,7 +7,6 @@ import { useKeyPress } from '../../utils/helpers';
 
 const Wrapper = styled.div`
     position: relative;
-    ${'' /* display: inline-block; */}
     width: 100%;
 `;
 

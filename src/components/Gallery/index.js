@@ -128,7 +128,7 @@ const Gallery = ({ images, onClose, initialIndex = 0, className = '' }) => {
 
 Gallery.propTypes = {
     /**
-     * Initial image to start with
+     * Initial image index to start with
      */
     initialIndex: PropTypes.number,
     /**

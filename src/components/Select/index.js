@@ -112,6 +112,9 @@ const Error = styled.div`
     height: 12px;
 `;
 
+/**
+ * Wrapper over ReactSelect
+ */
 const Select = ({
     label,
     error,

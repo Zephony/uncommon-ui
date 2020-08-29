@@ -38,6 +38,7 @@ const Name = styled.div`
 /**
  * "Writing a book of poetry is like dropping a rose petal down the Grand Canyon and waiting for the echo." - Don Marquis
  */
+// To be merged with Button Type
 const Dropdown = ({
     triggerText = 'Select an Option',
     options,

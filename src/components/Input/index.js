@@ -237,6 +237,10 @@ Input.propTypes = {
      * Theme override
      */
     theme: PropTypes.object,
+    /**
+     * Automatically resizes textarea height as content overflows
+     */
+    autoResize: PropTypes.bool,
 };
 
 export default Input;

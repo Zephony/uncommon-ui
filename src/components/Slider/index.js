@@ -128,7 +128,7 @@ const Slider = ({
 
 Slider.propTypes = {
     /**
-     * The width of the slider which the slides should also have
+     * The width of the slider which the slides should have
      */
     width: PropTypes.number,
     /**

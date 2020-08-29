@@ -72,7 +72,7 @@ Notification.propTypes = {
      */
     actor: PropTypes.string.isRequired,
     /**
-     * Action performed by the user
+     * Notification description of the action performed by the user
      */
     actionText: PropTypes.string.isRequired,
     /**

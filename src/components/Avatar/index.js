@@ -9,7 +9,7 @@ const propTypes = {
      */
     size: PropTypes.string,
     /**
-     * Image URL for avatar, fallbacks to empty avatar
+     * Image URL for avatar, fallsback to empty avatar
      */
     src: PropTypes.string,
     /**
