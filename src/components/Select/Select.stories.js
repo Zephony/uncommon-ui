@@ -47,7 +47,7 @@ export const ErrorState = () => {
     );
 };
 
-export const SelectWithoutObjectValue = () => {
+export const SelectWithoutObject = () => {
     const [selectedOption, setSelectedOption] = useState('chocolate');
     return (
         <Wrapper>
@@ -56,6 +56,36 @@ export const SelectWithoutObjectValue = () => {
                 onChange={option => setSelectedOption(option)}
                 options={options}
                 label="Ice Cream"
+            />
+        </Wrapper>
+    );
+};
+
+export const MultiSelect = () => {
+    const [selectedOption, setSelectedOption] = useState(null);
+    return (
+        <Wrapper>
+            <Select
+                value={selectedOption}
+                onChange={option => setSelectedOption(option)}
+                options={options}
+                label="Ice Cream"
+                isMulti
+            />
+        </Wrapper>
+    );
+};
+
+export const MultiSelectWithoutObject = () => {
+    const [selectedOption, setSelectedOption] = useState(['chocolate']);
+    return (
+        <Wrapper>
+            <Select
+                value={selectedOption}
+                onChange={option => setSelectedOption(option)}
+                options={options}
+                label="Ice Cream"
+                isMulti
             />
         </Wrapper>
     );

@@ -172,10 +172,23 @@ const Select = ({
         return selectedOption;
     };
 
-    let selectedOption =
-        typeof value === 'object' || value === null
-            ? value
-            : mapSelectedOptionValue();
+    const getSelectedOption = () => {
+        if (typeof value === 'object' || value === null) {
+            if (
+                Array.isArray(value) &&
+                value.length > 0 &&
+                typeof value[0] === 'string'
+            ) {
+                return mapSelectedOptionValue();
+            } else {
+                return value;
+            }
+        } else {
+            return mapSelectedOptionValue();
+        }
+    };
+
+    let selectedOption = getSelectedOption();
     return (
         <ThemeProvider theme={theme}>
             <div className={`uu-select ${className}`}>
