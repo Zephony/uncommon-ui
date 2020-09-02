@@ -71,9 +71,11 @@ const SuperInput = ({
     return (
         <ThemeProvider theme={theme}>
             <Wrapper className={`uu-super-input ${className}`}>
-                <TopBar>
-                    <Title>Enter Question</Title>
-                    <Options>
+                <TopBar className="uu-super-input-topbar">
+                    <Title className="uu-super-input-title">
+                        Enter Question
+                    </Title>
+                    <Options className="uu-super-input-topbar-options">
                         <FaCameraRetro onClick={onUploadClick} />
                         <FaGlobe
                             onClick={() => setShowActionInput(!showActionInput)}
@@ -81,9 +83,13 @@ const SuperInput = ({
                     </Options>
                 </TopBar>
                 <Input type="textarea" border="none" {...props} />
-                {preview && <Preview>{preview}</Preview>}
+                {preview && (
+                    <Preview className="uu-super-input-preview">
+                        {preview}
+                    </Preview>
+                )}
                 {showActionInput && (
-                    <ActionSection>
+                    <ActionSection className="uu-super-input-action">
                         <Input
                             type="text"
                             icon="insert_link"

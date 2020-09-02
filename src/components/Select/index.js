@@ -122,6 +122,7 @@ const Select = ({
     value,
     options,
     isMulti,
+    styles = {},
     theme = defaultTheme, // Uses the theme by default
     ...props
 }) => {
@@ -195,7 +196,7 @@ const Select = ({
                 {label && <Label>{label}</Label>}
                 <ReactSelect
                     closeMenuOnSelect={!isMulti}
-                    styles={customStyles}
+                    styles={{ ...customStyles, ...styles }}
                     error={error}
                     filterOption={customFilter}
                     value={selectedOption}
@@ -215,6 +216,10 @@ Select.propTypes = {
      * Label for the select
      */
     label: PropTypes.string,
+    /**
+     * Add own styles that react-select accepts
+     */
+    styles: PropTypes.string,
     /**
      * An error message that sets the input to error state
      */

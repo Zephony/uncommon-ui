@@ -69,11 +69,19 @@ const Dropdown = ({
 
     return (
         <Wrapper ref={wrapperRef} className={`uu-dropdown ${className}`}>
-            <Trigger triggerText={triggerText} onClick={onTriggerClick} />
+            <Trigger
+                triggerText={triggerText}
+                onClick={onTriggerClick}
+                className="uu-dropdown-trigger"
+            />
             {dropdownOpen && (
-                <List>
+                <List className="uu-dropdown-list">
                     {options.map(item => (
-                        <Option key={item.id} onClick={() => item.action(item)}>
+                        <Option
+                            className="uu-dropdown-option"
+                            key={item.id}
+                            onClick={() => item.action(item)}
+                        >
                             {item.icon && <div>{item.icon}</div>}
                             <Name>{item.name}</Name>
                         </Option>

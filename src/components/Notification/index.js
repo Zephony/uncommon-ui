@@ -50,14 +50,18 @@ const Notification = ({
 }) => {
     return (
         <Wrapper className={`uu-notification ${className}`}>
-            <TextWrapper>
-                <Avatar src={avatar} isActive={active} />
-                <Text>
+            <TextWrapper className="uu-notification-text-wrapper">
+                <Avatar
+                    src={avatar}
+                    isActive={active}
+                    className="uu-notification-avatar"
+                />
+                <Text className="uu-notification-text">
                     <span style={{ fontWeight: 'bold' }}>{actor}</span>{' '}
                     {actionText}
                 </Text>
             </TextWrapper>
-            <Time>
+            <Time className="uu-notification-timestamp">
                 {isTimeAgo
                     ? moment(timestamp).fromNow()
                     : moment(timestamp).format(timestampFormat)}

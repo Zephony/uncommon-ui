@@ -87,7 +87,7 @@ const TagFilter = ({
 
     return (
         <Wrapper className={`uu-tag-filter ${className}`}>
-            <Header>
+            <Header className="uu-tag-filter-header">
                 <Input
                     type="text"
                     value={value}
@@ -99,28 +99,40 @@ const TagFilter = ({
                     placeholder="Search Tags"
                 />
             </Header>
-            <Content>
+            <Content className="uu-tag-filter-content">
                 {filteredData.map(({ name, id, isChecked }) => (
                     <CheckboxWrapper key={id}>
                         <Checkbox
                             checked={isChecked}
-                            labelText={name}
+                            label={name}
                             onChange={e => handleCheckboxChange(e, id)}
                         />
                     </CheckboxWrapper>
                 ))}
             </Content>
-            <Footer>
-                <Button onClick={onClear || onClearClick} type="link">
+            <Footer className="uu-tag-filter-footer">
+                <Button
+                    className="uu-tag-filter-clearBtn"
+                    onClick={onClear || onClearClick}
+                    type="link"
+                >
                     Clear All
                 </Button>
                 <ButtonWrapper>
-                    <Button onClick={onCancel} type="primary">
+                    <Button
+                        onClick={onCancel}
+                        type="primary"
+                        className="uu-tag-filter-cancelBtn"
+                    >
                         Cancel
                     </Button>
                 </ButtonWrapper>
                 <ButtonWrapper>
-                    <Button onClick={onSubmit} type="secondary">
+                    <Button
+                        onClick={onSubmit}
+                        type="secondary"
+                        className="uu-tag-filter-submitBtn"
+                    >
                         Submit
                     </Button>
                 </ButtonWrapper>

@@ -144,14 +144,26 @@ const NotificationMenu = ({
 
     return (
         <Wrapper className={`uu-notification-menu ${className}`}>
-            <Header>
+            <Header className="uu-notification-menu-header">
                 <div style={{ display: 'flex' }}>
                     <StyledBellIcon />
-                    <Title>Notifications</Title>
+                    <Title className="uu-notification-menu-title">
+                        Notifications
+                    </Title>
                 </div>
-                <Action onClick={onViewAllClick}>View all</Action>
+                <Action
+                    className="uu-notification-menu-action"
+                    onClick={onViewAllClick}
+                >
+                    View all
+                </Action>
             </Header>
-            <Content maxHeight={maxHeight}>{renderData()}</Content>
+            <Content
+                className="uu-notification-menu-content"
+                maxHeight={maxHeight}
+            >
+                {renderData()}
+            </Content>
         </Wrapper>
     );
 };

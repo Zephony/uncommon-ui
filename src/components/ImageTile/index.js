@@ -128,7 +128,7 @@ const ImageTile = ({
         <Wrapper ref={componentRef} className={`uu-image-tile ${className}`}>
             {imageList.map((image, i) => {
                 return (
-                    <ThumbnailWrapper>
+                    <ThumbnailWrapper className="uu-image-tile-thumbnail-wrapper">
                         <Thumbnail
                             key={i}
                             onClick={() => onThumbnailClick(image, i)}
@@ -141,11 +141,13 @@ const ImageTile = ({
                                 currentFocus === i
                             }
                             maintainAspectRatio={images.length === 1}
+                            className="uu-image-tile-thumbnail"
                         />
                         {onClose && (
                             <CloseIcon
                                 onClick={onClose}
                                 className="material-icons"
+                                className="uu-image-tile-thumbnail-close"
                             >
                                 cancel
                             </CloseIcon>
@@ -155,20 +157,27 @@ const ImageTile = ({
             })}
             {/* For the last image with option to view more */}
             {images.length > tileCount && (
-                <OverlayWrapper onClick={onMoreClick}>
+                <OverlayWrapper
+                    onClick={onMoreClick}
+                    className="uu-image-tile-overlay-wrapper"
+                >
                     <Thumbnail
                         src={images[tileCount - 1]}
                         width={width}
                         height={height}
                         isAbsolute
                         style={{ ...thumbnailStyle }}
+                        className="uu-image-tile-thumbnail"
                     />
                     <Overlay
                         width={width}
                         height={height}
                         style={{ ...thumbnailStyle }}
+                        className="uu-image-tile-overlay"
                     >
-                        <Count>+{images.length - tileCount}</Count>
+                        <Count className="uu-image-tile-count">
+                            +{images.length - tileCount}
+                        </Count>
                     </Overlay>
                 </OverlayWrapper>
             )}

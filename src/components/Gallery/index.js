@@ -97,13 +97,14 @@ const Gallery = ({ images, onClose, initialIndex = 0, className = '' }) => {
 
     return (
         <Overlay className={`uu-gallery ${className}`}>
-            <Image src={images[currentIndex]} />
+            <Image src={images[currentIndex]} className="uu-gallery-image" />
             <Arrow
                 onClick={prevImage}
                 direction="left"
                 color="#fff"
                 hideBorder
                 fontSize={60}
+                className="uu-gallery-arrow-left"
             />
             <Arrow
                 onClick={nextImage}
@@ -111,9 +112,10 @@ const Gallery = ({ images, onClose, initialIndex = 0, className = '' }) => {
                 color="#fff"
                 hideBorder
                 fontSize={60}
+                className="uu-gallery-arrow-right"
             />
-            <CloseIcon onClick={onClose} />
-            <ImageTileWrapper>
+            <CloseIcon onClick={onClose} className="uu-gallery-close" />
+            <ImageTileWrapper className="uu-gallery-tiles">
                 <ImageTile
                     images={images}
                     width="62px"

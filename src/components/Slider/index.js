@@ -107,6 +107,7 @@ const Slider = ({
                 translate={translate}
                 transition={transition}
                 width={width * items.length}
+                className="uu-slider-content"
             >
                 {items.map((item, i) => (
                     <Slide key={i}>{item}</Slide>
@@ -116,11 +117,13 @@ const Slider = ({
                 onClick={prevSlide}
                 direction="left"
                 disabled={!infinite && activeIndex === 0}
+                className="uu-slider-arrow-left"
             />
             <Arrow
                 onClick={nextSlide}
                 direction="right"
                 disabled={!infinite && activeIndex === items.length - 1}
+                className="uu-slider-arrow-right"
             />
         </SliderWrapper>
     );

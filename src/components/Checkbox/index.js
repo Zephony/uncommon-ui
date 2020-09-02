@@ -49,7 +49,8 @@ const Label = styled.span`
 const Checkbox = ({
     checked = false,
     onChange,
-    labelText,
+    labelText, // To be deprecated
+    label,
     disabled = false,
     className = '',
     theme = defaultTheme,
@@ -57,15 +58,23 @@ const Checkbox = ({
 }) => (
     <ThemeProvider theme={theme}>
         <LabelWrapper className={`uu-checkbox ${className}`}>
-            <CheckboxContainer>
+            <CheckboxContainer className="uu-checkbox-container">
                 <HiddenCheckbox
                     checked={checked}
                     onChange={disabled ? () => {} : onChange}
                     {...props}
                 />
-                <Icon disabled={disabled} checked={checked} />
+                <Icon
+                    className="uu-checkbox-icon"
+                    disabled={disabled}
+                    checked={checked}
+                />
             </CheckboxContainer>
-            {labelText && <Label>{labelText}</Label>}
+            {(label || labelText) && (
+                <Label className="uu-checkbox-label">
+                    {label || labelText}
+                </Label>
+            )}
         </LabelWrapper>
     </ThemeProvider>
 );
@@ -90,7 +99,7 @@ Checkbox.propTypes = {
     /**
      * Text to display for label
      */
-    labelText: PropTypes.string,
+    label: PropTypes.string,
     /**
      * Accepts an onChange event
      */

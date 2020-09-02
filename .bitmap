@@ -211,24 +211,6 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "zephony.uncommon-ui/select@1.0.5": {
-        "files": [
-            {
-                "relativePath": "src/components/Select/Select.stories.js",
-                "test": false,
-                "name": "Select.stories.js"
-            },
-            {
-                "relativePath": "src/components/Select/index.js",
-                "test": false,
-                "name": "index.js"
-            }
-        ],
-        "mainFile": "src/components/Select/index.js",
-        "trackDir": "src/components/Select",
-        "origin": "AUTHORED",
-        "exported": true
-    },
     "zephony.uncommon-ui/slider@1.0.7": {
         "files": [
             {
@@ -327,6 +309,24 @@
         ],
         "mainFile": "src/components/Image/index.js",
         "trackDir": "src/components/Image",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "zephony.uncommon/select@1.0.6": {
+        "files": [
+            {
+                "relativePath": "src/components/Select/Select.stories.js",
+                "test": false,
+                "name": "Select.stories.js"
+            },
+            {
+                "relativePath": "src/components/Select/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/Select/index.js",
+        "trackDir": "src/components/Select",
         "origin": "AUTHORED",
         "exported": true
     },

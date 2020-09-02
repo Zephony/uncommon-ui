@@ -99,7 +99,10 @@ const SearchSuggest = ({
 
     return (
         <Wrapper className={`uu-search-suggest ${className}`}>
-            <List showList={value.length > 0}>
+            <List
+                showList={value.length > 0}
+                className="uu-search-suggest-list"
+            >
                 <Input
                     type="text"
                     icon="search"
@@ -109,13 +112,14 @@ const SearchSuggest = ({
                     value={value}
                     onChange={e => setValue(e.target.value)}
                 />
-                <Results>
+                <Results className="uu-search-suggest-results">
                     {formatSuggestion
                         ? suggestions.map((item, i) => (
                               <Item
                                   highlighted={highlighted === i}
                                   onClick={() => onSuggestionClick(item)}
                                   key={item.id}
+                                  className="uu-search-suggest-result-item"
                               >
                                   {formatSuggestion(item)}
                               </Item>
@@ -125,6 +129,7 @@ const SearchSuggest = ({
                                   highlighted={highlighted === i}
                                   onClick={() => onSuggestionClick(item)}
                                   key={item.id}
+                                  className="uu-search-suggest-result-item"
                               >
                                   {item.category}: {item.name}
                               </Item>

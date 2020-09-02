@@ -150,15 +150,21 @@ const Input = ({
         <ThemeProvider theme={theme}>
             <div className={`uu-input ${className}`}>
                 {label && (
-                    <Label>
+                    <Label className="uu-input-label">
                         {label}
                         {required && (
-                            <span style={{ color: '#c84242' }}>*</span>
+                            <span
+                                style={{ color: '#c84242' }}
+                                className="uu-input-label-required"
+                            >
+                                *
+                            </span>
                         )}
                     </Label>
                 )}
-                <Wrapper width={width}>
+                <Wrapper width={width} className="uu-input-wrapper">
                     <StyledInput
+                        className="uu-input-control"
                         // Dynamically render tag used
                         as={type === 'textarea' ? 'textarea' : 'input'}
                         ref={inputRef}
@@ -179,9 +185,13 @@ const Input = ({
                             {icon}
                         </Icon>
                     )}
-                    {cta && <CTAWrapper ref={ctaRef}>{cta}</CTAWrapper>}
+                    {cta && (
+                        <CTAWrapper className="uu-input-cta" ref={ctaRef}>
+                            {cta}
+                        </CTAWrapper>
+                    )}
                     {/* Accounting for the space that error takes up */}
-                    {error && <Error>{error}</Error>}
+                    {error && <Error className="uu-input-error">{error}</Error>}
                 </Wrapper>
             </div>
         </ThemeProvider>
