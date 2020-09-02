@@ -30,7 +30,7 @@ const Content = styled.div`
 
 const Title = styled.div`
     color: #585858;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: bold;
     letter-spacing: 0;
     line-height: 24px;
@@ -39,7 +39,7 @@ const Title = styled.div`
 
 const Action = styled.div`
     color: rgb(53, 119, 236);
-    font-size: 14px;
+    font-size: 0.875em;
     letter-spacing: 0;
     line-height: 21px;
     text-align: right;
@@ -85,7 +85,7 @@ const StyledBellIcon = () => {
 
 const GroupName = styled.div`
     color: #b3b3b3;
-    font-size: 13px;
+    font-size: 0.8125em;
     font-weight: 500;
     letter-spacing: 0;
     line-height: 19px;

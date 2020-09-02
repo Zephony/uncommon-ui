@@ -7,13 +7,13 @@ import { useResize } from '../../utils/helpers';
 const Wrapper = styled.div`
     display: inline-block;
     position: relative;
-    font-size: 15px;
+    font-size: 0.9375em;
     width: ${props => props.width};
 `;
 
 const Label = styled.label`
     display: block;
-    font-size: 14px;
+    font-size: 0.875em;
     color: ${props => props.theme.colors.secondary};
     font-weight: bold;
     line-height: 21px;
@@ -77,7 +77,7 @@ const HiddenDiv = styled(StyledInput)`
 
 const Error = styled.div`
     color: ${props => props.theme.colors.error};
-    font-size: 12px;
+    font-size: 0.75em;
     letter-spacing: 0;
     line-height: 18px;
     height: 12px;
@@ -85,7 +85,7 @@ const Error = styled.div`
 `;
 
 const Icon = styled.i`
-    font-size: 20px;
+    font-size: 1.25em;
     color: rgba(0, 0, 0, 0.26);
     position: absolute;
     top: 16px;

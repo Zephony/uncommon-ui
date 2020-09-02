@@ -18,7 +18,7 @@ const TextWrapper = styled.div`
 
 const Text = styled.div`
     color: #585858;
-    font-size: 15px;
+    font-size: 0.9375em;
     letter-spacing: 0;
     line-height: 18px;
     margin-left: 20px;
@@ -28,7 +28,7 @@ const Text = styled.div`
 
 const Time = styled.div`
     color: #b3b3b3;
-    font-size: 13px;
+    font-size: 0.8125em;
     letter-spacing: 0;
     line-height: 19px;
     width: 25%;

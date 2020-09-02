@@ -6,7 +6,7 @@ import defaultTheme from '../../utils/theme';
 
 const Label = styled.label`
     display: block;
-    font-size: 14px;
+    font-size: 0.875em;
     color: ${props => props.theme.colors.secondary};
     font-weight: bold;
     line-height: 21px;
@@ -15,7 +15,7 @@ const Label = styled.label`
 
 const commonTextStyle = {
     color: '#585858',
-    fontSize: '15px',
+    fontSize: '0.9375em',
     letterSpacing: '0',
 };
 
@@ -106,7 +106,7 @@ const customFilter = (option, rawInput) => {
 
 const Error = styled.div`
     color: ${props => props.theme.colors.error};
-    font-size: 12px;
+    font-size: 0.75em;
     letter-spacing: 0;
     line-height: 18px;
     height: 12px;

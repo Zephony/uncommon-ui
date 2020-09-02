@@ -6,7 +6,7 @@ import Trigger from './Trigger';
 
 const Wrapper = styled.div`
     color: #98a2ae;
-    font-size: 14px;
+    font-size: 0.875em;
     color: #98a2ae;
     position: relative;
 `;

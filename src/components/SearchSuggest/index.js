@@ -28,7 +28,7 @@ const List = styled.div`
 
 const Results = styled.div`
     padding-left: 42px;
-    font-size: 14px;
+    font-size: 0.8125em;
     max-height: 500px;
     overflow: auto;
 

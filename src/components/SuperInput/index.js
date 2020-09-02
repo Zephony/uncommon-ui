@@ -24,7 +24,7 @@ const TopBar = styled.div`
 
 const Title = styled.p`
     padding-left: 15px;
-    font-size: 14px;
+    font-size: 0.875em;
     color: #0f0f0f;
 `;
 

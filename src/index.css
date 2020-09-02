@@ -17,13 +17,13 @@ code {
     border-radius: 16.5px;
     background-color: #ededed;
     height: 33px;
-    font-size: 14px;
+    font-size: 0.875em;
     color: #000;
     padding-left: 33px;
 }
 
 .uu-input .tag-input-icon {
-    font-size: 18px;
+    font-size: 1.125em;
     top: 9px;
     left: 10px;
 }
@@ -32,13 +32,13 @@ code {
     border-radius: 20px;
     background-color: #ededed;
     height: 40px;
-    font-size: 16px;
+    font-size: 1em;
     color: #6e6e6e;
     padding-left: 42px;
 }
 
 .uu-input .uu-search-input-icon {
-    font-size: 18px;
+    font-size: 1.125em;
     top: 17px;
     left: 10px;
 }

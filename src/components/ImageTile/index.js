@@ -57,14 +57,14 @@ const Overlay = styled.div`
 
 const Count = styled.div`
     color: #ffffff;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 500;
     letter-spacing: 0;
     line-height: 24px;
 `;
 
 const CloseIcon = styled.i`
-    font-size: 20px !important;
+    font-size: 1.25em !important;
     position: absolute;
     top: 5px;
     right: 15px;

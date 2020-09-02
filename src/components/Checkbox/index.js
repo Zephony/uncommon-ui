@@ -21,7 +21,7 @@ const Icon = styled(CheckIcon)`
     width: 16px;
     height: 16px;
     color: white;
-    font-size: 14px !important;
+    font-size: 0.875em !important;
     cursor: ${props => (props.disabled ? 'default' : 'pointer')};
     background: ${props =>
         props.checked ? props.theme.colors.primary : 'white'};
@@ -39,7 +39,7 @@ const CheckboxContainer = styled.div`
 
 const Label = styled.span`
     margin-left: 10px;
-    font-size: 14px;
+    font-size: 0.875em;
     color: #585858;
 `;
 
