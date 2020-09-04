@@ -6,27 +6,9 @@ This repo is a place of expression and wild ideas that can push the boundaries o
 
 ## Getting Started
 
-Currently the components are available as individual packages hosted on [`bit.dev`](https://bit.dev/zephony/uncommon-ui).
-
-Packages on bit.dev can be installed using `npm` or `yarn` but prior to that you will need to set bit as a [scoped registry](https://docs.bit.dev/docs/installing-components#configuring-bit-registry) by running `npm config set @bit:registry https://node.bit.dev`.
-
-For example if you want to add the uncommon-ui button component you may run,
-
-```
-npm i @bit/zephony.uncommon-ui.button
-```
-
-or
-
-```
-yarn add @bit/zephony.uncommon-ui.button
-```
-
 ## Documentation
 
 The storybook can be found [here](https://https://zephony.github.io/uncommon-ui/).
-
-The bit.dev repository can be found [here](https://bit.dev/zephony/uncommon-ui).
 
 ## Contributing
 
