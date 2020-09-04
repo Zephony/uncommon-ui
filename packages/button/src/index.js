@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider, css } from 'styled-components';
-import defaultTheme from '../../utils/theme';
+import defaultTheme from '../../../src/utils/theme';
 
 // Styles for a primary button
 const primary = css`
