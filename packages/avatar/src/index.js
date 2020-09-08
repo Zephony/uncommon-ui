@@ -11,7 +11,7 @@ const propTypes = {
     /**
      * Image URL for avatar, fallsback to empty avatar
      */
-    src: PropTypes.string,
+    src: PropTypes.string.isRequired,
     /**
      * To indicate avatar is active
      */
@@ -49,7 +49,7 @@ const Image = styled.div`
 `;
 
 const Avatar = ({
-    src = BlankImage,
+    src,
     size = '40px',
     isActive,
     activeColor = '#e2863d',
