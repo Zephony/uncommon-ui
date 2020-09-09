@@ -1,6 +1,6 @@
 {
     "name": "@uncommonui/avatar",
-    "version": "0.1.4-alpha.0",
+    "version": "0.1.4",
     "description": "A simple avatar component",
     "main": "lib/index.js",
     "files": [
