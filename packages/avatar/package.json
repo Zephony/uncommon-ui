@@ -3,6 +3,9 @@
     "version": "0.1.4-alpha.0",
     "description": "A simple avatar component",
     "main": "lib/index.js",
+    "files": [
+        "lib"
+    ],
     "dependencies": {
         "react": "latest",
         "react-dom": "latest",
