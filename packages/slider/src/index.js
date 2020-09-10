@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Arrow from './Arrow';
+import Arrow from './arrow';
 
 const SliderWrapper = styled.div`
     height: auto;
@@ -31,6 +31,22 @@ const Slide = styled.div`
   background-position: center;
 `;
 
+const Dot = styled.div`
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #e2863d;
+    opacity: ${props => (props.isActive ? 1 : 0.2)};
+    cursor: pointer;
+    margin: 0 5px;
+`;
+
+const Dots = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+`;
+
 /**
  * "I know if I rest, I'll slide downhill fast." - Lee Kuan Yew
  */
@@ -42,6 +58,8 @@ const Slider = ({
     autoplay,
     autoplaySpeed = 3000,
     className = '',
+    dots = true,
+    arrows = true,
 }) => {
     const ref = useRef();
     const [state, setState] = useState({
@@ -88,6 +106,15 @@ const Slider = ({
         });
     };
 
+    const handleDotClick = slideIndex => {
+        console.log(slideIndex);
+        setState({
+            ...state,
+            activeIndex: slideIndex,
+            translate: slideIndex * width,
+        });
+    };
+
     useEffect(() => {
         if (autoplay) {
             let id = setInterval(() => {
@@ -113,18 +140,34 @@ const Slider = ({
                     <Slide key={i}>{item}</Slide>
                 ))}
             </SliderContent>
-            <Arrow
-                onClick={prevSlide}
-                direction="left"
-                disabled={!infinite && activeIndex === 0}
-                className="uu-slider-arrow-left"
-            />
-            <Arrow
-                onClick={nextSlide}
-                direction="right"
-                disabled={!infinite && activeIndex === items.length - 1}
-                className="uu-slider-arrow-right"
-            />
+            {arrows && (
+                <React.Fragment>
+                    <Arrow
+                        onClick={prevSlide}
+                        direction="left"
+                        disabled={!infinite && activeIndex === 0}
+                        className="uu-slider-arrow-left"
+                    />
+                    <Arrow
+                        onClick={nextSlide}
+                        direction="right"
+                        disabled={!infinite && activeIndex === items.length - 1}
+                        className="uu-slider-arrow-right"
+                    />
+                </React.Fragment>
+            )}
+
+            {/* Dots */}
+            {dots && (
+                <Dots>
+                    {[...Array(items.length)].map((_, i) => (
+                        <Dot
+                            isActive={i === activeIndex}
+                            onClick={() => handleDotClick(i)}
+                        />
+                    ))}
+                </Dots>
+            )}
         </SliderWrapper>
     );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Slider from './';
-import Arrow from './Arrow';
+import Slider from '../src';
+import Arrow from '../src/arrow';
 
 const Wrapper = styled.div`
     width: 100%;
@@ -118,6 +118,27 @@ export const autoplay = () => {
                 />
                 <Item>
                     <Random width="600px" height="300px" />
+                </Item>
+            </Slider>
+        </Wrapper>
+    );
+};
+
+export const dotsSlider = () => {
+    const settings = {
+        width: 800, // Slider width
+        dots: true,
+        arrows: false,
+    };
+    return (
+        <Wrapper>
+            <Slider {...settings}>
+                <Item>Slide Content</Item>
+                <Item>
+                    <Random />
+                </Item>
+                <Item>
+                    <Random />
                 </Item>
             </Slider>
         </Wrapper>
