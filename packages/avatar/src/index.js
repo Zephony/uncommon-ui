@@ -47,7 +47,7 @@ const Image = styled.div`
   background-position: center;
 `;
 
-const Avatar = ({
+export const Avatar = ({
     src,
     size = '40px',
     isActive,
@@ -66,5 +66,3 @@ const Avatar = ({
 };
 
 Avatar.propTypes = propTypes;
-
-export default Avatar;

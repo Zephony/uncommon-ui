@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
-import Button from '../src';
+import { Button } from '../src';
 
 const Wrapper = styled.div`
     display: flex;

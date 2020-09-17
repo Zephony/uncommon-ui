@@ -81,7 +81,7 @@ const StyledButton = styled.button`
 /**
  * "A poet can write about a man slaying a dragon, but not about a man pushing a button that releases a bomb." - W. H. Auden
  */
-const Button = ({
+export const Button = ({
     type = 'primary',
     children,
     onClick,
@@ -104,5 +104,3 @@ const Button = ({
 };
 
 Button.propTypes = propTypes;
-
-export default Button;
