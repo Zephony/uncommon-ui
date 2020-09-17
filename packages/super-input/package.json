@@ -1,7 +1,7 @@
 {
-    "name": "@uncommonui/button",
+    "name": "@uncommonui/super-input",
     "version": "0.1.0",
-    "description": "A simple button component",
+    "description": "An enhanced input component",
     "main": "lib/index.js",
     "files": [
         "lib"

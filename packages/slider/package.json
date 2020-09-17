@@ -1,7 +1,7 @@
 {
-    "name": "@uncommonui/button",
+    "name": "@uncommonui/slider",
     "version": "0.1.0",
-    "description": "A simple button component",
+    "description": "A simple slider component",
     "main": "lib/index.js",
     "files": [
         "lib"

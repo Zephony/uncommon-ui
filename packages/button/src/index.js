@@ -1,7 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeProvider, css } from 'styled-components';
-import defaultTheme from '../../../src/utils/theme';
+import styled, { css } from 'styled-components';
+
+const propTypes = {
+    /**
+     * Type of the button
+     */
+    type: PropTypes.oneOf(['primary', 'secondary', 'link']),
+    /**
+     * Disables the button
+     */
+    disabled: PropTypes.bool,
+    /**
+     * Accepts an onClick event
+     */
+    onClick: PropTypes.func,
+    /*
+     * Text of button
+     */
+    children: PropTypes.node,
+};
 
 // Styles for a primary button
 const primary = css`
@@ -30,6 +48,7 @@ const secondary = css`
 
 const link = css`
     background: transparent;
+    border: none;
     color: ${props => props.theme.colors.primary};
     padding: 8px;
 `;
@@ -69,45 +88,21 @@ const Button = ({
     disabled = false,
     className = '',
     width = '120px',
-    theme = defaultTheme,
     ...props
 }) => {
     return (
-        <ThemeProvider theme={theme}>
-            <StyledButton
-                className={`uu-button ${className}`}
-                type={type}
-                onClick={onClick}
-                disabled={disabled}
-                {...props}
-            >
-                {children}
-            </StyledButton>
-        </ThemeProvider>
+        <StyledButton
+            className={`uu-button ${className}`}
+            type={type}
+            onClick={onClick}
+            disabled={disabled}
+            {...props}
+        >
+            {children}
+        </StyledButton>
     );
 };
 
-Button.propTypes = {
-    /**
-     * Type of the button
-     */
-    type: PropTypes.oneOf(['primary', 'secondary', 'link']),
-    /**
-     * Disables the button
-     */
-    disabled: PropTypes.bool,
-    /**
-     * Accepts an onClick event
-     */
-    onClick: PropTypes.func,
-    /*
-     * Text of button
-     */
-    children: PropTypes.node,
-    /**
-     * Theme override
-     */
-    theme: PropTypes.object,
-};
+Button.propTypes = propTypes;
 
 export default Button;

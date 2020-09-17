@@ -1,0 +1,17 @@
+{
+    "name": "@uncommonui/utils",
+    "version": "0.1.0",
+    "description": "Hooks and other helpers for uncommonui",
+    "main": "lib/index.js",
+    "files": [
+        "lib"
+    ],
+    "dependencies": {
+        "react": "latest",
+        "react-dom": "latest"
+    },
+    "peerDependencies": {
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0"
+    }
+}

@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import Avatar from '@uncommonui/avatar';
+import Avatar from '../src';
 
 export const faker = require('faker');
 
@@ -44,8 +44,5 @@ Pass a size in `px` to change the dimensions of the avatar.
 <Canvas>
     <Story name="Custom Dimension">
         <Avatar src={faker.image.avatar()} size="100px" />
-    </Story>
-    <Story name="Custom Dimension Active">
-        <Avatar src={faker.image.avatar()} size="200px" isActive />
     </Story>
 </Canvas>

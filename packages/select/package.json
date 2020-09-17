@@ -1,7 +1,7 @@
 {
-    "name": "@uncommonui/button",
+    "name": "@uncommonui/select",
     "version": "0.1.0",
-    "description": "A simple button component",
+    "description": "A simple select component",
     "main": "lib/index.js",
     "files": [
         "lib"
