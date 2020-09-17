@@ -1,6 +1,6 @@
 {
     "name": "@uncommonui/super-input",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "An enhanced input component",
     "main": "lib/index.js",
     "files": [
