@@ -1,6 +1,6 @@
 {
     "name": "@uncommonui/select",
-    "version": "0.1.2",
+    "version": "0.1.3-alpha.0",
     "description": "A simple select component",
     "main": "lib/index.js",
     "files": [
@@ -8,9 +8,9 @@
     ],
     "dependencies": {
         "@uncommonui/theme": "latest",
-        "react-select": "^3.1.0",
         "react": "latest",
         "react-dom": "latest",
+        "react-select": "^3.1.0",
         "styled-components": "latest"
     },
     "peerDependencies": {
