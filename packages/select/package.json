@@ -8,9 +8,9 @@
     ],
     "dependencies": {
         "@uncommonui/theme": "latest",
+        "react-select": "^3.1.0",
         "react": "latest",
         "react-dom": "latest",
-        "react-select": "latest",
         "styled-components": "latest"
     },
     "peerDependencies": {

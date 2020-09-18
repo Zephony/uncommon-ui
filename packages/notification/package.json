@@ -8,6 +8,7 @@
     ],
     "dependencies": {
         "@uncommonui/avatar": "latest",
+        "moment": "latest",
         "react": "latest",
         "react-dom": "latest",
         "styled-components": "latest"
