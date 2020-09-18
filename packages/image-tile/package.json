@@ -1,16 +1,16 @@
 {
     "name": "@uncommonui/image-tile",
-    "version": "0.1.2-alpha.0",
+    "version": "0.1.2",
     "description": "A simple image tile component",
     "main": "lib/index.js",
     "files": [
         "lib"
     ],
     "dependencies": {
+        "@uncommonui/utils": "latest",
         "react": "latest",
         "react-dom": "latest",
-        "styled-components": "latest",
-        "@uncommonui/utils": "latest"
+        "styled-components": "latest"
     },
     "peerDependencies": {
         "react": "^16.0.0",

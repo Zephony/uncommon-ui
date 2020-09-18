@@ -1,18 +1,18 @@
 {
     "name": "@uncommonui/notification-menu",
-    "version": "0.1.2-alpha.0",
+    "version": "0.1.2",
     "description": "A simple notification menu component",
     "main": "lib/index.js",
     "files": [
         "lib"
     ],
     "dependencies": {
+        "@uncommonui/notification": "latest",
+        "@uncommonui/utils": "latest",
         "react": "latest",
         "react-dom": "latest",
-        "styled-components": "latest",
         "react-icons": "^3.11.0",
-        "@uncommonui/utils": "latest",
-        "@uncommonui/notification": "latest"
+        "styled-components": "latest"
     },
     "peerDependencies": {
         "react": "^16.0.0",

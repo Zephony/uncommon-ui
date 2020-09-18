@@ -1,15 +1,12 @@
 {
     "name": "@uncommonui/core",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "The Uncommon UI library",
     "main": "lib/index.js",
     "files": [
         "lib"
     ],
     "dependencies": {
-        "react": "latest",
-        "react-dom": "latest",
-        "styled-components": "latest",
         "@uncommonui/avatar": "latest",
         "@uncommonui/button": "latest",
         "@uncommonui/checkbox": "latest",
@@ -25,7 +22,10 @@
         "@uncommonui/super-input": "latest",
         "@uncommonui/tag-filter": "latest",
         "@uncommonui/theme": "latest",
-        "@uncommonui/utils": "latest"
+        "@uncommonui/utils": "latest",
+        "react": "latest",
+        "react-dom": "latest",
+        "styled-components": "latest"
     },
     "peerDependencies": {
         "react": "^16.0.0",
