@@ -9,7 +9,8 @@
     "dependencies": {
         "react": "latest",
         "react-dom": "latest",
-        "styled-components": "latest"
+        "styled-components": "latest",
+        "@uncommonui/avatar": "latest"
     },
     "peerDependencies": {
         "react": "^16.0.0",

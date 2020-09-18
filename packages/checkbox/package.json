@@ -9,6 +9,7 @@
     "dependencies": {
         "react": "latest",
         "react-dom": "latest",
+        "react-icons": "^3.11.0",
         "styled-components": "latest"
     },
     "peerDependencies": {

@@ -9,7 +9,10 @@
     "dependencies": {
         "react": "latest",
         "react-dom": "latest",
-        "styled-components": "latest"
+        "styled-components": "latest",
+        "react-icons": "^3.11.0",
+        "@uncommonui/utils": "latest",
+        "@uncommonui/input": "latest"
     },
     "peerDependencies": {
         "react": "^16.0.0",

@@ -9,7 +9,23 @@
     "dependencies": {
         "react": "latest",
         "react-dom": "latest",
-        "styled-components": "latest"
+        "styled-components": "latest",
+        "@uncommonui/avatar": "latest",
+        "@uncommonui/button": "latest",
+        "@uncommonui/checkbox": "latest",
+        "@uncommonui/dropdown": "latest",
+        "@uncommonui/gallery": "latest",
+        "@uncommonui/image-tile": "latest",
+        "@uncommonui/input": "latest",
+        "@uncommonui/notification": "latest",
+        "@uncommonui/notification-menu": "latest",
+        "@uncommonui/search-suggest": "latest",
+        "@uncommonui/select": "latest",
+        "@uncommonui/slider": "latest",
+        "@uncommonui/super-input": "latest",
+        "@uncommonui/tag-filter": "latest",
+        "@uncommonui/theme": "latest",
+        "@uncommonui/utils": "latest"
     },
     "peerDependencies": {
         "react": "^16.0.0",
