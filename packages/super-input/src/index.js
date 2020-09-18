@@ -1,9 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FaCameraRetro, FaGlobe, FaRegTimesCircle } from 'react-icons/fa';
-import PropTypes from 'prop-types';
-import Input from '@uncommonui/input';
+import { Input } from '@uncommonui/input';
 import { useKeyPress } from '@uncommonui/utils';
+
+const propTypes = {
+    /**
+     * Renders whatever element is passed into the input like a preview
+     */
+    preview: PropTypes.node,
+    /**
+     * Accepts an event when url is submitted (Enter keypress)
+     */
+    onUrlSubmit: PropTypes.func,
+    /**
+     * Accepts an event when upload icon is clicked
+     */
+    onUploadClick: PropTypes.func,
+};
 
 const Wrapper = styled.div`
     box-sizing: border-box;
@@ -49,7 +64,7 @@ const CTA = styled(FaRegTimesCircle)`
     color: #b3b3b3;
 `;
 
-const SuperInput = ({
+export const SuperInput = ({
     preview,
     onUrlSubmit,
     onUploadClick,
@@ -98,19 +113,4 @@ const SuperInput = ({
     );
 };
 
-SuperInput.propTypes = {
-    /**
-     * Renders whatever element is passed into the input like a preview
-     */
-    preview: PropTypes.node,
-    /**
-     * Accepts an event when url is submitted (Enter keypress)
-     */
-    onUrlSubmit: PropTypes.func,
-    /**
-     * Accepts an event when upload icon is clicked
-     */
-    onUploadClick: PropTypes.func,
-};
-
-export default SuperInput;
+SuperInput.propTypes = propTypes;

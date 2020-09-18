@@ -4,6 +4,49 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { useResize } from '@uncommonui/utils';
 
+const propTypes = {
+    /**
+     * The width of each thumbnail
+     */
+    width: PropTypes.string,
+    /**
+     * The height of each thumbnail
+     */
+    height: PropTypes.string,
+    /**
+     * Array of image urls
+     */
+    images: PropTypes.array.isRequired,
+    /**
+     * Count of tiles to show
+     */
+    count: PropTypes.number,
+    /**
+     * Sets tiles based on the width of wrapper element
+     */
+    autoCount: PropTypes.bool,
+    /**
+     * Event handler when one of the thumbnails is clicked
+     */
+    onImageClick: PropTypes.func,
+    /**
+     * Event handler when more images is clicked
+     */
+    onMoreClick: PropTypes.func,
+    /**
+     * Click event handler for a close icon
+     */
+    onClose: PropTypes.func,
+    /**
+     * Override thumbnail styles
+     */
+    thumbnailStyle: PropTypes.object,
+    /**
+     * Accepts the index that it should start focus with
+     */
+    hasFocus: PropTypes.number,
+};
+
 const Wrapper = styled.div`
     display: flex;
     width: 100%;
@@ -89,7 +132,7 @@ const getTilesCount = (imageWidth, wrapperWidth, images) => {
 /**
  * "When words become unclear, I shall focus with photographs. When images become inadequate, I shall be content with silence." - Ansel Adams
  */
-const ImageTile = ({
+export const ImageTile = ({
     images,
     width = '150px',
     height = '150px',
@@ -185,47 +228,4 @@ const ImageTile = ({
     );
 };
 
-ImageTile.propTypes = {
-    /**
-     * The width of each thumbnail
-     */
-    width: PropTypes.string,
-    /**
-     * The height of each thumbnail
-     */
-    height: PropTypes.string,
-    /**
-     * Array of image urls
-     */
-    images: PropTypes.array.isRequired,
-    /**
-     * Count of tiles to show
-     */
-    count: PropTypes.number,
-    /**
-     * Sets tiles based on the width of wrapper element
-     */
-    autoCount: PropTypes.bool,
-    /**
-     * Event handler when one of the thumbnails is clicked
-     */
-    onImageClick: PropTypes.func,
-    /**
-     * Event handler when more images is clicked
-     */
-    onMoreClick: PropTypes.func,
-    /**
-     * Click event handler for a close icon
-     */
-    onClose: PropTypes.func,
-    /**
-     * Override thumbnail styles
-     */
-    thumbnailStyle: PropTypes.object,
-    /**
-     * Accepts the index that it should start focus with
-     */
-    hasFocus: PropTypes.number,
-};
-
-export default ImageTile;
+ImageTile.propTypes = propTypes;

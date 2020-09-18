@@ -1,7 +1,7 @@
-# Checkbox
+# Input
 
 ## Installation
 
 ```
-yarn add '@uncommonui/checkbox';
+yarn add '@uncommonui/input';
 ```

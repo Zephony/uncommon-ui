@@ -1,0 +1,19 @@
+{
+    "name": "@uncommonui/core",
+    "version": "0.1.0",
+    "description": "The Uncommon UI library",
+    "main": "lib/index.js",
+    "files": [
+        "lib"
+    ],
+    "dependencies": {
+        "react": "latest",
+        "react-dom": "latest",
+        "styled-components": "latest"
+    },
+    "peerDependencies": {
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0",
+        "styled-components": "^5.0.0"
+    }
+}

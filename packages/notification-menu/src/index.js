@@ -2,8 +2,37 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { MdNotificationsNone } from 'react-icons/md';
-import Notification from '@uncommonui/notification';
+import { Notification } from '@uncommonui/notification';
 import { groupBy } from '@uncommonui/utils';
+
+const propTypes = {
+    /**
+     * Notifications to be displayed
+     */
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            actor: PropTypes.string,
+            actionText: PropTypes.string,
+            time: PropTypes.string,
+            avatar: PropTypes.string,
+            active: PropTypes.bool,
+            group: PropTypes.string,
+        })
+    ).isRequired,
+    /**
+     * Accepts an event when a notification is clicked
+     */
+    onNotificationClick: PropTypes.func,
+    /**
+     * Accepts an event when view all is clicked
+     */
+    onViewAllClick: PropTypes.func,
+    /**
+     * Sets the max height of the notification menu content
+     */
+    maxHeight: PropTypes.string,
+};
 
 const Wrapper = styled.div`
     width: 100%;
@@ -96,7 +125,7 @@ const GroupName = styled.div`
  * "Flops are a part of life's menu and I've never been a girl to miss out on any of the courses." - Rosalind Russell
  */
 // TODO change icons to use react-icons
-const NotificationMenu = ({
+export const NotificationMenu = ({
     data,
     onNotificationClick,
     onViewAllClick,
@@ -168,33 +197,4 @@ const NotificationMenu = ({
     );
 };
 
-NotificationMenu.propTypes = {
-    /**
-     * Notifications to be displayed
-     */
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            actor: PropTypes.string,
-            actionText: PropTypes.string,
-            time: PropTypes.string,
-            avatar: PropTypes.string,
-            active: PropTypes.bool,
-            group: PropTypes.string,
-        })
-    ).isRequired,
-    /**
-     * Accepts an event when a notification is clicked
-     */
-    onNotificationClick: PropTypes.func,
-    /**
-     * Accepts an event when view all is clicked
-     */
-    onViewAllClick: PropTypes.func,
-    /**
-     * Sets the max height of the notification menu content
-     */
-    maxHeight: PropTypes.string,
-};
-
-export default NotificationMenu;
+NotificationMenu.propTypes = propTypes;

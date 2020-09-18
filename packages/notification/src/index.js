@@ -2,7 +2,38 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import Avatar from '@uncommonui/avatar';
+import { Avatar } from '@uncommonui/avatar';
+
+const propTypes = {
+    /**
+     * User performing the action
+     */
+    actor: PropTypes.string.isRequired,
+    /**
+     * Notification description of the action performed by the user
+     */
+    actionText: PropTypes.string.isRequired,
+    /**
+     * Notification timestamp
+     */
+    timestamp: PropTypes.bool.isRequired,
+    /**
+     * Url for image avatar, ignore for empty avatar
+     */
+    avatar: PropTypes.string,
+    /**
+     * To indicate unread notifications
+     */
+    active: PropTypes.bool,
+    /**
+     * Moment format for time to display
+     */
+    timestampFormat: PropTypes.string,
+    /**
+     * Displays time in ago format
+     */
+    isTimeAgo: PropTypes.bool,
+};
 
 const Wrapper = styled.div`
     display: flex;
@@ -38,7 +69,7 @@ const Time = styled.div`
 /**
  * "Mobile notifications put people in a state of perpetual emergency interruption - similar to what 911 operators and air traffic controllers experienced back in the '70s and '80s." - Douglas Rushkoff
  */
-const Notification = ({
+export const Notification = ({
     actor,
     actionText,
     timestamp,
@@ -70,35 +101,4 @@ const Notification = ({
     );
 };
 
-Notification.propTypes = {
-    /**
-     * User performing the action
-     */
-    actor: PropTypes.string.isRequired,
-    /**
-     * Notification description of the action performed by the user
-     */
-    actionText: PropTypes.string.isRequired,
-    /**
-     * Notification timestamp
-     */
-    timestamp: PropTypes.bool.isRequired,
-    /**
-     * Url for image avatar, ignore for empty avatar
-     */
-    avatar: PropTypes.string,
-    /**
-     * To indicate unread notifications
-     */
-    active: PropTypes.bool,
-    /**
-     * Moment format for time to display
-     */
-    timestampFormat: PropTypes.string,
-    /**
-     * Displays time in ago format
-     */
-    isTimeAgo: PropTypes.bool,
-};
-
-export default Notification;
+Notification.propTypes = propTypes;

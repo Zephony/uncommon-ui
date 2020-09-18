@@ -2,6 +2,26 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
+import { theme as defaultTheme } from '@uncommonui/theme';
+
+const propTypes = {
+    /**
+     * Label for the select
+     */
+    label: PropTypes.string,
+    /**
+     * Add own styles that react-select accepts
+     */
+    styles: PropTypes.string,
+    /**
+     * An error message that sets the input to error state
+     */
+    error: PropTypes.string,
+    /**
+     * Any react-select supported prop
+     */
+    props: PropTypes.object,
+};
 
 const Label = styled.label`
     display: block;
@@ -114,7 +134,7 @@ const Error = styled.div`
 /**
  * Wrapper over ReactSelect
  */
-const Select = ({
+export const Select = ({
     label,
     error,
     className = '',
@@ -207,23 +227,4 @@ const Select = ({
     );
 };
 
-Select.propTypes = {
-    /**
-     * Label for the select
-     */
-    label: PropTypes.string,
-    /**
-     * Add own styles that react-select accepts
-     */
-    styles: PropTypes.string,
-    /**
-     * An error message that sets the input to error state
-     */
-    error: PropTypes.string,
-    /**
-     * Any react-select supported prop
-     */
-    props: PropTypes.object,
-};
-
-export default Select;
+Select.propTypes = propTypes;

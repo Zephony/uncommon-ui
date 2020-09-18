@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Input from '../src';
+import { Input } from '../src';
 
 export default {
     title: 'Forms/Input',

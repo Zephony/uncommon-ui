@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Notification from '../src';
+import { Notification } from '../src';
 
 const faker = require('faker');
 

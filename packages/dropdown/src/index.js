@@ -4,6 +4,36 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Trigger from './trigger';
 
+const propTypes = {
+    /**
+     * Dropdown options
+     */
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            name: PropTypes.string,
+            icon: PropTypes.node,
+            action: PropTypes.func,
+        })
+    ).isRequired,
+    /**
+     * Text to display for trigger
+     */
+    triggerText: PropTypes.string,
+    /**
+     * Dropdown open or closed
+     */
+    dropdownOpen: PropTypes.bool.isRequired,
+    /**
+     * Function to show/hide the dropdown options
+     */
+    setDropdownOpen: PropTypes.func.isRequired,
+    /**
+     * Function called when trigger is clicked
+     */
+    onTriggerClick: PropTypes.func.isRequired,
+};
+
 const Wrapper = styled.div`
     color: #98a2ae;
     font-size: 0.875em;
@@ -39,7 +69,7 @@ const Name = styled.div`
  * "Writing a book of poetry is like dropping a rose petal down the Grand Canyon and waiting for the echo." - Don Marquis
  */
 // To be merged with Button Type
-const Dropdown = ({
+export const Dropdown = ({
     triggerText = 'Select an Option',
     options,
     dropdownOpen,
@@ -92,34 +122,4 @@ const Dropdown = ({
     );
 };
 
-Dropdown.propTypes = {
-    /**
-     * Dropdown options
-     */
-    options: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            name: PropTypes.string,
-            icon: PropTypes.node,
-            action: PropTypes.func,
-        })
-    ).isRequired,
-    /**
-     * Text to display for trigger
-     */
-    triggerText: PropTypes.string,
-    /**
-     * Dropdown open or closed
-     */
-    dropdownOpen: PropTypes.bool.isRequired,
-    /**
-     * Function to show/hide the dropdown options
-     */
-    setDropdownOpen: PropTypes.func.isRequired,
-    /**
-     * Function called when trigger is clicked
-     */
-    onTriggerClick: PropTypes.func.isRequired,
-};
-
-export default Dropdown;
+Dropdown.propTypes = propTypes;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import SearchSuggest from '../src';
+import { SearchSuggest } from '../src';
 
 export default {
     title: 'Search Suggestions',

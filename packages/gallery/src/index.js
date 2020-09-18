@@ -3,9 +3,24 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { MdCancel } from 'react-icons/md';
-import ImageTile from '@uncommonui/image-tile';
+import { ImageTile } from '@uncommonui/image-tile';
 import { useKeyPress } from '@uncommonui/utils';
 import Arrow from './arrow';
+
+const propTypes = {
+    /**
+     * Initial image index to start with
+     */
+    initialIndex: PropTypes.number,
+    /**
+     * Array of image urls
+     */
+    images: PropTypes.array.isRequired,
+    /**
+     * Event when close button is clicked
+     */
+    onClose: PropTypes.func.isRequired,
+};
 
 const Overlay = styled.div`
     width: 100%;
@@ -57,7 +72,12 @@ const CloseIcon = ({ onClick }) => {
 /**
  * "History is a gallery of pictures in which there are few originals and many copies." - Alexis de Tocqueville
  */
-const Gallery = ({ images, onClose, initialIndex = 0, className = '' }) => {
+export const Gallery = ({
+    images,
+    onClose,
+    initialIndex = 0,
+    className = '',
+}) => {
     const [currentIndex, setCurrentIndex] = useState(initialIndex);
     const leftPress = useKeyPress('ArrowLeft');
     const rightPress = useKeyPress('ArrowRight');
@@ -128,19 +148,4 @@ const Gallery = ({ images, onClose, initialIndex = 0, className = '' }) => {
     );
 };
 
-Gallery.propTypes = {
-    /**
-     * Initial image index to start with
-     */
-    initialIndex: PropTypes.number,
-    /**
-     * Array of image urls
-     */
-    images: PropTypes.array.isRequired,
-    /**
-     * Event when close button is clicked
-     */
-    onClose: PropTypes.func.isRequired,
-};
-
-export default Gallery;
+Gallery.propTypes = propTypes;

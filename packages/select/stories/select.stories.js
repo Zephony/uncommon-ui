@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Select from '../src';
+import { Select } from '../src';
 
 const Wrapper = styled.div`
     width: 400px;

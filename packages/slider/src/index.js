@@ -4,6 +4,33 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Arrow from './arrow';
 
+const propTypes = {
+    /**
+     * The width of the slider which the slides should have
+     */
+    width: PropTypes.number,
+    /**
+     * Initial index to start
+     */
+    initial: PropTypes.number,
+    /**
+     * Slider has no start or end
+     */
+    infinite: PropTypes.bool,
+    /**
+     * Slider changes automatically
+     */
+    autoplay: PropTypes.bool,
+    /**
+     * Speed for autoplay in ms
+     */
+    autoplaySpeed: PropTypes.number,
+    /**
+     * Usually elements that will be the slides
+     */
+    children: PropTypes.node,
+};
+
 const SliderWrapper = styled.div`
     height: auto;
     width: ${props => props.width}px;
@@ -50,7 +77,7 @@ const Dots = styled.div`
 /**
  * "I know if I rest, I'll slide downhill fast." - Lee Kuan Yew
  */
-const Slider = ({
+export const Slider = ({
     children,
     width = 800,
     infinite,
@@ -172,31 +199,4 @@ const Slider = ({
     );
 };
 
-Slider.propTypes = {
-    /**
-     * The width of the slider which the slides should have
-     */
-    width: PropTypes.number,
-    /**
-     * Initial index to start
-     */
-    initial: PropTypes.number,
-    /**
-     * Slider has no start or end
-     */
-    infinite: PropTypes.bool,
-    /**
-     * Slider changes automatically
-     */
-    autoplay: PropTypes.bool,
-    /**
-     * Speed for autoplay in ms
-     */
-    autoplaySpeed: PropTypes.number,
-    /**
-     * Usually elements that will be the slides
-     */
-    children: PropTypes.node,
-};
-
-export default Slider;
+Slider.propTypes = propTypes;

@@ -1,9 +1,38 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Input from '@uncommonui/input';
-import Checkbox from '@uncommonui/checkbox';
-import Button from '@uncommonui/button';
+import styled from 'styled-components';
+
+import { Input } from '@uncommonui/input';
+import { Checkbox } from '@uncommonui/checkbox';
+import { Button } from '@uncommonui/button';
+
+const propTypes = {
+    /**
+     * Data to be displayed
+     */
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            name: PropTypes.string,
+        })
+    ).isRequired,
+    /**
+     * To update the data
+     */
+    setData: PropTypes.func.isRequired,
+    /**
+     * Accepts an event when cancel button is clicked
+     */
+    onCancel: PropTypes.func,
+    /**
+     * Accepts an event when submit button is clicked
+     */
+    onSubmit: PropTypes.func,
+    /**
+     * Accepts an event when clear button is clicked
+     */
+    onClear: PropTypes.func,
+};
 
 const Wrapper = styled.div`
     width: 100%;
@@ -53,7 +82,7 @@ const CheckboxWrapper = styled.div`
 /**
  * "There is a time and a place for things. Sometimes one needs to put a filter on oneself. That can be a good thing." - Tori Amos
  */
-const TagFilter = ({
+export const TagFilter = ({
     data,
     setData,
     onCancel,
@@ -141,32 +170,6 @@ const TagFilter = ({
     );
 };
 
-TagFilter.propTypes = {
-    /**
-     * Data to be displayed
-     */
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            name: PropTypes.string,
-        })
-    ).isRequired,
-    /**
-     * To update the data
-     */
-    setData: PropTypes.func.isRequired,
-    /**
-     * Accepts an event when cancel button is clicked
-     */
-    onCancel: PropTypes.func,
-    /**
-     * Accepts an event when submit button is clicked
-     */
-    onSubmit: PropTypes.func,
-    /**
-     * Accepts an event when clear button is clicked
-     */
-    onClear: PropTypes.func,
-};
+TagFilter.propTypes = propTypes;
 
 export default TagFilter;

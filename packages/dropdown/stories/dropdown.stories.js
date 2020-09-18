@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MdPictureAsPdf } from 'react-icons/md';
-import Dropdown from '../src';
+import { Dropdown } from '../src';
 import XLSIcon from './xls.svg';
 
 export default {

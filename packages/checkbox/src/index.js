@@ -3,6 +3,25 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { MdCheck } from 'react-icons/md';
 
+const propTypes = {
+    /**
+     * If checkbox is checked or not
+     */
+    checked: PropTypes.bool,
+    /**
+     * Disables the checkbox
+     */
+    disabled: PropTypes.bool,
+    /**
+     * Text to display for label
+     */
+    label: PropTypes.string,
+    /**
+     * Accepts an onChange event
+     */
+    onChange: PropTypes.func,
+};
+
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox', hidden: true })`
     ${'' /* Hide checkbox visually but remain accessible to screen readers. */}
     ${'' /* Source: https://polished.js.org/docs/#hidevisually */}
@@ -45,7 +64,7 @@ const Label = styled.span`
 /**
  * "If you don't keep hatred in check it will breed destruction." - Daryl Davis
  */
-const Checkbox = ({
+export const Checkbox = ({
     checked = false,
     onChange,
     labelText, // To be deprecated
@@ -73,23 +92,4 @@ const Checkbox = ({
     </LabelWrapper>
 );
 
-Checkbox.propTypes = {
-    /**
-     * If checkbox is checked or not
-     */
-    checked: PropTypes.bool,
-    /**
-     * Disables the checkbox
-     */
-    disabled: PropTypes.bool,
-    /**
-     * Text to display for label
-     */
-    label: PropTypes.string,
-    /**
-     * Accepts an onChange event
-     */
-    onChange: PropTypes.func,
-};
-
-export default Checkbox;
+Checkbox.propTypes = propTypes;

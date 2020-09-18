@@ -2,8 +2,35 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import Input from '@uncommonui/input';
+import { Input } from '@uncommonui/input';
 import { useKeyPress } from '@uncommonui/utils';
+
+const propTypes = {
+    /**
+     * Value of the search input
+     */
+    value: PropTypes.string,
+    /**
+     * To set the value of the search input
+     */
+    setValue: PropTypes.func,
+    /**
+     * Array of suggestions
+     */
+    suggestions: PropTypes.array,
+    /**
+     * To override styling or display for each suggestion
+     */
+    formatSuggestion: PropTypes.func,
+    /**
+     * Action when suggestion is clicked
+     */
+    onSuggestionClick: PropTypes.func,
+    /**
+     * Action when search with the term is triggered
+     */
+    onSearch: PropTypes.func,
+};
 
 const Wrapper = styled.div`
     position: relative;
@@ -48,7 +75,7 @@ const Item = styled.div`
 /**
  * "I do not want to suggest that you have to be religious to be moral.” - Jonathan Sacks
  */
-const SearchSuggest = ({
+export const SearchSuggest = ({
     value,
     setValue,
     suggestions,
@@ -140,31 +167,4 @@ const SearchSuggest = ({
     );
 };
 
-SearchSuggest.propTypes = {
-    /**
-     * Value of the search input
-     */
-    value: PropTypes.string,
-    /**
-     * To set the value of the search input
-     */
-    setValue: PropTypes.func,
-    /**
-     * Array of suggestions
-     */
-    suggestions: PropTypes.array,
-    /**
-     * To override styling or display for each suggestion
-     */
-    formatSuggestion: PropTypes.func,
-    /**
-     * Action when suggestion is clicked
-     */
-    onSuggestionClick: PropTypes.func,
-    /**
-     * Action when search with the term is triggered
-     */
-    onSearch: PropTypes.func,
-};
-
-export default SearchSuggest;
+SearchSuggest.propTypes = propTypes;
