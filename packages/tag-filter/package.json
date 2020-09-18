@@ -1,6 +1,6 @@
 {
     "name": "@uncommonui/tag-filter",
-    "version": "0.1.1",
+    "version": "0.1.2-alpha.0",
     "description": "A simple tag filter component",
     "main": "lib/index.js",
     "files": [
