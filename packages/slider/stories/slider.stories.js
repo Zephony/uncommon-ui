@@ -36,17 +36,16 @@ export default {
 
 export const defaultSlider = () => {
     const settings = {
-        width: 800, // Slider width
+        width: '800px', // Slider width
     };
     return (
         <Wrapper>
             <Slider {...settings}>
-                <Item>Slide Content</Item>
                 <img
-                    width={800}
                     src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
                     alt="A bridge"
                 />
+                <Item>Slide Content</Item>
                 <Item>
                     <Random width="600px" height="300px" />
                 </Item>

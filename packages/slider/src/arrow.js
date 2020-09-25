@@ -13,7 +13,9 @@ const Wrapper = styled.div`
     align-items: center;
     color: ${props => (props.disabled ? 'rgba(0,0,0,0.2)' : props.color)};
     border: ${props =>
-        props.disabled ? '1px solid #eee' : '1px solid rgba(0,0,0,0.2)'};
+        props.disabled
+            ? '1px solid rgba(0,0,0,0.2)'
+            : `1px solid ${props.color}`};
     border-radius: 50px;
     ${props =>
         props.direction === 'left'

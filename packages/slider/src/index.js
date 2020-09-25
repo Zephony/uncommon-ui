@@ -8,7 +8,11 @@ const propTypes = {
     /**
      * The width of the slider which the slides should have
      */
-    width: PropTypes.number,
+    width: PropTypes.string,
+    /**
+     * The height of the slider which the slides should have
+     */
+    height: PropTypes.string,
     /**
      * Initial index to start
      */
@@ -32,30 +36,26 @@ const propTypes = {
 };
 
 const SliderWrapper = styled.div`
-    height: auto;
-    width: ${props => props.width}px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-`;
-
-const SliderContent = styled.div`
-    transform: translateX(-${props => props.translate}px);
-    transition: transform ease-out ${props => props.transition}s;
-    height: 100%;
-    width: ${props => props.width}px;
+    width: ${props => props.width};
+    max-width: ${props => props.width};
+    height: ${props => props.height};
     display: flex;
+    justify-content: center;
     align-items: center;
+    position: relative;
+
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+        max-width: ${props => props.width};
+    }
 `;
 
 const Slide = styled.div`
-  height: 100%;
-  width: 100%;
-  background-image: url('${props => props.content}');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+    max-width: ${props => props.width};
+
+    img {
+        max-width: 100%;
+    }
 `;
 
 const Dot = styled.div`
@@ -66,6 +66,7 @@ const Dot = styled.div`
     opacity: ${props => (props.isActive ? 1 : 0.2)};
     cursor: pointer;
     margin: 0 5px;
+    z-index: 1;
 `;
 
 const Dots = styled.div`
@@ -79,7 +80,8 @@ const Dots = styled.div`
  */
 export const Slider = ({
     children,
-    width = 800,
+    width = '100%',
+    height = '300px',
     infinite,
     initial = 0,
     autoplay,
@@ -134,7 +136,6 @@ export const Slider = ({
     };
 
     const handleDotClick = slideIndex => {
-        console.log(slideIndex);
         setState({
             ...state,
             activeIndex: slideIndex,
@@ -152,38 +153,33 @@ export const Slider = ({
     });
 
     return (
-        <SliderWrapper
-            width={width}
-            ref={ref}
-            className={`uu-slider ${className}`}
-        >
-            <SliderContent
-                translate={translate}
-                transition={transition}
-                width={width * items.length}
-                className="uu-slider-content"
+        <div>
+            <SliderWrapper
+                width={width}
+                height={height}
+                ref={ref}
+                className={`uu-slider ${className}`}
             >
-                {items.map((item, i) => (
-                    <Slide key={i}>{item}</Slide>
-                ))}
-            </SliderContent>
-            {arrows && (
-                <React.Fragment>
-                    <Arrow
-                        onClick={prevSlide}
-                        direction="left"
-                        disabled={!infinite && activeIndex === 0}
-                        className="uu-slider-arrow-left"
-                    />
-                    <Arrow
-                        onClick={nextSlide}
-                        direction="right"
-                        disabled={!infinite && activeIndex === items.length - 1}
-                        className="uu-slider-arrow-right"
-                    />
-                </React.Fragment>
-            )}
-
+                <Slide>{items[activeIndex]}</Slide>
+                {arrows && (
+                    <React.Fragment>
+                        <Arrow
+                            onClick={prevSlide}
+                            direction="left"
+                            disabled={!infinite && activeIndex === 0}
+                            className="uu-slider-arrow-left"
+                        />
+                        <Arrow
+                            onClick={nextSlide}
+                            direction="right"
+                            disabled={
+                                !infinite && activeIndex === items.length - 1
+                            }
+                            className="uu-slider-arrow-right"
+                        />
+                    </React.Fragment>
+                )}
+            </SliderWrapper>
             {/* Dots */}
             {dots && (
                 <Dots>
@@ -195,7 +191,7 @@ export const Slider = ({
                     ))}
                 </Dots>
             )}
-        </SliderWrapper>
+        </div>
     );
 };
 
