@@ -21,7 +21,7 @@ const Item = styled.div`
 `;
 
 const Random = styled.div`
-    width: 600px;
+    width: 200px;
     height: 300px;
     background: #5f9ea0;
 `;
@@ -41,14 +41,9 @@ export const defaultSlider = () => {
     return (
         <Wrapper>
             <Slider {...settings}>
-                <img
-                    src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
-                    alt="A bridge"
-                />
-                <Item>Slide Content</Item>
-                <Item>
-                    <Random width="600px" height="300px" />
-                </Item>
+                <Random />
+                <Random />
+                <Random />
             </Slider>
         </Wrapper>
     );
@@ -60,19 +55,17 @@ export const infiniteSlider = () => {
         infinite: true,
     };
     return (
-        <Wrapper>
-            <Slider {...settings}>
-                <Item>Slide Content</Item>
-                <img
-                    width={800}
-                    src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
-                    alt="A bridge"
-                />
-                <Item>
-                    <Random width="600px" height="300px" />
-                </Item>
-            </Slider>
-        </Wrapper>
+        <Slider {...settings}>
+            <Item>Slide Content</Item>
+            <img
+                width={800}
+                src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+                alt="A bridge"
+            />
+            <Item>
+                <Random width="600px" height="300px" />
+            </Item>
+        </Slider>
     );
 };
 

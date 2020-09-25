@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 const Wrapper = styled.div`
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     z-index: 1;
     cursor: ${props => (props.disabled ? 'default' : 'pointer')};
     display: flex;

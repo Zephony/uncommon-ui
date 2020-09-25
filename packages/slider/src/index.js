@@ -37,25 +37,16 @@ const propTypes = {
 
 const SliderWrapper = styled.div`
     width: ${props => props.width};
-    max-width: ${props => props.width};
     height: ${props => props.height};
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: relative;
-
-    @media only screen and (max-width: 600px) {
-        width: 100%;
-        max-width: ${props => props.width};
-    }
 `;
 
 const Slide = styled.div`
-    max-width: ${props => props.width};
-
-    img {
-        max-width: 100%;
-    }
+    width: ${props => props.width};
+    padding: 0 20px;
 `;
 
 const Dot = styled.div`
@@ -95,7 +86,7 @@ export const Slider = ({
         activeIndex: initial,
     });
 
-    const { translate, transition, activeIndex } = state;
+    const { activeIndex } = state;
 
     const items = children;
 
@@ -153,26 +144,25 @@ export const Slider = ({
                 ref={ref}
                 className={`uu-slider ${className}`}
             >
+                {arrows && (
+                    <Arrow
+                        onClick={prevSlide}
+                        direction="left"
+                        disabled={!infinite && activeIndex === 0}
+                        className="uu-slider-arrow-left"
+                    />
+                )}
                 <Slide>{items[activeIndex]}</Slide>
                 {arrows && (
-                    <React.Fragment>
-                        <Arrow
-                            onClick={prevSlide}
-                            direction="left"
-                            disabled={!infinite && activeIndex === 0}
-                            className="uu-slider-arrow-left"
-                        />
-                        <Arrow
-                            onClick={nextSlide}
-                            direction="right"
-                            disabled={
-                                !infinite && activeIndex === items.length - 1
-                            }
-                            className="uu-slider-arrow-right"
-                        />
-                    </React.Fragment>
+                    <Arrow
+                        onClick={nextSlide}
+                        direction="right"
+                        disabled={!infinite && activeIndex === items.length - 1}
+                        className="uu-slider-arrow-right"
+                    />
                 )}
             </SliderWrapper>
+
             {/* Dots */}
             {dots && (
                 <Dots>
