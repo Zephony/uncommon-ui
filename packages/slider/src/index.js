@@ -93,8 +93,6 @@ export const Slider = ({
     const ref = useRef();
     const [state, setState] = useState({
         activeIndex: initial,
-        translate: initial * width,
-        transition: 0.45,
     });
 
     const { translate, transition, activeIndex } = state;
@@ -106,7 +104,6 @@ export const Slider = ({
         if (activeIndex === items.length - 1) {
             return setState({
                 ...state,
-                translate: 0,
                 activeIndex: 0,
             });
         }
@@ -114,7 +111,6 @@ export const Slider = ({
         setState({
             ...state,
             activeIndex: activeIndex + 1,
-            translate: (activeIndex + 1) * width,
         });
     };
 
@@ -123,7 +119,6 @@ export const Slider = ({
         if (activeIndex === 0) {
             return setState({
                 ...state,
-                translate: (items.length - 1) * width,
                 activeIndex: items.length - 1,
             });
         }
@@ -131,7 +126,6 @@ export const Slider = ({
         setState({
             ...state,
             activeIndex: activeIndex - 1,
-            translate: (activeIndex - 1) * width,
         });
     };
 
@@ -139,7 +133,6 @@ export const Slider = ({
         setState({
             ...state,
             activeIndex: slideIndex,
-            translate: slideIndex * width,
         });
     };
 
