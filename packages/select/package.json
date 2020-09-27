@@ -1,6 +1,6 @@
 {
     "name": "@uncommonui/select",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "A simple select component",
     "main": "lib/index.js",
     "files": [

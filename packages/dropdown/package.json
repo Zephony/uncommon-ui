@@ -1,6 +1,6 @@
 {
     "name": "@uncommonui/dropdown",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "A simple dropdown component",
     "main": "lib/index.js",
     "files": [
