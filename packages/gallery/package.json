@@ -11,8 +11,10 @@
         "@uncommonui/utils": "latest",
         "react": "latest",
         "react-dom": "latest",
-        "react-icons": "^3.11.0",
-        "styled-components": "latest"
+        "react-icons": "^3.11.0"
+    },
+    "devDependencies": {
+        "styled-components": "^5.0.0"
     },
     "peerDependencies": {
         "react": "^16.0.0",

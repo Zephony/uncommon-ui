@@ -11,8 +11,10 @@
         "@uncommonui/checkbox": "latest",
         "@uncommonui/input": "latest",
         "react": "latest",
-        "react-dom": "latest",
-        "styled-components": "latest"
+        "react-dom": "latest"
+    },
+    "devDependencies": {
+        "styled-components": "^5.0.0"
     },
     "peerDependencies": {
         "react": "^16.0.0",

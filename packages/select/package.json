@@ -10,8 +10,10 @@
         "@uncommonui/theme": "latest",
         "react": "latest",
         "react-dom": "latest",
-        "react-select": "^3.1.0",
-        "styled-components": "latest"
+        "react-select": "^3.1.0"
+    },
+    "devDependencies": {
+        "styled-components": "^5.0.0"
     },
     "peerDependencies": {
         "react": "^16.0.0",
