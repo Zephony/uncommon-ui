@@ -8,9 +8,7 @@
     ],
     "dependencies": {
         "@uncommonui/avatar": "latest",
-        "moment": "latest",
-        "react": "latest",
-        "react-dom": "latest"
+        "moment": "latest"
     },
     "devDependencies": {
         "styled-components": "^5.0.0"

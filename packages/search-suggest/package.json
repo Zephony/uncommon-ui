@@ -8,9 +8,7 @@
     ],
     "dependencies": {
         "@uncommonui/input": "latest",
-        "@uncommonui/utils": "latest",
-        "react": "latest",
-        "react-dom": "latest"
+        "@uncommonui/utils": "latest"
     },
     "devDependencies": {
         "styled-components": "^5.0.0"

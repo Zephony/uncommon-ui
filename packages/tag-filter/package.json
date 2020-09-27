@@ -9,9 +9,7 @@
     "dependencies": {
         "@uncommonui/button": "latest",
         "@uncommonui/checkbox": "latest",
-        "@uncommonui/input": "latest",
-        "react": "latest",
-        "react-dom": "latest"
+        "@uncommonui/input": "latest"
     },
     "devDependencies": {
         "styled-components": "^5.0.0"

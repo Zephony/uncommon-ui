@@ -6,11 +6,6 @@
     "files": [
         "lib"
     ],
-    "dependencies": {
-        "react": "latest",
-        "react-dom": "latest",
-        "react-icons": "^3.11.0"
-    },
     "devDependencies": {
         "styled-components": "^5.0.0"
     },

@@ -8,8 +8,6 @@
     ],
     "dependencies": {
         "@uncommonui/theme": "latest",
-        "react": "latest",
-        "react-dom": "latest",
         "react-select": "^3.1.0"
     },
     "devDependencies": {

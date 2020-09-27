@@ -9,8 +9,6 @@
     "dependencies": {
         "@uncommonui/notification": "latest",
         "@uncommonui/utils": "latest",
-        "react": "latest",
-        "react-dom": "latest",
         "react-icons": "^3.11.0"
     },
     "devDependencies": {
