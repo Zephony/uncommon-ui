@@ -1,6 +1,6 @@
 {
     "name": "@uncommonui/slider",
-    "version": "0.2.1-alpha.0",
+    "version": "0.2.1",
     "description": "A simple slider component",
     "main": "lib/index.js",
     "files": [
