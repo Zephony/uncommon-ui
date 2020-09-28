@@ -196,7 +196,7 @@ export const Select = ({
             if (
                 Array.isArray(value) &&
                 value.length > 0 &&
-                typeof value[0] === 'string'
+                (typeof value[0] === 'string' || typeof value[0] === 'number')
             ) {
                 return mapSelectedOptionValue();
             } else {

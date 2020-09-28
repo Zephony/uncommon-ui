@@ -16,9 +16,9 @@ export default {
 };
 
 const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
+    { value: 1, label: 'Chocolate' },
+    { value: 2, label: 'Strawberry' },
+    { value: 3, label: 'Vanilla' },
 ];
 
 export const BasicSelect = () => {
@@ -48,7 +48,7 @@ export const ErrorState = () => {
 };
 
 export const SelectWithoutObject = () => {
-    const [selectedOption, setSelectedOption] = useState('chocolate');
+    const [selectedOption, setSelectedOption] = useState(1);
     return (
         <Wrapper>
             <Select
@@ -77,7 +77,7 @@ export const MultiSelect = () => {
 };
 
 export const MultiSelectWithoutObject = () => {
-    const [selectedOption, setSelectedOption] = useState(['chocolate']);
+    const [selectedOption, setSelectedOption] = useState([1, 2]);
     return (
         <Wrapper>
             <Select
