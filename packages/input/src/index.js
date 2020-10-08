@@ -221,6 +221,7 @@ export const Input = ({
                     className="uu-input-control"
                     // Dynamically render tag used
                     as={type === 'textarea' ? 'textarea' : 'input'}
+                    value={value || (type === 'number' ? 0 : '')}
                     ref={inputRef}
                     error={error}
                     width={width}

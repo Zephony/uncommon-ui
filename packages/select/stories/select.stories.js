@@ -90,3 +90,19 @@ export const MultiSelectWithoutObject = () => {
         </Wrapper>
     );
 };
+
+export const DisplayCountForMulti = () => {
+    const [selectedOption, setSelectedOption] = useState([1, 2]);
+    return (
+        <Wrapper>
+            <Select
+                value={selectedOption}
+                onChange={option => setSelectedOption(option)}
+                options={options}
+                label="Ice Cream"
+                isMulti
+                showCount={1}
+            />
+        </Wrapper>
+    );
+};

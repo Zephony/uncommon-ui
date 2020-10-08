@@ -141,6 +141,7 @@ export const Select = ({
     value,
     options,
     isMulti,
+    showCount,
     styles = {},
     ...props
 }) => {
