@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
-import ReactSelect from 'react-select';
+import ReactSelect, {components} from 'react-select';
 import { theme as defaultTheme } from '@uncommonui/theme';
 
 const propTypes = {
@@ -9,6 +9,10 @@ const propTypes = {
      * Label for the select
      */
     label: PropTypes.string,
+    /**
+     * Label for the values in case of counts
+     */
+    valueLabel: PropTypes.string,
     /**
      * Add own styles that react-select accepts
      */
@@ -136,6 +140,7 @@ const Error = styled.div`
  */
 export const Select = ({
     label,
+    valueLabel,
     error,
     className = '',
     value,
@@ -217,9 +222,25 @@ export const Select = ({
                 styles={{ ...customStyles, ...styles }}
                 error={error}
                 filterOption={customFilter}
-                value={selectedOption}
+                // value={selectedOption}
                 options={options}
                 isMulti={isMulti}
+                components={{
+                  ValueContainer: ({ children, ...props }) => {
+                    let [values, input] = children;
+
+                    if (Array.isArray(values)) {
+                      values = `${valueLabel || 'Selected'} (${values.length})`;
+                    }
+
+                    return (
+                      <components.ValueContainer {...props}>
+                        {values}
+                        {input}
+                      </components.ValueContainer>
+                    );
+                  }
+                }}
                 {...props}
             />
             {/* Accounting for the space that error takes up */}
