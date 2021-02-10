@@ -85,6 +85,7 @@ export const MultiSelectWithoutObject = () => {
                 onChange={option => setSelectedOption(option)}
                 options={options}
                 label="Ice Cream"
+              hideSelectedOptions={false}
                 isMulti
             />
         </Wrapper>

@@ -229,8 +229,10 @@ export const Select = ({
                   ValueContainer: ({ children, ...props }) => {
                     let [values, input] = children;
 
-                    if (Array.isArray(values)) {
+                    if (Array.isArray(values) && values.length > 1) {
                       values = `${valueLabel || 'Selected'} (${values.length})`;
+                    } else if (Array.isArray(values) && values.length ==  1) {
+                      values = values[0].props.children;
                     }
 
                     return (
