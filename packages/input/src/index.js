@@ -5,7 +5,7 @@ import { useResize } from '@uncommonui/utils';
 
 const propTypes = {
     /**
-     * Value passed to the input
+     * Value spassed to the input
      */
     value: PropTypes.string,
     /**
