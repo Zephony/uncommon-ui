@@ -135,6 +135,25 @@ const Error = styled.div`
     height: 12px;
 `;
 
+const CustomValueContainer: React.FC = (props) => {
+  // console.log(props.children, props);
+  {/* <components.ValueContainer {...props} /> */}
+  let [values, input] = props.children;
+
+  if (Array.isArray(values) && values.length > 1) {
+    values = `${props.selectProps.valueLabel || 'Selected'} (${values.length})`;
+  } else if (Array.isArray(values) && values.length ==  1) {
+    values = values[0].props.children;
+  }
+
+  return (
+    <components.ValueContainer {...props}>
+      {values}
+      {input}
+    </components.ValueContainer>
+  );
+};
+
 /**
  * Wrapper over ReactSelect
  */
@@ -214,6 +233,7 @@ export const Select = ({
     };
 
     let selectedOption = getSelectedOption();
+
     return (
         <div className={`uu-select ${className}`}>
             {label && <Label>{label}</Label>}
@@ -226,22 +246,23 @@ export const Select = ({
                 options={options}
                 isMulti={isMulti}
                 components={{
-                  ValueContainer: ({ children, ...props }) => {
-                    let [values, input] = children;
+                  ValueContainer: CustomValueContainer
+                  // ValueContainer: ({ children, ...props }) => {
+                  //   let [values, input] = children;
 
-                    if (Array.isArray(values) && values.length > 1) {
-                      values = `${valueLabel || 'Selected'} (${values.length})`;
-                    } else if (Array.isArray(values) && values.length ==  1) {
-                      values = values[0].props.children;
-                    }
+                  //   if (Array.isArray(values) && values.length > 1) {
+                  //     values = `${valueLabel || 'Selected'} (${values.length})`;
+                  //   } else if (Array.isArray(values) && values.length ==  1) {
+                  //     values = values[0].props.children;
+                  //   }
 
-                    return (
-                      <components.ValueContainer {...props}>
-                        {values}
-                        {input}
-                      </components.ValueContainer>
-                    );
-                  }
+                  //   return (
+                  //     <components.ValueContainer {...props}>
+                  //       {values}
+                  //       {input}
+                  //     </components.ValueContainer>
+                  //   );
+                  // }
                 }}
                 {...props}
             />
