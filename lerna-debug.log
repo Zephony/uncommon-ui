@@ -1,8 +1,10 @@
-156 warn complete Waiting for 1 child process to exit. CTRL-C to exit immediately.
-157 error Error: Command failed: git tag @uncommonui/button@0.1.1 -m @uncommonui/button@0.1.1
-157 error fatal: tag '@uncommonui/button@0.1.1' already exists
-157 error
-157 error     at makeError (/Users/synup/Documents/Code/uncommon-ui/node_modules/execa/index.js:174:9)
-157 error     at /Users/synup/Documents/Code/uncommon-ui/node_modules/execa/index.js:278:16
-157 error     at processTicksAndRejections (internal/process/task_queues.js:97:5)
-157 error     at async Promise.all (index 1)
+66 error Error: Command failed: git commit -F /tmp/a4598942-f857-483b-969d-65650c4997c3/lerna-commit.txt
+66 error On branch master
+66 error Your branch is ahead of 'origin/master' by 1 commit.
+66 error   (use "git push" to publish your local commits)
+66 error
+66 error nothing to commit, working tree clean
+66 error
+66 error     at makeError (/home/pressy/Workspace/uncommon-ui/node_modules/execa/index.js:174:9)
+66 error     at /home/pressy/Workspace/uncommon-ui/node_modules/execa/index.js:278:16
+66 error     at processTicksAndRejections (internal/process/task_queues.js:97:5)
