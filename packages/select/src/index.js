@@ -137,7 +137,7 @@ const Error = styled.div`
 
 const CustomValueContainer: React.FC = (props) => {
   {/* <components.ValueContainer {...props} /> */}
-  // console.log(props.children, props);
+  console.log(props.children, props);
   let [values, input] = props.children;
 
   if (Array.isArray(values) && values.length > 1) {
